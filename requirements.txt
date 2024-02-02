@@ -1,0 +1,5 @@
+Pandas
+Pyarrow
+numpy
+scikit-learn
+nltk
