@@ -3,3 +3,4 @@ Pyarrow
 numpy
 scikit-learn
 nltk
+openpyxl
