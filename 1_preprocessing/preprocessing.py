@@ -6,21 +6,21 @@ from nltk.stem import WordNetLemmatizer
 from nltk import pos_tag
 
 # import requirements data
-df = pd.read_csv(filepath_or_buffer='resources/PROMISE_exp.csv', header=0, quotechar='"', doublequote=True)
-df = df.drop('ProjectID', axis=1)
+df = pd.read_csv(filepath_or_buffer='resources/ECSS_standards.csv', header=0, quotechar='"', doublequote=True)
+#df = df.drop('ProjectID', axis=1)
 
 # preprocess a requirement's text
 def preprocess_requirement(text):
     
     # transform the text to lower case
-    text = text.lower()
+    text = str(text).lower()
+    #remove punctuation and numbers
+    punct = string.punctuation.__add__('’').__add__('‘').__add__('£').__add__('≤').__add__('×')
+    text = ''.join([i for i in text if i not in punct
+                    and not(str.isdigit(i))])
 
     # tokenize
     tokens = word_tokenize(text)
-
-    # remove punctuation and numbers
-    tokens = [i for i in tokens if i not in string.punctuation 
-                and not(any(map(str.isdigit, i)))]
     
     # remove stopwords from tokens
     stopwords_english = stopwords.words('english')
