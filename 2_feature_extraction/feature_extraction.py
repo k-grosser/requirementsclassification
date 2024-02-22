@@ -15,6 +15,8 @@ feature_vectors_bow = vectorizer_bow.fit_transform(corpus)
 df_bow = pd.DataFrame(data=feature_vectors_bow.toarray(), columns=vectorizer_bow.get_feature_names_out())
 df_bow['_class_'] = df['_class_']
 
+df_bow.to_csv('2_feature_extraction/req_vectorized_bow.csv', index=False)
+
 # term frequency - inverse document frequency
 # create the matrix of TF-IDF features 
 vectorizer_tfidf = TfidfVectorizer()

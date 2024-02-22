@@ -15,7 +15,7 @@ def preprocess_requirement(text):
     # transform the text to lower case
     text = str(text).lower()
     #remove punctuation and numbers
-    punct = string.punctuation.__add__('’').__add__('‘').__add__('£').__add__('≤').__add__('×')
+    punct = string.punctuation + '’' + '‘' + '£' + '≤' + '×' + '“' + '”' + '°' + '±' + '•'
     text = ''.join([i for i in text if i not in punct
                     and not(str.isdigit(i))])
 
