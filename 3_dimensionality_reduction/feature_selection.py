@@ -12,7 +12,7 @@ def select_features(df):
     print(X.shape)
 
     # create and fit selector
-    selector = SelectKBest(chi2, k=400)
+    selector = SelectKBest(chi2, k=300)
     selector.fit(X, y)
     # get columns to keep and create new dataframe with those only
     cols_idxs = selector.get_support(indices=True)

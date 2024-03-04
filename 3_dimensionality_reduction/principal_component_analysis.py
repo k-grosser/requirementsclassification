@@ -9,7 +9,7 @@ def transform_features(df):
     X = df.drop('_class_', axis=1)
 
     # fit the model with X and apply the dimensionality reduction on X
-    pca = PCA(n_components=180)
+    pca = PCA(n_components=150)
     pca.fit(X)
     X_new = pca.transform(X)
 
