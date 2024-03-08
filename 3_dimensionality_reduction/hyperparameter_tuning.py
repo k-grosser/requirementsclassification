@@ -7,12 +7,12 @@ import numpy as np
 import pandas as pd
 
 # import vectorized requirements data and split into train and test subsets
-df_bow = pd.read_csv(filepath_or_buffer='2_feature_extraction/req_vectorized_bow.csv', header=0)
+df_bow = pd.read_csv(filepath_or_buffer='2_feature_extraction/output/req_vectorized_bow.csv', header=0)
 features_bow = df_bow.drop('_class_', axis=1)
 labels_bow = df_bow['_class_']
 X_train_bow, X_test_bow, y_train_bow, y_test_bow = train_test_split(features_bow, labels_bow, test_size=0.3, random_state=0)
 
-df_tfidf = pd.read_csv(filepath_or_buffer='2_feature_extraction/req_vectorized_tfidf.csv', header=0)
+df_tfidf = pd.read_csv(filepath_or_buffer='2_feature_extraction/output/req_vectorized_tfidf.csv', header=0)
 features_tfidf = df_tfidf.drop('_class_', axis=1)
 labels_tfidf = df_tfidf['_class_']
 X_train_tfidf, X_test_tfidf, y_train_tfidf, y_test_tfidf = train_test_split(features_tfidf, labels_tfidf, test_size=0.3, random_state=0)

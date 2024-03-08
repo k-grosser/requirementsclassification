@@ -2,8 +2,8 @@ import pandas as pd
 from sklearn.decomposition import PCA
 
 # import selected subset of features from requirements data
-df_bow = pd.read_csv(filepath_or_buffer='3_dimensionality_reduction/req_chi2_bow.csv', header=0)
-df_tfidf = pd.read_csv(filepath_or_buffer='3_dimensionality_reduction/req_chi2_tfidf.csv', header=0)
+df_bow = pd.read_csv(filepath_or_buffer='3_dimensionality_reduction/output/req_chi2_bow.csv', header=0)
+df_tfidf = pd.read_csv(filepath_or_buffer='3_dimensionality_reduction/output/req_chi2_tfidf.csv', header=0)
 
 def transform_features(df):
     X = df.drop('_class_', axis=1)
@@ -20,5 +20,5 @@ def transform_features(df):
 
     return df_pca
 
-transform_features(df_bow).to_csv('3_dimensionality_reduction/req_pca_bow.csv', index=False)
-transform_features(df_tfidf).to_csv('3_dimensionality_reduction/req_pca_tfidf.csv', index=False)
+transform_features(df_bow).to_csv('3_dimensionality_reduction/output/req_pca_bow.csv', index=False)
+transform_features(df_tfidf).to_csv('3_dimensionality_reduction/output/req_pca_tfidf.csv', index=False)

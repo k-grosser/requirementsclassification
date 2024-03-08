@@ -2,8 +2,8 @@ import pandas as pd
 from sklearn.feature_selection import SelectKBest, chi2
 
 # import vectorized requirements data
-df_bow = pd.read_csv(filepath_or_buffer='2_feature_extraction/req_vectorized_bow.csv', header=0)
-df_tfidf = pd.read_csv(filepath_or_buffer='2_feature_extraction/req_vectorized_tfidf.csv', header=0)
+df_bow = pd.read_csv(filepath_or_buffer='2_feature_extraction/output/req_vectorized_bow.csv', header=0)
+df_tfidf = pd.read_csv(filepath_or_buffer='2_feature_extraction/output/req_vectorized_tfidf.csv', header=0)
 
 def select_features(df):
     # divide into predictor (X) and response (y) varibales
@@ -21,6 +21,6 @@ def select_features(df):
 
     return df_chi2
 
-select_features(df_bow).to_csv('3_dimensionality_reduction/req_chi2_bow.csv', index=False)
-select_features(df_tfidf).to_csv('3_dimensionality_reduction/req_chi2_tfidf.csv', index=False)
+select_features(df_bow).to_csv('3_dimensionality_reduction/output/req_chi2_bow.csv', index=False)
+select_features(df_tfidf).to_csv('3_dimensionality_reduction/output/req_chi2_tfidf.csv', index=False)
 
