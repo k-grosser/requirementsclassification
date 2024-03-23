@@ -5,11 +5,11 @@ from sklearn.decomposition import PCA
 df_bow = pd.read_csv(filepath_or_buffer='3_dimensionality_reduction/output/req_chi2_bow.csv', header=0)
 df_tfidf = pd.read_csv(filepath_or_buffer='3_dimensionality_reduction/output/req_chi2_tfidf.csv', header=0)
 
-def transform_features(df):
+def transform_features(df, n):
     X = df.drop('_class_', axis=1)
 
     # fit the model with X and apply the dimensionality reduction on X
-    pca = PCA(n_components=150)
+    pca = PCA(n_components=n)
     pca.fit(X)
     X_new = pca.transform(X)
 
@@ -20,5 +20,5 @@ def transform_features(df):
 
     return df_pca
 
-transform_features(df_bow).to_csv('3_dimensionality_reduction/output/req_pca_bow.csv', index=False)
-transform_features(df_tfidf).to_csv('3_dimensionality_reduction/output/req_pca_tfidf.csv', index=False)
+transform_features(df_bow, 150).to_csv('3_dimensionality_reduction/output/req_pca_bow.csv', index=False)
+transform_features(df_tfidf, 200).to_csv('3_dimensionality_reduction/output/req_pca_tfidf.csv', index=False)

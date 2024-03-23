@@ -1,4 +1,64 @@
 ID,RequirementText,_class_
+ECSS-E-ST-20-08_0090001,follow physical property component material shall measure coefficient thermal expansion heat conductivity specific heat young modulus poissons ratio flex strength note objective establish boundary qualification test program full range application mean analysis,NF
+ECSS-E-ST-20-08_0090002,data specify requirement shall determine development phase new component need repeat qualification program,NF
+ECSS-E-ST-20-08_0090003,atmospheric condition inspection test operation storage shall follow pressure hpa temperature c average relative humidity note pressure hpa equivalent mmhg,NF
+ECSS-E-ST-20-08_0091063,room cleanliness level airborne particle count class iso,NF
+ECSS-E-ST-20-08_0090005,every deviation requirement b test shall record data documentation package ddp note ddp complete content refer annex g note semiconductor device ie planar diode shortcircuit special precaution take long storage period certain atmospheric condition chlorine content combination illumination produce metal contact migration semiconductor device,NF
+ECSS-E-ST-20-08_0090006,accuracy instrument test equipment use control measure test parameter shall one order magnitude higher tolerance variable measured note example achieve include measurement electrical performance temperature,NF
+ECSS-E-ST-20-08_0090007,instrumentation use qualification acceptance test shall calibrate within specified calibration period time test,NF
+ECSS-E-ST-20-08_0090008,instrumentation whose calibration period run plan test time shall use,NF
+ECSS-E-ST-20-08_0090009,maximum test temperature tolerance thermal test shall give table,NF
+ECSS-E-ST-20-08_0090010,accuracy mass measurement shall better g whichever higher,NF
+ECSS-E-ST-20-08_0090011,test condition tolerance shall apply nominal test value specify,NF
+ECSS-E-ST-20-08_0090012,accuracy electrical performance test pva level shall better equal calibration loss factor use power analysis,NF
+ECSS-E-ST-20-08_0090018,condition method test shall conform photovoltaic assembly source control draw scdpva note pva specification consist two part generic specification standard scd preparation scdpva refer annex,NF
+ECSS-E-ST-20-08_0090019,scdpva shall prepare supplier conformance annex provide customer reviewing agreement,NF
+ECSS-E-ST-20-08_0090020,deviation inprocess acceptance qualification test shall justify,NF
+ECSS-E-ST-20-08_0090022,flight hardware shall construct space qualify material follow property recover mass loss rml le note see ecssqst collect volatile condensable material cvcm le heated vacuum c collect c,NF
+ECSS-E-ST-20-08_0090024,material use construction pva dangerous health personnel shall identify,NF
+ECSS-E-ST-20-08_0090025,preventive handling measure shall take conformance standard approve customer,NF
+ECSS-E-ST-20-08_0090026,flammable material use construction pva shall identify,NF
+ECSS-E-ST-20-08_0090027,supplier customer shall agree measure take prevent corrosion storage normal operational service,NF
+ECSS-E-ST-20-08_0091064,standard atmospheric condition may assume general application spacecraft period time agree supplier customer,NF
+ECSS-E-ST-20-08_0090029,avoid electrolytic corrosion process approve customer shall use,NF
+ECSS-E-ST-20-08_0090030,permanent magnetic material shall avoid specify mission,NF
+ECSS-E-ST-20-08_0091065,nonmagnetic material use,NF
+ECSS-E-ST-20-08_0090032,pva material shall capable tolerating define erosion level result spacecraft operation without degradation nominal performance pva conformance pva specification note example thruster plume,NF
+ECSS-E-ST-20-08_0090033,pva material shall capable tolerating define level degradation result atox environment without degradation nominal performance pva conformance solar array specification,NF
+ECSS-E-ST-20-08_0090250,qualification test solar cell assembly scas shall comprises acceptance qualification test,NF
+ECSS-E-ST-20-08_0090251,test previously qualify scas shall comprise acceptance test delta qualification test conformance requirement f,NF
+ECSS-E-ST-20-08_0090252,condition method test shall conform sca source control draw scdsca note sca specification consist two part generic specification standard scdsca preparation scdsca refer annex b,NF
+ECSS-E-ST-20-08_0090253,scdsca shall prepare supplier conformance annex b provide customer reviewing agreement,NF
+ECSS-E-ST-20-08_0090254,deviation require inprocess acceptance qualification test shall justify documentation package,NF
+ECSS-E-ST-20-08_0090255,deviation standard applicable scdsca shall agree customer supplier affect reliability performance scas specify requirement c,NF
+ECSS-E-ST-20-08_0090256,deliver solar cell assembly shall produce inspected conformance requirement process identification document pid define clause,NF
+ECSS-E-ST-20-08_0090257,deliver solar cell assembly shall complete test inspection include scdsca,NF
+ECSS-E-ST-20-08_0090258,deliver solar cell assembly shall permanently mark code enable traceability cell level state pid note pid see clause,NF
+ECSS-E-ST-20-08_0090261,acceptance test shall perform follow component delivery component use qualification,NF
+ECSS-E-ST-20-08_0090262,acceptance test shall consist follow visual inspection scas conformance clause dimension weight inspection scas conformance clause electrical performance measurement scas conformance clause diode characterization scas conformance clause,NF
+ECSS-E-ST-20-08_0090265,electrical current sca sc shall measure operational voltage iop solar cell temperature c operate temperature,NF
+ECSS-E-ST-20-08_0090266,predict operational voltage vop shall define scdsca,NF
+ECSS-E-ST-20-08_0090267,accuracy iop vop shall provide customer,NF
+ECSS-E-ST-20-08_0090268,measurement scas shall keep constant temperature,NF
+ECSS-E-ST-20-08_0090269,continuous pulse light source calibrate conformance clause shall use verify requirement give clause electrical characterization,NF
+ECSS-E-ST-20-08_0090552,design coverglasses shall enable bond solar cell space qualify adhesive,NF
+ECSS-E-ST-20-08_0090553,test qualification coverglasses shall comprise acceptance qualification test,NF
+ECSS-E-ST-20-08_0090554,test procurement qualified coverglasses shall comprise acceptance test,NF
+ECSS-E-ST-20-08_0090555,condition method test shall conform coverglass source control draw scdcvg note coverglass specification consist two part standard scdcvg preparation scdcvg refer annex,NF
+ECSS-E-ST-20-08_0090602,dimension associate tolerance coverglass shall state scdcvg conform tolerance limit define figure,NF
+ECSS-E-ST-20-08_0090603,value tolerance weight coverglass verify determining average weight per shipping lot shall state scdcvg,NF
+ECSS-E-ST-20-08_0090604,density tolerance sample glass weigh air water use analytical balance c shall conform requirement state scdcvg note density calculate measure specific gravity density water c,NF
+ECSS-E-ST-20-08_0090605,coverglass thickness along associated tolerance shall state scdcvg,NF
+ECSS-E-ST-20-08_0090606,thickness shall measure use calibrated micrometer,NF
+ECSS-E-ST-20-08_0090607,edge parallelism shall state scdcvg,NF
+ECSS-E-ST-20-08_0090608,edge parallelism shall measure use calibrated micrometer,NF
+ECSS-E-ST-20-08_0090609,perpendicularity side coverglass shall measure use optical instrument reference normal,NF
+ECSS-E-ST-20-08_0090610,perpendicularity shall state scdcvg,NF
+ECSS-E-ST-20-08_0090611,reflectance shall measure use calibrated spectrophotometer use wreflectance method integrating sphere,NF
+ECSS-E-ST-20-08_0090612,wavelength tolerance shall l nm reflectance tolerance r l r state scdcvg,NF
+ECSS-E-ST-20-08_0090613,reflectance cuton shall state scdcvg,NF
+ECSS-E-ST-20-08_0090614,reflectance cutoff shall state scdcvg,NF
+ECSS-E-ST-20-08_0090615,reflectance bandwidth shall state scdcvg,NF
 ECSS-E-ST-60-20_0920001,acquisition command shall supply minimum set input,F
 ECSS-E-ST-60-20_0920002,sensor cartography capability shall follow minimum output star position measurement date,F
 ECSS-E-ST-60-20_0920005,minimum set input supply order initialize star track shall initial star position angular rate validity date,F
@@ -14,21 +74,25 @@ ECSS-E-ST-60-20_0920014,sensor autonomous attitude determination shall minimum o
 ECSS-E-ST-60-20_0920015,minimum set input supply order initialize autonomous attitude track shall attitude quaternion dimension angular rate vector give angular rate sensor brf respect irf note vector express sensor brf validity date supply attitude angular rate,F
 ECSS-E-ST-60-20_0920016,aid track data specify shall supply regularly spacecraft update rate accuracy agree customer,F
 ECSS-E-ST-60-20_0920017,except attitude quaternion unit input shall indicate,F
-ECSS-E-ST-10_0790001,system engineering function shall produce maintain system engineering plan sep conformance annex,V
-ECSS-E-ST-10_0790003,sep shall take consideration lower level plan ensure consistency plan consistent plan,V
-ECSS-E-ST-10_0790394,system engineering function shall support project manager project review define project management plan accordance ecssmst,PM
-ECSS-E-ST-10_0790004,system engineering function shall analyse requirement system issue customer,V
+ECSS-S-ST-00_1000001,customer shall select ec standard make applicable use establish projectproduct requirement include use ecsssst term definition,M
+ECSS-S-ST-00_1000002,customer shall define part project requirement documentation prd set requirement tailor ec document project specificity make applicable,V
+ECSS-S-ST-00_1000003,customer shall produce part prd documentation identify ec requirement applicable project,V
+ECSS-S-ST-00_1000004,documentation identifying requirement applicable project shall include follow data eg earm complete list ec standard either fully partially applicable projectproduct include standard ec make applicable via chain normative reference partially applicable standard status requirement applicable without modification applicable modification applicable complete list additional requirement modify additional requirement complete formulation,V
+ECSS-S-ST-00_1000005,supplier shall demonstrate compliance prd requirement,V
+ECSS-S-ST-00_1000006,documentation identify compliance ec requirement applicable project eg ecm shall include follow data complete list ec requirement applicable project eg earm requirement actual indication compliance deviation identify justification provide,V
+ECSS-E-ST-10_0790004,system engineering function shall analyse requirement system issue customer,M
 ECSS-E-ST-10_0790005,system engineering function shall derive generate control maintain set requirement lower level element define design operational constraint parameter functionality performance verification necessary meet system requirement issue customer,V
 ECSS-E-ST-10_0790006,system engineering function shall ensure consistency requirement system level lower level well amongst level,M
 ECSS-E-ST-10_0790007,system engineering function shall ensure requirement generate b conformance characteristic specify ecssest clause,M
 ECSS-E-ST-10_0790008,system engineering function shall ensure requirement lower level element justification reflect requirement justification file conformance annex,M
 ECSS-E-ST-10_0790009,system engineering function shall ensure forward backward traceability requirement source lower level requirement exist change design inducing modification requirement verification closeout,M
 ECSS-E-ST-10_0790010,system engineering function shall establish maintain requirement traceability matrix conformance annex n,V
+ECSS-E-ST-10_0790011,system engineering function shall ensure requirement closeout traceability document vcd conformance ecssest annex b,V
 ECSS-E-ST-10_0790012,system engineering function shall establish technical requirement specification next lower level product consistent among technical specification receive customer,V
 ECSS-E-ST-10_0790013,system engineering function shall ensure technical requirement specification establishes conform ecssest drd annex,V
 ECSS-E-ST-10_0790014,system engineering function shall establish specification tree conformance annex j,V
+ECSS-E-ST-10_0790016,system engineering function shall involve customer consolidation requirement identify resolve incomplete duplicate ambiguous contradictory requirement customerissued requirement,M
 ECSS-E-ST-10_0790017,system engineering function shall reflect consolidated requirement release technical specification,V
-ECSS-E-ST-10_0790019,system engineering function shall perform requirement analysis identify impact system risk,V
 ECSS-E-ST-10-06_0770001,technical requirement shall formulate defined clause,M
 ECSS-E-ST-10-06_0770002,specification shall identifiable referable relate product system,V
 ECSS-E-ST-10-06_0770003,entity shall identify responsible specification,V
@@ -82,6 +146,7 @@ ECSS-E-ST-10-06_0770052,t shall describe different environment constraint situat
 ECSS-E-ST-10-06_0770053,t shall list technical requirement necessary product satisfy user need,V
 ECSS-E-ST-10-06_0770054,technical requirement shall express accord ecssest clause,M
 ECSS-E-ST-40_0860001,customer shall derive system requirement allocate software analysis specific intend use system result safety dependability analysis,PM
+ECSS-E-ST-40_0860002,customer shall specify software observability requirement monitor software behaviour facilitate system integration failure investigation,PM
 ECSS-E-ST-40_0860003,customer shall specify hmi requirement follow human factor engineering process specify ecssest,PM
 ECSS-E-ST-40_0860004,customer shall specify requirement need plan set system verification validation process relate software,PM
 ECSS-E-ST-40_0860005,customer shall specify requirement validation software requirement baseline technical specification particular mission representative data scenario operational procedure use,PM
@@ -155,17 +220,61 @@ ECSS-E-ST-60-10_1020002,specify requirement knowledge performance follow element
 ECSS-E-ST-60-10_1020003,general case probabilities shall express fraction percentage,M
 ECSS-E-ST-60-10_1020004,use n notation express probability shall restrict case hypothesis gaussian distribution hold note example general case pc pc acceptable pc indeed n format assume gaussian distribution use notation general statistical distribution cause wrong assumption make gaussian bound twice far mean bound relation hold general distribution note upon certain condition assumption gaussian distribution exclude priory example central limit theorem state sum large number independent identicallydistributed random variable approximately normally distribute,M
 ECSS-E-ST-60-10_1020005,specify statistical interpretation shall state variable vary across possible range set worst case note commonly use interpretation temporal ensemble mixed extreme case inappropriate situation annex discus,M
+ECSS-E-ST-60-21_1350001,gyro shall provide measurement mode,F
+ECSS-E-ST-60-21_1350002,tm data provide unit shall unambiguously report gyro switch startup mode measurement mode,F
+ECSS-E-ST-60-21_1350003,gyro shall perform healthcheck end initialization phase,F
+ECSS-E-ST-60-21_1350004,health check shall comprise minimum communication memory processor function detector function,F
+ECSS-E-ST-60-21_1350005,gyro shall capable autonomously enter measurement mode power,F
+ECSS-E-ST-60-21_1350006,shall possible power gyro time mode operation without cause damage,F
+ECSS-E-ST-60-21_1350007,customer shall specify transition gyro operational mode phase transient behaviour,NF
+ECSS-E-ST-60-21_1350008,mode status shall present housekeep data,NF
+ECSS-E-ST-60-21_1350009,reset capacity shall available commonly define supplier customer,F
+ECSS-E-ST-60-21_1350010,operating mode requirement shall verify test qualification acceptance test,M
+ECSS-E-ST-60-21_1350011,gyro channel shall provide valid inertial data interface bus switchon equipment within maximum specified duration angular rate within input range,F
+ECSS-E-ST-60-21_1350012,startup performance specify clause shall achieve within maximum specified duration switchon,NF
+ECSS-E-ST-60-21_1350013,startup duration shall measure external mean,NF
+ECSS-E-ST-60-21_1350014,startup requirement shall test whole range operational temperature dynamic,NF
+ECSS-E-ST-60-21_1350015,warmup performance specify clause shall achieve within maximum duration switchon,NF
+ECSS-E-ST-60-21_1350016,warmup duration shall measure external mean,NF
+ECSS-E-ST-60-21_1350017,warmup requirement shall test whole range operational temperature dynamic,NF
+ECSS-E-ST-60-21_1350018,gyro shall capable perform measurement together associate validity check sample housekeep data frequency specify customer,F
+ECSS-E-ST-60-21_1350019,data output gyro channel shall date measurement relate clock reference,F
+ECSS-E-ST-60-21_1350020,time tag counter use shall reset reading,F
+ECSS-E-ST-60-21_1350021,output data shall time tag data collection mean frame counter time stamp,F
+ECSS-E-ST-60-21_1350022,unit shall able work either synchronous mode continuous mode,NF
+ECSS-E-ST-60-21_1350023,work continuous mode time correlation mechanism shall available relate gyro measurement date onboard time,F
+ECSS-E-ST-60-21_1350024,work synchronous mode angular inertial data measurement acquisition shall synchronize external interrogation signal,F
+ECSS-E-ST-60-21_1350025,gyro work synchronous mode external interrogation signal shall accuracy specify clause,NF
+ECSS-E-ST-60-21_1350026,gyro work synchronous mode equipment shall offer also possibility choose synchronisation signal amongst two option synchronisation signal chosen data interface broadcast unicast data bus dedicate command serial link pulse synchro link interface,F
+ECSS-E-ST-60-21_1350027,requirement shall verify test external clock reference,M
+ECSS-E-ST-60-21_1350035,gyro shall provide periodic housekeep data data require monitoring execution nominal foreseen contingency operation throughout entire mission lifetime,F
+ECSS-E-ST-60-21_1350036,gyro shall allow onrequest housekeep data acquisition,F
+ECSS-E-ST-60-21_1350037,verification test shall perform test setup representative interface requirement specify customer,NF
+ECSS-E-ST-60-21_1350038,unit shall provide information housekeep data allow real time detection single failure potentially degrading measurement performance gyro loss functionality,F
+ECSS-E-ST-60-21_1350039,analysis possible failure cover health status shall provide,F
+ECSS-E-ST-60-21_1350040,verification method failure diagnosis shall propose supplier agree customer,NF
+ECSS-E-ST-60-21_1350041,gyro test health status occurrence false alarm failure detection shall continuously monitor,NF
+ECSS-E-ST-60-21_1350042,measurement mode shall provide measurement data include angular rate angular increment cumulate angular increment health status data validity flag timetag,F
+ECSS-E-ST-60-21_1350043,gyro shall output temperature measurement,F
+ECSS-E-ST-60-21_1350044,internal filter compensation apply measurement raw filter compensate data shall provide,F
+ECSS-E-ST-60-21_1350045,measurement bandwidth shall specify follow output angular rate unfiltered filtered angular increment unfiltered filter cumulated angular increment unfiltered,F
+ECSS-E-ST-60-21_1350046,measurement mode functional requirement shall verify test,M
+ECSS-E-ST-60-21_1350047,gyro shall provide test mode,F
+ECSS-E-ST-60-21_1350048,use test mode unit inflight shall specify necessary,F
+ECSS-E-ST-60-21_1350049,gyro shall provide programmable mode,F
+ECSS-E-ST-60-21_1350050,inflight protection misuse test programmable mode shall implement agreement user specification,NF
+ECSS-E-ST-60-21_1350051,auxiliary mode functional requirement shall verify test,M
 ECSS-E-ST-60-20_0920001,acquisition command shall supply minimum set input,F
 ECSS-E-ST-60-20_0920002,sensor cartography capability shall follow minimum output star position measurement date,F
 ECSS-E-ST-60-20_0920003,star image measure detectorfixed frame boresight reference frame brf output shall convert boresight reference frame brf,F
 ECSS-E-ST-60-20_0920004,date measurement shall express scalar number indicate delay relative know external time reference agree customer,NF
 ECSS-E-ST-60-20_0920005,minimum set input supply order initialize star track shall initial star position angular rate validity date,F
 ECSS-E-ST-60-20_0920006,aid track data specify shall supply regularly spacecraft update rate accuracy agree customer,NF
-ECSS-E-ST-60-20_0920007,unit input shall indicate,NF
+ECSS-E-ST-60-20_0920007,unit input shall indicate,F
 ECSS-E-ST-60-20_0920008,sensor star track capability shall follow minimum output position star image respect sensordefined reference frame focal length star position detector chip output unit length measurement date,F
 ECSS-E-ST-60-20_0920009,minimum set input supply order initialize autonomous star track shall angular rate validity date,F
 ECSS-E-ST-60-20_0920010,aid track data specify shall supply regularly spacecraft update rate accuracy agree customer,NF
-ECSS-E-ST-60-20_0920011,unit input shall indicate,NF
+ECSS-E-ST-60-20_0920011,unit input shall indicate,F
 ECSS-E-ST-60-20_0920012,sensor autonomous star track capability shall minimum output position star image respect sensordefined reference frame measurement date,F
 ECSS-E-ST-60-20_0920013,acquisition command shall supply minimum set input,F
 ECSS-E-ST-60-20_0920155,set core command define annex use,NF
@@ -173,7 +282,7 @@ ECSS-E-ST-60-20_0920014,sensor autonomous attitude determination shall minimum o
 ECSS-E-ST-60-20_0920156,set core telemetry define annex use,NF
 ECSS-E-ST-60-20_0920015,minimum set input supply order initialize autonomous attitude track shall attitude quaternion dimension angular rate vector give angular rate sensor brf respect irf validity date supply attitude angular rate,F
 ECSS-E-ST-60-20_0920016,aid track data specify shall supply regularly spacecraft update rate accuracy agree customer,NF
-ECSS-E-ST-60-20_0920017,except attitude quaternion unit input shall indicate,NF
+ECSS-E-ST-60-20_0920017,except attitude quaternion unit input shall indicate,F
 ECSS-E-ST-60-20_0920018,supplier shall document whether star sensor initialization use either internal initialization direct initialization,NF
 ECSS-E-ST-60-20_0920157,set core command define annex use,NF
 ECSS-E-ST-60-20_0920019,sensor autonomous attitude track capability shall follow minimum output orientation sensor define reference frame respect inertially define reference frame nominally form attitude quaternion measurement date validity index flag estimate validity determine attitude measurement star magnitude track star image,F
@@ -200,8 +309,11 @@ ECSS-Q-ST-80_0720001,supplier shall ensure organizational structure define softw
 ECSS-Q-ST-80_0720002,responsibility authority interrelation personnel manage perform verify work affect software quality shall define document,PM
 ECSS-Q-ST-80_0720003,responsibility interfaces organisation either external internal involve project shall define document,PM
 ECSS-Q-ST-80_0720004,delegation software product assurance task supplier lower level supplier shall do document controlled way supplier retain responsibility towards customer,PM
-ECSS-Q-ST-80_0720032,quality model shall use specify software quality requirement,M
-ECSS-Q-ST-80_0720033,follow characteristic shall use specify quality model functionality reliability maintainability reusability suitability safety security usability efficiency portability software development effectiveness,V
+ECSS-Q-ST-80_0720005,supplier shall provide adequate resource perform require software product assurance task,PM
+ECSS-Q-ST-80_0720006,review audit process product shall carry personnel directly involve work perform,PM
+ECSS-Q-ST-80_0720007,supplier shall identify personnel responsible software product assurance project sw pa managerengineer,PM
+ECSS-Q-ST-80_0720008,software product assurance managerengineer shall report project manager project product assurance manager organisational authority independence propose maintain software product assurance programme accordance project software product assurance requirement unimpeded access higher management necessary fulfil hisher duty,PM
+ECSS-Q-ST-80_0720009,supplier shall review project requirement establish make timely provision acquire develop resource skill management technical staff,PM
 ECSS-Q-ST-80_0720039,supplier shall establish software product assurance requirement next level supplier tailor role project include requirement produce software product assurance plan,M
 ECSS-Q-ST-80_0720040,supplier shall provide software product assurance requirement applicable next level supplier customer acceptance,M
 ECSS-Q-ST-80_0720151,definition software relate system requirement specify requirement baseline ecssest clause shall apply,M
@@ -214,7 +326,12 @@ ECSS-Q-ST-80_0720157,addition functional requirement technical specification sha
 ECSS-Q-ST-80_0720158,prior technical specification elaboration customer supplier shall agree follow principle rule minimum assignment person side responsible establish technical specification method agree requirement approve change effort prevent misunderstanding definition term explanation background requirement record review discussion result side,PM
 ECSS-Q-ST-80_0720228,software quality requirement include safety dependability requirement shall derive requirement defined system level,M
 ECSS-Q-ST-80_0720229,quality requirement shall express quantitative term constraint,M
+ECSS-Q-ST-80_0720230,supplier shall define assurance activity ensure product meet quality requirement specify technical specification,NF
+ECSS-Q-ST-80_0720231,order verify implementation product quality requirement supplier shall define metrication programme base identified quality model see clause specify metric collect stored mean collect metric measurement target value reference product quality requirement analyse perform collected metric include one derive descriptive statistic b trend analysis trend software problem result analysis perform collected metric feed back development team use identify corrective action schedule metric collection store analysis reporting reference whole software life cycle,NF
+ECSS-Q-ST-80_0720232,follow basic product metric shall use size code complexity design code fault density failure intensity test coverage number failure,NF
+ECSS-Q-ST-80_0720233,result metric collection analysis shall include software product assurance report order provide customer insight level quality obtain,NF
+ECSS-Q-ST-80_0720234,numerical accuracy shall estimate verify,NF
+ECSS-Q-ST-80_0720235,supplier shall define organization mean implement collect analyse data require study software maturity,NF
 ECSS-Q-ST-80_0720236,software quality requirement shall document requirement baseline technical specification,M
 ECSS-Q-ST-80_0720237,software requirement shall correct unambiguous complete consistent verifiable traceable,M
 ECSS-Q-ST-80_0720238,requirement method verification validation shall specify,M
-ECSS-Q-ST-80_0720251,technical specification component develop reuse shall include requirement maintainability portability verification component,V

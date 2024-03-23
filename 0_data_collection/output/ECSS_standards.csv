@@ -1,4 +1,64 @@
 ID,RequirementText,_class_
+ECSS-E-ST-20-08_0090001,The following physical properties of the components and materials shall be measured:      1. coefficient of thermal expansion     2. heat conductivity     3. specific heat     4. Young’s modulus and Poisson’s ratio     5. Flex strength         NOTE The objective is to establish the boundaries for the qualification test program over the full range of application by means of analysis. ,NF
+ECSS-E-ST-20-08_0090002,The data specified in requirement 4.2a shall be determined during the development phase of a new component and need not be repeated during the qualification program.,NF
+ECSS-E-ST-20-08_0090003,"The atmospheric conditions during all inspection, test operations and storage shall be as follows:     1. Pressure:(1013,25 ± 33) hPa.     2. Temperature:(23 ± 5) °C.     3. Average relative humidity:40 % - 60 %.         NOTE A pressure of (1 013,25 ± 33) hPa is equivalent to (760 ± 25) mmHg.",NF
+ECSS-E-ST-20-08_0091063,The room cleanliness level should be airborne particle count: Class 8 ISO 14644-1. ,NF
+ECSS-E-ST-20-08_0090005,"Every deviation from requirements 4.3.1a and 4.3.1b during tests shall be recorded in the data documentation package (DDP).     NOTE 1 For DDP complete contents, refer to Annex G     NOTE 2 Semiconductor devices (i.e. planar diodes) can short-circuit if no special precautions are taken during long storage periods under certain atmospheric conditions. This is because chlorine content, in combination with illumination, can produce metal contact migrations on these semiconductor devices.",NF
+ECSS-E-ST-20-08_0090006,The accuracy of the instruments and test equipment used to control or measure test parameters shall be one order of magnitude higher than the tolerance on the variable to be measured.     NOTE Examples of where this cannot be achieved include measurements of electrical performance and temperatures. ,NF
+ECSS-E-ST-20-08_0090007,"All instrumentation used for qualification and acceptance tests shall:     1. be calibrated, and      2. be within the specified calibration period at the time of test.",NF
+ECSS-E-ST-20-08_0090008,Instrumentation whose calibration period runs out during the planned test time shall not be used. ,NF
+ECSS-E-ST-20-08_0090009,The maximum test temperature tolerances for thermal testing shall be as given in Table 4-1.,NF
+ECSS-E-ST-20-08_0090010,"The accuracy of mass measurements shall be better than ±1 % or 0,01 g, whichever is higher.",NF
+ECSS-E-ST-20-08_0090011,The test condition tolerances shall be applied to the nominal test values specified.,NF
+ECSS-E-ST-20-08_0090012,The accuracy of the electrical performance test on PVA level shall be better than or equal to the calibration loss factor used in the power analysis.,NF
+ECSS-E-ST-20-08_0090018,"The conditions and methods of testing shall conform to the photovoltaic assembly source control drawing (SCD-PVA).     NOTE The PVA specification consists of two parts, the generic specification (this Standard) and the SCD. For the preparation of the SCD-PVA, refer to Annex A.",NF
+ECSS-E-ST-20-08_0090019,"The SCD-PVA shall be prepared by the supplier, in conformance with Annex A, and provided to the customer for reviewing and agreement.",NF
+ECSS-E-ST-20-08_0090020,"Any deviation from in-process, acceptance and qualification test shall be justified.",NF
+ECSS-E-ST-20-08_0090022,"Flight hardware shall be constructed from space qualified materials having the following properties:     1. A recovered mass loss (RML) of 1 % or less.          NOTE See ECSS-Q-ST-70-02.      2. A collected volatile condensable material (CVCM) of 0,1 % or less when heated in a vacuum to 125 °C and collected at 25 °C.",NF
+ECSS-E-ST-20-08_0090024,Any material used in the construction of the PVA that is dangerous to the health of the personnel shall be identified.,NF
+ECSS-E-ST-20-08_0090025,Preventive handling measures shall be taken in conformance with a standard approved by the customer.,NF
+ECSS-E-ST-20-08_0090026,Any flammable materials used in the construction of the PVA shall be identified.,NF
+ECSS-E-ST-20-08_0090027,The supplier and customer shall agree on the measures to be taken to prevent corrosion during storage or in normal operational service. ,NF
+ECSS-E-ST-20-08_0091064,"Standard atmospheric conditions may be assumed for general applications in the spacecraft, over a period of time that is agreed between the supplier and customer.",NF
+ECSS-E-ST-20-08_0090029,"To avoid electrolytic corrosion, a process, approved by the customer, shall be used.",NF
+ECSS-E-ST-20-08_0090030,Permanent magnetic materials shall be avoided when specified by the mission.,NF
+ECSS-E-ST-20-08_0091065,Non-magnetic materials should be used.,NF
+ECSS-E-ST-20-08_0090032,"PVA materials shall be capable of tolerating a defined erosion level resulting from spacecraft operation without degradation in the nominal performance of the PVA, in conformance with the PVA specification.     NOTE Example: thruster plumes.",NF
+ECSS-E-ST-20-08_0090033,"PVA materials shall be capable of tolerating a defined level of degradation resulting from an ATOX environment, without degradation in the nominal performance of the PVA, in conformance with the solar array specification.",NF
+ECSS-E-ST-20-08_0090250,Qualification testing of solar cell assemblies (SCAs) shall comprises acceptance and qualification tests.,NF
+ECSS-E-ST-20-08_0090251,Testing of previously qualified SCAs shall comprises acceptance tests and delta qualification tests in conformance with requirement 6.4.1f.4.,NF
+ECSS-E-ST-20-08_0090252,"The conditions and methods of testing shall conform to the SCA source control drawing (SCD-SCA).     NOTE The SCA specification consists of two parts, the generic specification (this Standard) and the SCD-SCA. For the preparation of the SCD-SCA, refer to Annex B.",NF
+ECSS-E-ST-20-08_0090253,"The SCD-SCA shall be prepared by the supplier in conformance with Annex B, and provided to the customer for reviewing and agreement.",NF
+ECSS-E-ST-20-08_0090254,"Any deviation from the required in-process, acceptance and qualification test shall be justified in the documentation package.",NF
+ECSS-E-ST-20-08_0090255,Deviations from this Standard applicable to the SCD-SCA shall:     1. be agreed between the customer and the supplier;     2. not affect the reliability and performances of the SCAs;     3. only be those specified in requirement 6.1.2c.,NF
+ECSS-E-ST-20-08_0090256,"Delivered solar cell assemblies shall be produced and inspected in conformance with the requirements of the process identification document (PID) defined in clause 6.2, and ",NF
+ECSS-E-ST-20-08_0090257,Delivered solar cell assemblies shall have completed all tests and inspections included in the SCD-SCA.,NF
+ECSS-E-ST-20-08_0090258,"All delivered solar cell assemblies shall be permanently marked with a code to enable traceability of the cells at the level stated in the PID.      NOTE For the PID, see clause 6.2.",NF
+ECSS-E-ST-20-08_0090261,Acceptance tests shall be performed on the following:     1. components for delivery;     2. components used for qualification.,NF
+ECSS-E-ST-20-08_0090262,"Acceptance tests shall consist of the following:      1. visual inspection (100 % of the SCAs), in conformance with clause 6.4.3.1.      2. dimension and weight inspection (1 % of the SCAs), in conformance with clause 6.4.3.2.     3. electrical performance measurement (100 % of the SCAs), in conformance with clause 6.3.3.     4. diode characterization (100 % of the SCAs), in conformance with clause 9.4.5.2.",NF
+ECSS-E-ST-20-08_0090265,The electrical current of SCA under 1 S.C. (AM0) shall be measured at operational voltage (Iop) at a solar cell temperature of 25 °C or operating temperature.,NF
+ECSS-E-ST-20-08_0090266,The predicted operational voltage (Vop) shall be defined in the SCD-SCA.,NF
+ECSS-E-ST-20-08_0090267,The accuracy of Iop and Vop shall be provided to the customer.,NF
+ECSS-E-ST-20-08_0090268,"During measurement, the SCAs shall be kept at a constant temperature.",NF
+ECSS-E-ST-20-08_0090269,Continuous or pulsed light source calibrated in conformance with clause 10 shall be used to verify the requirements given in clause 6.3.3.3 for electrical characterization.,NF
+ECSS-E-ST-20-08_0090552,The design of the coverglasses shall enable bonding to solar cells with space qualified adhesives.,NF
+ECSS-E-ST-20-08_0090553,Tests for qualification of coverglasses shall comprise acceptance and qualification tests.,NF
+ECSS-E-ST-20-08_0090554,Tests for procurement of qualified coverglasses shall comprise acceptance tests.,NF
+ECSS-E-ST-20-08_0090555,"The conditions and methods of testing shall conform to the coverglass source control drawing (SCD-CVG).     NOTE The coverglass specification consists of two parts, this Standard and the SCD-CVG. For the preparation of the SCD-CVG, refer to Annex D.",NF
+ECSS-E-ST-20-08_0090602,The dimensions and associated tolerances of the coverglass shall be stated in the SCD-CVG and conform to the tolerance limits defined in Figure 8-4.,NF
+ECSS-E-ST-20-08_0090603,"The values and tolerances of the weight of the coverglass, verified by determining the average weight per shipping lot, shall be as stated in the SCD-CVG.",NF
+ECSS-E-ST-20-08_0090604,"The density and tolerances of a sample of the glass, weighed in air and water using an analytical balance at 25 °C, shall conform to the requirements stated in the SCD-CVG.     NOTE Density is calculated from the measured specific gravity and the density of water at 25 °C.",NF
+ECSS-E-ST-20-08_0090605,The coverglass thickness along with the associated tolerances shall be as stated in the SCD-CVG. ,NF
+ECSS-E-ST-20-08_0090606,The thickness shall be measured using a calibrated micrometer.,NF
+ECSS-E-ST-20-08_0090607,The edge parallelism shall be as stated in the SCD-CVG. ,NF
+ECSS-E-ST-20-08_0090608,The edge parallelism shall be measured using a calibrated micrometer.,NF
+ECSS-E-ST-20-08_0090609,The perpendicularity of the sides of the coverglass shall be measured using an optical instrument with a reference normal. ,NF
+ECSS-E-ST-20-08_0090610,The perpendicularity shall be as stated in the SCD-CVG.,NF
+ECSS-E-ST-20-08_0090611,The reflectance shall be measured using a calibrated spectro-photometer using a W-reflectance method or integrating sphere. ,NF
+ECSS-E-ST-20-08_0090612,"The wavelength tolerance shall be l ± 2 nm and a reflectance tolerance of (R ± 1) %, where l and R are as stated in the SCD-CVG.",NF
+ECSS-E-ST-20-08_0090613,The reflectance cut-on shall be as stated in the SCD-CVG.,NF
+ECSS-E-ST-20-08_0090614,The reflectance cut-off shall be as stated in the SCD-CVG.,NF
+ECSS-E-ST-20-08_0090615,The reflectance bandwidth shall be as stated in the SCD-CVG.,NF
 ECSS-E-ST-60-20_0920001,The acquisition command shall be supplied as minimum set of inputs.,F
 ECSS-E-ST-60-20_0920002,"A sensor with cartography capability shall have the following minimum outputs:     1. star position,     2. measurement date.",F
 ECSS-E-ST-60-20_0920005,The minimum set of inputs to be supplied in order to initialize the Star Tracking shall be:     1. the initial star position;     2. the angular rate;     3. validity date.,F
@@ -14,21 +74,25 @@ ECSS-E-ST-60-20_0920014,A sensor with autonomous attitude determination shall ha
 ECSS-E-ST-60-20_0920015,The minimum set of inputs to be supplied in order to initialize the Autonomous Attitude Tracking shall be:     1. the attitude quaternion;     2. the 3-dimension angular rate vector giving the angular rate of the sensor BRF with respect to the IRF;         NOTE This vector is expressed in the sensor BRF.     3. the validity date for both supplied attitude and angular rate.,F
 ECSS-E-ST-60-20_0920016,"For aided tracking, data specified in 4.1.6.1a shall be supplied regularly by the spacecraft, at an update rate and accuracy agreed by the customer.",F
 ECSS-E-ST-60-20_0920017,"Except for attitude quaternion, the unit of all inputs shall be indicated.",F
-ECSS-E-ST-10_0790001,The system engineering function shall produce and maintain a system engineering plan (SEP) in conformance with Annex D.,V
-ECSS-E-ST-10_0790003,"The SEP shall take consideration of the lower level plans, ensure consistency between these plans, and, be consistent with these plans.",V
-ECSS-E-ST-10_0790394,The system engineering function shall support the project manager in the project reviews as defined in the Project Management Plan in accordance with ECSS-M-ST-10.,PM
-ECSS-E-ST-10_0790004,The system engineering function shall analyse the requirements for the system issued by the customer.,V
+ECSS-S-ST-00_1000001,"The customer shall select which ECSS Standards to make applicable and to use to establish the project/product requirements, including use of ECSS-S-ST-00-01 for terms and definitions.",M
+ECSS-S-ST-00_1000002,"The customer shall define, as part of the project requirements documentation (PRD), the set of requirements tailored from ECSS documents to the project specificities which are made applicable.",V
+ECSS-S-ST-00_1000003,"The customer shall produce, as part of the PRD, a documentation identifying the ECSS requirements applicable to the project.     ",V
+ECSS-S-ST-00_1000004,"The documentation identifying the requirements applicable to the project shall include following data (e.g. EARM):     1. The complete list of ECSS standards either fully or partially applicable to the project/product, including any standard (ECSS or not) made applicable via the chain of normative references;     2. For each partially applicable standard, the status of each requirement:         • applicable without modification         • applicable with modification         • not applicable     3. The complete list of additional requirements     4. For modified and additional requirements, their complete formulation ",V
+ECSS-S-ST-00_1000005,The supplier shall demonstrate compliance with the PRD requirements.     ,V
+ECSS-S-ST-00_1000006,"The documentation identifying the compliance to ECSS requirements applicable to the project (e.g. the ECM) shall include following data:     1. The complete list of ECSS requirements applicable to the project (e.g. in the EARM).     2. For each requirement, the actual indication of compliance. When deviation is identified the justification is provided.",V
+ECSS-E-ST-10_0790004,The system engineering function shall analyse the requirements for the system issued by the customer.,M
 ECSS-E-ST-10_0790005,"The system engineering function shall derive, generate, control and maintain the set of requirements for the lower level elements, defining their design and operational constraints and the parameters of functionality, performance, and verification necessary to meet the system requirements issued by the customer.",V
 ECSS-E-ST-10_0790006,"The system engineering function shall ensure consistency of the requirements at system level, at lower levels, as well as amongst levels.",M
 ECSS-E-ST-10_0790007,The system engineering function shall ensure requirements generated in 5.2.1b. are in conformance with characteristics specified in ECSS-E-ST-10-06 clause 8.,M
 ECSS-E-ST-10_0790008,The system engineering function shall ensure that each requirement for the lower level elements has a justification reflected in the requirement justification file in conformance with Annex O.,M
 ECSS-E-ST-10_0790009,"The system engineering function shall ensure forward and backward traceability of all requirements: 1.	to their sources;  2.	to the lower level requirements, if existing; 3.	to changes in the design inducing modifications of the requirements; 4.	to their verification close-out.",M
 ECSS-E-ST-10_0790010,The system engineering function shall establish and maintain the requirements traceability matrix in conformance with Annex N.,V
+ECSS-E-ST-10_0790011,The system engineering function shall ensure that the requirement close-out traceability is documented in the VCD in conformance with ECSS-E-ST-10-02 Annex B.,V
 ECSS-E-ST-10_0790012,The system engineering function shall establish technical requirements specifications of the next lower level products consistent among them and with the technical specification received from the customer.,V
 ECSS-E-ST-10_0790013,The system engineering function shall ensure that the technical requirements specifications it establishes conform to ECSS-E-ST-10-06 and its DRD in Annex A.,V
 ECSS-E-ST-10_0790014,The system engineering function shall establish a specification tree in conformance with Annex J.,V
+ECSS-E-ST-10_0790016,"The system engineering function shall involve the customer in the consolidation of requirements by identifying and resolving incomplete, duplicate, ambiguous, and contradictory requirements for customer-issued requirements.",M
 ECSS-E-ST-10_0790017,The system engineering function shall reflect the consolidated requirements in the release of the technical specifications.,V
-ECSS-E-ST-10_0790019,The system engineering function shall perform the requirements analysis to identify impacts on system risks.,V
 ECSS-E-ST-10-06_0770001,Technical requirements shall be formulated as defined in clause 8.     ,M
 ECSS-E-ST-10-06_0770002,"The specification shall be identifiable, referable and related to a product or a system.",V
 ECSS-E-ST-10-06_0770003,An entity shall be identified to be responsible for the specification.,V
@@ -82,7 +146,7 @@ ECSS-E-ST-10-06_0770052,The TS shall describe the different environments and con
 ECSS-E-ST-10-06_0770053,The TS shall list all the technical requirements necessary for the product to satisfy the user’s needs.     ,V
 ECSS-E-ST-10-06_0770054,The technical requirements shall be expressed according to ECSS-E-ST-10-06 clauses 7 and 8.      ,M
 ECSS-E-ST-40_0860001,"The customer shall derive system requirements allocated to software from an analysis of the specific intended use of the system, and from the results of the safety and dependability analysis. ",PM
-ECSS-E-ST-40_0860002,The customer shall specify all software observability requirements to monitor the software behaviour and to facilitate the system integration and failure investigation. ,PM/M
+ECSS-E-ST-40_0860002,The customer shall specify all software observability requirements to monitor the software behaviour and to facilitate the system integration and failure investigation. ,PM
 ECSS-E-ST-40_0860003,"The customer shall specify HMI requirements, following the human factor engineering process specified in ECSS-E-ST-10-11. ",PM
 ECSS-E-ST-40_0860004,The customer shall specify the requirements needed for planning and setting up the system verification and validation process related to software. ,PM
 ECSS-E-ST-40_0860005,"The customer shall specify requirements for the validation of the software against the requirements baseline and technical specification, in particular mission representative data and scenarios, and operational procedures to be used. ",PM
@@ -156,17 +220,61 @@ ECSS-E-ST-60-10_1020002,"When specifying a requirement on the knowledge of the p
 ECSS-E-ST-60-10_1020003,In the general case all probabilities shall be expressed as fractions or as percentages.,M
 ECSS-E-ST-60-10_1020004,"Using the ‘ns’ notation for expressing probabilities shall be restricted to cases where the hypothesis of Gaussian distribution holds.     NOTE 1 For example: in the general case Pc = 0,95 or Pc = 95 % are both acceptable, but Pc = 2s is not. Indeed the ‘ns’ format assumes a Gaussian distribution; using this notation for a general statistical distribution can cause wrong assumptions to be made. For a Gaussian the 95 % (2s) bound is twice as far from the mean as the 68 % (1s) bound, but this relation does not hold for a general distribution.     NOTE 2 Upon certain conditions the assumption of Gaussian distribution is not to be excluded a priory. For example the central limit theorem states that the sum of a large number of independent and identically-distributed random variables is approximately normally distributed.",M
 ECSS-E-ST-60-10_1020005,"When specifying the statistical interpretation (4.1.2a.4), it shall be stated which variables are varied across their possible ranges and which are set to worst case.     NOTE The most commonly used interpretations (temporal, ensemble, mixed) are extreme cases and can be inappropriate in some situations. Annex A.1.2 discusses this further.",M
+ECSS-E-ST-60-21_1350001,The gyro shall provide a Measurement Mode.,F
+ECSS-E-ST-60-21_1350002,The TM data provided by the unit shall unambiguously report when the gyro has switched from Start-Up Mode to Measurement Mode.,F
+ECSS-E-ST-60-21_1350003,The gyro shall perform a health-check at the end of the initialization phase.,F
+ECSS-E-ST-60-21_1350004,"The health check shall comprise, as a minimum: 1.	communications 2.	memories 3.	processor function 4.	detector function",F
+ECSS-E-ST-60-21_1350005,The gyro shall be capable to autonomously enter the measurement mode after power on.,F
+ECSS-E-ST-60-21_1350006,It shall be possible to power off the gyro at any time and in any mode of operation without causing any damage to it.,F
+ECSS-E-ST-60-21_1350007,The customer shall specify the transitions between the gyro operational modes and phases and the transient behaviours.,NF
+ECSS-E-ST-60-21_1350008,A mode status shall be present in the housekeeping data.,NF
+ECSS-E-ST-60-21_1350009,A reset capacity shall be available and commonly defined by the supplier and the customer.,F
+ECSS-E-ST-60-21_1350010,The operating mode requirements shall be verified by test during qualification and acceptance tests.,M
+ECSS-E-ST-60-21_1350011,The gyro channels shall provide valid inertial data on the interface bus after switch-on of the equipment within the maximum specified duration for any angular rate within its input range.,F
+ECSS-E-ST-60-21_1350012,The start-up performance specified in clause 5.4.7 shall be achieved within the maximum specified duration after switch-on.,NF
+ECSS-E-ST-60-21_1350013,The start-up duration shall be measured by external means.,NF
+ECSS-E-ST-60-21_1350014,The start-up requirement shall be tested over the whole range of operational temperatures and dynamics.,NF
+ECSS-E-ST-60-21_1350015,The warm-up performance specified in clause 5.4.8 shall be achieved within a maximum duration after switch-on.,NF
+ECSS-E-ST-60-21_1350016,The warm-up duration shall be measured by external means.,NF
+ECSS-E-ST-60-21_1350017,The warm-up requirements shall be tested over the whole range of operational temperatures and dynamics.,NF
+ECSS-E-ST-60-21_1350018,The gyro shall be capable to perform measurements together with the associated validity check and the sampling of housekeeping data at a frequency to be specified by the customer.,F
+ECSS-E-ST-60-21_1350019,The data output of each gyro channel shall have its own date measurement related to a clock reference.,F
+ECSS-E-ST-60-21_1350020,"If a time tag counter is used, it shall not be reset after each reading. ",F
+ECSS-E-ST-60-21_1350021,The output data shall be time tagged during data collection by the means of a frame counter or a time stamp.,F
+ECSS-E-ST-60-21_1350022,The unit shall be able to work either in synchronous mode or in continuous mode. ,NF
+ECSS-E-ST-60-21_1350023,"When working in continuous mode, a time correlation mechanism shall be available to relate the gyro measurement date with the on-board time.",F
+ECSS-E-ST-60-21_1350024,"When working in synchronous mode, the angular inertial data measurement acquisition shall be synchronized with the external interrogation signal.",F
+ECSS-E-ST-60-21_1350025,"When the gyro is working in synchronous mode, the external interrogation signal shall have an accuracy as specified in clause 5.4.6.",NF
+ECSS-E-ST-60-21_1350026,"When the gyro is working in synchronous mode, the equipment shall offer also the possibility to choose the synchronisation signal amongst two options:  1.	a synchronisation signal on the chosen data interface - broadcast or unicast on the data Bus or dedicated command on serial link-, or  2.	a pulse on a synchro link interface.",F
+ECSS-E-ST-60-21_1350027,The requirements of 4.5.1 shall be verified by test with an external clock reference.,M
+ECSS-E-ST-60-21_1350035,The gyro shall provide in its periodic housekeeping data all the data required for the monitoring and execution of all nominal and foreseen contingency operations throughout the entire mission lifetime.,F
+ECSS-E-ST-60-21_1350036,The gyro shall allow for on-request housekeeping data acquisition.,F
+ECSS-E-ST-60-21_1350037,The verification test shall be performed with a test set-up representative of the interface requirements specified by the customer,NF
+ECSS-E-ST-60-21_1350038,"The unit shall provide information in the housekeeping data allowing, in real time: 1.	detection of a single failure potentially degrading the measurement performances, or  2.	gyro loss of functionality.",F
+ECSS-E-ST-60-21_1350039,An analysis of the possible failures covered by the health status shall be provided.,F
+ECSS-E-ST-60-21_1350040,The verification method for failure diagnosis shall be proposed by the supplier and agreed with the customer.,NF
+ECSS-E-ST-60-21_1350041,"During the gyro test, the health status and the occurrence of false alarms on failure detection shall be continuously monitored. ",NF
+ECSS-E-ST-60-21_1350042,"The measurement mode shall provide: 1.	measurement data, including an angular rate, an angular increment or a cumulated angular increment, 2.	a health status, 3.	a data validity flag, and 4.	a timetag.",F
+ECSS-E-ST-60-21_1350043,The gyro shall output a temperature measurement.,F
+ECSS-E-ST-60-21_1350044,"If internal filtering or compensation is applied to the measurement, both raw and filtered or compensated data shall be provided.",F
+ECSS-E-ST-60-21_1350045,"The measurement bandwidth shall be specified for each of the following outputs: 1.	angular rate, unfiltered or filtered, or 2.	an angular increment, unfiltered or filtered, or 3.	a cumulated angular increment, unfiltered.",F
+ECSS-E-ST-60-21_1350046,The measurement mode functional requirements shall be verified by test.,M
+ECSS-E-ST-60-21_1350047,The gyro shall provide a Test mode. ,F
+ECSS-E-ST-60-21_1350048,The use of the Test mode for the unit in-flight shall be specified if necessary.,F
+ECSS-E-ST-60-21_1350049,The gyro shall provide a Programmable mode. ,F
+ECSS-E-ST-60-21_1350050,The in-flight protection against misuse of these Test and Programmable modes shall be implemented in agreement with the user specification.,NF
+ECSS-E-ST-60-21_1350051,The auxiliary modes functional requirements shall be verified by test.,M
 ECSS-E-ST-60-20_0920001,The acquisition command shall be supplied as minimum set of inputs.,F
 ECSS-E-ST-60-20_0920002,"A sensor with cartography capability shall have the following minimum outputs: 1.	star position, 2.	measurement date.",F
 ECSS-E-ST-60-20_0920003,"When the Star Image is measured in a Detector-fixed frame which is not the same as the Boresight Reference Frame (BRF), the output shall be converted into the Boresight Reference Frame (BRF).",F
 ECSS-E-ST-60-20_0920004,The date of measurement shall be expressed as a (scalar) number indicating the delay relative to a known external time reference agreed with the customer.,NF
 ECSS-E-ST-60-20_0920005,The minimum set of inputs to be supplied in order to initialize the Star Tracking shall be: 1.	the initial star position; 2.	the angular rate; 3.	validity date.,F
 ECSS-E-ST-60-20_0920006,"For aided tracking, data specified in 4.1.3.1a shall be supplied regularly by the spacecraft, at an update rate and accuracy agreed by the customer.",NF
-ECSS-E-ST-60-20_0920007,The unit of all inputs shall be indicated.,NF
+ECSS-E-ST-60-20_0920007,The unit of all inputs shall be indicated.,F
 ECSS-E-ST-60-20_0920008,A sensor with the star tracking capability shall have the following minimum outputs: 1.	the position of each Star Image with respect to a sensor-defined reference frame; 2.	focal length if star position on the detector chip  is output in units of length; 3.	the measurement date.,F
 ECSS-E-ST-60-20_0920009,The minimum set of inputs to be supplied in order to initialize the Autonomous Star Tracking shall be: 1.	the angular rate; 2.	the validity date.,F
 ECSS-E-ST-60-20_0920010,"For aided tracking, data specified in 4.1.4.1a shall be supplied regularly by the spacecraft, at an update rate and accuracy agreed by the customer.",NF
-ECSS-E-ST-60-20_0920011,The unit of all inputs shall be indicated.,NF
+ECSS-E-ST-60-20_0920011,The unit of all inputs shall be indicated.,F
 ECSS-E-ST-60-20_0920012,A sensor with the autonomous star tracking capability shall have the minimum outputs: 1.	the position of each star image with respect to a sensor-defined reference frame; 2.	the Measurement date.,F
 ECSS-E-ST-60-20_0920013,The acquisition command shall be supplied as a minimum set of inputs. ,F
 ECSS-E-ST-60-20_0920155,The set of core commands defined in Annex I should be used.,NF
@@ -174,7 +282,7 @@ ECSS-E-ST-60-20_0920014,A sensor with autonomous attitude determination shall ha
 ECSS-E-ST-60-20_0920156,The set of core telemetries defined in Annex I should be used.,NF
 ECSS-E-ST-60-20_0920015,The minimum set of inputs to be supplied in order to initialize the Autonomous Attitude Tracking shall be: 1.	the attitude quaternion; 2.	the 3-dimension angular rate vector giving the angular rate of the sensor BRF with respect to the IRF; 3.	the validity date for both supplied attitude and angular rate.,F
 ECSS-E-ST-60-20_0920016,"For aided tracking, data specified in 4.1.6.1a shall be supplied regularly by the spacecraft, at an update rate and accuracy agreed by the customer.",NF
-ECSS-E-ST-60-20_0920017,"Except for attitude quaternion, the unit of all inputs shall be indicated.",NF
+ECSS-E-ST-60-20_0920017,"Except for attitude quaternion, the unit of all inputs shall be indicated.",F
 ECSS-E-ST-60-20_0920018,"The supplier shall document whether the star sensor initialization uses either: 1.	Internal initialization, or  2.	Direct initialization.",NF
 ECSS-E-ST-60-20_0920157,The set of core commands defined in Annex I should be used.,NF
 ECSS-E-ST-60-20_0920019,"A sensor with autonomous attitude tracking capability shall have the following minimum outputs: 1.	the orientation of the sensor defined reference frame with respect to the inertially defined reference frame (nominally in the form of an attitude quaternion); 2.	the Measurement date; 3.	a validity index or flag, estimating the validity of the determined attitude; 4.	measurement of Star Magnitude for each tracked Star Image.",F
@@ -201,32 +309,13 @@ ECSS-Q-ST-80_0720001,"The supplier shall ensure that an organizational structure
 ECSS-Q-ST-80_0720002,"The responsibility, the authority and the interrelation of personnel who manage, perform and verify work affecting software quality shall be defined and documented. ",PM
 ECSS-Q-ST-80_0720003,"The responsibilities and the interfaces of each organisation, either external or internal, involved in a project shall be defined and documented. ",PM
 ECSS-Q-ST-80_0720004,"The delegation of software product assurance tasks by a supplier to a lower level supplier shall be done in a documented and controlled way, with the supplier retaining the responsibility towards the customer. ",PM
-ECSS-Q-ST-80_0720006,Reviews and audits of processes and of products shall be carried out by personnel not directly involved in the work being performed.,V?
-ECSS-Q-ST-80_0720010,The supplier shall maintain training records. ,V?
-ECSS-Q-ST-80_0720013,The supplier shall develop a software product assurance plan in response to the software product assurance requirements in conformance with DRD in annex B.,V?
-ECSS-Q-ST-80_0720014,The software product assurance plan shall be either a standalone document or a section of the supplier overall product assurance plan. ,V?
-ECSS-Q-ST-80_0720015,"Any internal manuals, standards or procedures referred to by the software product assurance plan shall become an integral part of the supplier’s software product assurance programme.",V?
-ECSS-Q-ST-80_0720016,The software product assurance plan shall be revisited and updated as needed at each milestone to ensure that the activities to be undertaken in the following phase are fully defined. ,V?
-ECSS-Q-ST-80_0720017,"Before acceptance review, the supplier shall either supplement the software product assurance plan to specify the quality measures related to the operations and maintenance processes, or issue a specific software product assurance plan.  ",V?
-ECSS-Q-ST-80_0720018,The supplier shall provide with the software product assurance plan a compliance matrix documenting conformance with the individual software product assurance requirements applicable for the project or business agreement. ,V?
-ECSS-Q-ST-80_0720019,"For each software product assurance requirement, the compliance matrix shall provide a reference to the document where the expected output of that requirement is located.",M
-ECSS-Q-ST-80_0720021,"The software product assurance report shall include:     1. an assessment of the current quality of the product and processes, based on measured properties, with reference to the metrication as defined in the software product assurance plan;     2. verifications undertaken;     3. problems detected;     4. problems resolved.  ",V?
-ECSS-Q-ST-80_0720025,"The supplier shall define and implement procedures for the logging, analysis and correction of all software problems encountered during software development. ",V?
-ECSS-Q-ST-80_0720026,"The software problem report shall contain the following information:     1. identification of the software item;     2. description of the problem;     3. recommended solution;     4. final disposition;     5. modifications implemented (e.g. documents, code, and tools);     6. tests re-executed. ",V?
-ECSS-Q-ST-80_0720032,Quality models shall be used to specify the software quality requirements. ,M
-ECSS-Q-ST-80_0720033,The following characteristics shall be used to specify the quality model:     1. functionality;     2. reliability;     3. maintainability;     4. reusability;     5. suitability for safety;     6. security;     7. usability;     8. efficiency;     9. portability;     10. software development effectiveness.,V
+ECSS-Q-ST-80_0720005,The supplier shall provide adequate resources to perform the required software product assurance tasks. ,PM
+ECSS-Q-ST-80_0720006,Reviews and audits of processes and of products shall be carried out by personnel not directly involved in the work being performed.,PM
+ECSS-Q-ST-80_0720007,The supplier shall identify the personnel responsible for software product assurance for the project (SW PA manager/engineer). ,PM
+ECSS-Q-ST-80_0720008,"The software product assurance manager/engineer shall     1. report to the project manager (through the project product assurance manager, if any);     2. have organisational authority and independence to propose and maintain a software product assurance programme in accordance with the project software product assurance requirements;     3. have unimpeded access to higher management as necessary to fulfil his/her duties.",PM
+ECSS-Q-ST-80_0720009,The supplier shall review the project requirements to establish and make timely provision for acquiring or developing the resources and skills for the management and technical staff. ,PM
 ECSS-Q-ST-80_0720039,"The supplier shall establish software product assurance requirements for the next level suppliers, tailored to their role in the project, including a requirement to produce a software product assurance plan. ",M
 ECSS-Q-ST-80_0720040,The supplier shall provide the software product assurance requirements applicable to the next level suppliers for customer’s acceptance. ,M
-ECSS-Q-ST-80_0720067,The software development life cycle shall be defined or referenced in the software product assurance plan.,V?
-ECSS-Q-ST-80_0720068,"The following characteristics of the software life cycle shall be defined:     1. phases;     2. input and output of each phase;     3. status of completion of phase output;     4. milestones;     5. dependencies;     6. responsibilities;     7. role of the customer at each milestone review, in conformance with ECSS-M-ST-10 and ECSS-M-ST-10-01. ",V?
-ECSS-Q-ST-80_0720069,"In the definition of the life cycle and associated milestones and documents, the quality objectives shall be used.",V?
-ECSS-Q-ST-80_0720070,The software life cycle shall be reviewed against the contractual software engineering and product assurance requirements. ,V?
-ECSS-Q-ST-80_0720071,The software life cycle shall be reviewed for suitability and for the availability of resources to implement it by all functions involved in its application.,V?
-ECSS-Q-ST-80_0720073,"The following activities shall be covered either in software-specific plans or in project general plans:     1. development;     2. specification, design and customer documents to be produced;     3. configuration and documentation management;     4. verification, testing and validation activities;     5. maintenance. ",V?
-ECSS-Q-ST-80_0720074,All plans shall be finalized before the start of the related activities. ,V?
-ECSS-Q-ST-80_0720075,All plans shall be updated for each milestone to reflect any changes during development. ,V?
-ECSS-Q-ST-80_0720076,"The software product assurance plan shall identify all plans to be produced and used, the relationship between them and the time-scales for their preparation and update. ",V?
-ECSS-Q-ST-80_0720077,Each plan shall be reviewed against the relevant contractual requirements. ,V?
 ECSS-Q-ST-80_0720151,"For the definition of the software related system requirements to be specified in the requirements baseline, ECSS-E-ST-40 clause 5.2 shall apply.",M
 ECSS-Q-ST-80_0720152,The requirements baseline shall be subject to documentation control and configuration management as part of the development documentation.,V
 ECSS-Q-ST-80_0720153,"For the definition of the requirements baseline, all results from the safety and dependability analyses (including results from the HSIA ECSS-Q-ST-30 clause 6.4.2.3) shall be used.",V
@@ -237,7 +326,12 @@ ECSS-Q-ST-80_0720157,"In addition to the functional requirements, the technical 
 ECSS-Q-ST-80_0720158,"Prior to the technical specification elaboration, customer and supplier shall agree on the following principles and rules as a minimum:     1. assignment of persons (on both sides) responsible for establishing the technical specification;     2. methods for agreeing on requirements and approving changes;     3. efforts to prevent misunderstandings such as definition of terms, explanations of background of requirements;     4. recording and reviewing discussion results on both sides.",PM
 ECSS-Q-ST-80_0720228,The software quality requirements (including safety and dependability requirements) shall be derived from the requirements defined at system level.,M
 ECSS-Q-ST-80_0720229,Quality requirements shall be expressed in quantitative terms or constraints.,M
+ECSS-Q-ST-80_0720230,The supplier shall define assurance activities to ensure that the product meets the quality requirements as specified in the technical specification.,NF
+ECSS-Q-ST-80_0720231,"In order to verify the implementation of the product quality requirements, the supplier shall define a metrication programme based on the identified quality model (see clause 5.2.7), specifying:     1. the metrics to be collected and stored;     2. the means to collect metrics (measurements);     3. the target values, with reference to the product quality requirements;     4. the analyses to be performed on the collected metrics, including the ones to derive:         (a) descriptive statistics;         (b) trend analysis (such as trends in software problems).     5. how the results of the analyses performed on the collected metrics are fed back to the development team and used to identify corrective actions;     6. the schedule of metrics collection, storing, analysis and reporting, with reference to the whole software life cycle.",NF
+ECSS-Q-ST-80_0720232,"The following basic products metrics shall be used:     1. size (code);     2. complexity (design, code);     3. fault density and failure intensity;     4. test coverage;     5. number of failures.",NF
+ECSS-Q-ST-80_0720233,"The results of metrics collection and analysis shall be included in the software product assurance reports, in order to provide the customer with an insight into the level of quality obtained.",NF
+ECSS-Q-ST-80_0720234,Numerical accuracy shall be estimated and verified.,NF
+ECSS-Q-ST-80_0720235,The supplier shall define the organization and means implemented to collect and analyse data required for the study of software maturity.,NF
 ECSS-Q-ST-80_0720236,The software quality requirements shall be documented in the requirements baseline and technical specification.,M
 ECSS-Q-ST-80_0720237,The software requirements shall be:      1. correct;     2. unambiguous;     3. complete;     4. consistent;     5. verifiable;     6. traceable.,M
 ECSS-Q-ST-80_0720238,For each requirement the method for verification and validation shall be specified. ,M
-ECSS-Q-ST-80_0720251,"The technical specification of components developed for reuse shall include requirements for maintainability, portability and verification of those components.",V
