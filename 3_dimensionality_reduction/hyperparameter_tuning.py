@@ -21,9 +21,9 @@ def search_parameters(X_train, y_train):
     # pipeline with feature selector, PCA and the model
     pipeline = Pipeline(
         [
-        ('selector',SelectKBest(chi2)),
+        ('selector', SelectKBest(chi2)),
         ('pca', PCA()),
-        ('model',KNeighborsClassifier())
+        ('model', KNeighborsClassifier())
         ]
     )
     # GridSearchCV object that performs a grid search on the number of features to use

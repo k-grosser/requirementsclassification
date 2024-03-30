@@ -4,7 +4,8 @@ import pandas as pd
 df = pd.DataFrame(pd.read_excel('resources/EARM_ECSS_export(DOORS-v0.9_v2_21Feb2023).xlsx')) 
 # remove unnecessary columns
 df = df.drop(['ECSS Source Reference', 'DOORS Project', 'ECSS Req. Identifier', 'Type', 
-              'RCM Version', 'ECSS Change Status', 'Text of Note of Original requirement', '_subclass_'], axis=1)
+              'RCM Version', 'ECSS Change Status', 'Text of Note of Original requirement', 
+              'Klasse', 'Anzahl', '_subclass_'], axis=1)
 # rename columns
 df.columns = ['ID', 'RequirementText', '_class_']
 

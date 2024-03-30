@@ -74,25 +74,68 @@ ECSS-E-ST-60-20_0920014,sensor autonomous attitude determination shall minimum o
 ECSS-E-ST-60-20_0920015,minimum set input supply order initialize autonomous attitude track shall attitude quaternion dimension angular rate vector give angular rate sensor brf respect irf note vector express sensor brf validity date supply attitude angular rate,F
 ECSS-E-ST-60-20_0920016,aid track data specify shall supply regularly spacecraft update rate accuracy agree customer,F
 ECSS-E-ST-60-20_0920017,except attitude quaternion unit input shall indicate,F
-ECSS-S-ST-00_1000001,customer shall select ec standard make applicable use establish projectproduct requirement include use ecsssst term definition,M
-ECSS-S-ST-00_1000002,customer shall define part project requirement documentation prd set requirement tailor ec document project specificity make applicable,V
-ECSS-S-ST-00_1000003,customer shall produce part prd documentation identify ec requirement applicable project,V
+ECSS-S-ST-00_1000001,customer shall select ec standard make applicable use establish projectproduct requirement include use ecsssst term definition,PM
+ECSS-S-ST-00_1000002,customer shall define part project requirement documentation prd set requirement tailor ec document project specificity make applicable,PM
+ECSS-S-ST-00_1000003,customer shall produce part prd documentation identify ec requirement applicable project,PM
 ECSS-S-ST-00_1000004,documentation identifying requirement applicable project shall include follow data eg earm complete list ec standard either fully partially applicable projectproduct include standard ec make applicable via chain normative reference partially applicable standard status requirement applicable without modification applicable modification applicable complete list additional requirement modify additional requirement complete formulation,V
-ECSS-S-ST-00_1000005,supplier shall demonstrate compliance prd requirement,V
+ECSS-S-ST-00_1000005,supplier shall demonstrate compliance prd requirement,PM
 ECSS-S-ST-00_1000006,documentation identify compliance ec requirement applicable project eg ecm shall include follow data complete list ec requirement applicable project eg earm requirement actual indication compliance deviation identify justification provide,V
-ECSS-E-ST-10_0790004,system engineering function shall analyse requirement system issue customer,M
-ECSS-E-ST-10_0790005,system engineering function shall derive generate control maintain set requirement lower level element define design operational constraint parameter functionality performance verification necessary meet system requirement issue customer,V
+ECSS-E-ST-10_0790004,system engineering function shall analyse requirement system issue customer,PM
+ECSS-E-ST-10_0790005,system engineering function shall derive generate control maintain set requirement lower level element define design operational constraint parameter functionality performance verification necessary meet system requirement issue customer,PM
 ECSS-E-ST-10_0790006,system engineering function shall ensure consistency requirement system level lower level well amongst level,M
 ECSS-E-ST-10_0790007,system engineering function shall ensure requirement generate b conformance characteristic specify ecssest clause,M
 ECSS-E-ST-10_0790008,system engineering function shall ensure requirement lower level element justification reflect requirement justification file conformance annex,M
 ECSS-E-ST-10_0790009,system engineering function shall ensure forward backward traceability requirement source lower level requirement exist change design inducing modification requirement verification closeout,M
-ECSS-E-ST-10_0790010,system engineering function shall establish maintain requirement traceability matrix conformance annex n,V
-ECSS-E-ST-10_0790011,system engineering function shall ensure requirement closeout traceability document vcd conformance ecssest annex b,V
-ECSS-E-ST-10_0790012,system engineering function shall establish technical requirement specification next lower level product consistent among technical specification receive customer,V
+ECSS-E-ST-10_0790010,system engineering function shall establish maintain requirement traceability matrix conformance annex n,PM
+ECSS-E-ST-10_0790012,system engineering function shall establish technical requirement specification next lower level product consistent among technical specification receive customer,PM
 ECSS-E-ST-10_0790013,system engineering function shall ensure technical requirement specification establishes conform ecssest drd annex,V
-ECSS-E-ST-10_0790014,system engineering function shall establish specification tree conformance annex j,V
-ECSS-E-ST-10_0790016,system engineering function shall involve customer consolidation requirement identify resolve incomplete duplicate ambiguous contradictory requirement customerissued requirement,M
-ECSS-E-ST-10_0790017,system engineering function shall reflect consolidated requirement release technical specification,V
+ECSS-E-ST-10_0790014,system engineering function shall establish specification tree conformance annex j,PM
+ECSS-E-ST-10_0790016,system engineering function shall involve customer consolidation requirement identify resolve incomplete duplicate ambiguous contradictory requirement customerissued requirement,PM
+ECSS-E-ST-10_0790017,system engineering function shall reflect consolidated requirement release technical specification,PM
+ECSS-E-ST-10_0790149,sep shall contain description purpose objective content reason prompt preparation eg programme project reference phase,V
+ECSS-E-ST-10_0790150,sep shall list applicable reference document support generation document,V
+ECSS-E-ST-10_0790151,sep shall include reference follow applicable document business agreement project management plan define ecssmst annex product assurance plan define ecssqst annex configuration management plan define ecssmst annex production plan mission operation plan define ecssest annex g il plan,V
+ECSS-E-ST-10_0790152,sep shall contain follow description project objective main element characterize user need objective system product establish t define ecssest annex main element system architecture ie first level element architecture adopt system identification reuse constraint principal characteristic project lifecycle incremental development system eg successive version progressive implementation function system main element support project lifecycle eg ground support equipment facility organizational constraint impact system engineering activity eg external internal industrial organization eg contractor partner supplier company constraint list critical issue identify begin project phase list national international regulation capacity verification validation product take account mean available eg test analysis simulation,V
+ECSS-E-ST-10_0790153,sep shall detail incremental development system progressive implementation system functionalities identification possible successive version objective strategy implementation successive version,V
+ECSS-E-ST-10_0790154,sep shall provide implementation schedule system engineering activity identify consider phase minimum main project milestone drive system engineering process phase project lifecycle main review accordance project management plan,V
+ECSS-E-ST-10_0790155,sep shall provide date milestone duration phase critical path accord project master schedule,V
+ECSS-E-ST-10_0790156,sep shall describe strategy acquisition item system product define product tree eg make buy product line incremental development,V
+ECSS-E-ST-10_0790157,sep shall list critical issue identify begin project phase cover sep eg specific issue problem critical subject require dedicate attention investigation action planning,V
+ECSS-E-ST-10_0790158,sep shall list drive input system engineering activity describe defined business agreement output previous phase expect head activity control within context sep eg data provide customer data come project upstream predevelopment study product line project management plan product assurance plan risk management plan configuration documentation management plan,V
+ECSS-E-ST-10_0790159,sep shall list external mean facility eg equipment software premise make available customer entity external supplier responsible sep identify mean facility identify applicable interface requirement eg interface control documentation well authority charge,V
+ECSS-E-ST-10_0790160,sep shall list internal mean facility eg equipment software premise make available organization charge development system product,V
+ECSS-E-ST-10_0790161,sep shall contain coordinate system document define ecssest annex,V
+ECSS-E-ST-10_0790162,sep shall define unit system use project,V
+ECSS-E-ST-10_0790163,sep shall list specified system engineering output define ecssest clause specific project phase cover sep,V
+ECSS-E-ST-10_0790164,sep shall describe follow strategy system engineering activity line guideline address management plan particular identify intermediate technical event phase compliance master program schedule system design activity objectives major output accord phase major engineering activity intermediate technical event show mutual interaction relationship principal milestone ie internal contractual project model philosophy define ecssest clause term number characterization model system request lower level necessary achieve high confidence product verification margin policy accord project phase product category maturity level,V
+ECSS-E-ST-10_0790165,sep shall also describe method process consider engineering activity eg concurrent engineering value analysis iteration cycle interrelation different engineering discipline project activity eg production quality assurance operation logistics interaction actor eg customer supplier consistency coherency simultaneous activity eg perform parallel control activity implement assessment potential cot usage,V
+ECSS-E-ST-10_0790166,case system incremental evolution sep shall describe design strategy development initial release product development verification subsequent release deployment introduction new technology tool method use analysis control evolution release,V
+ECSS-E-ST-10_0790167,sep shall contain follow definition entity participate system engineering activity correspond function accord project management plan identification key engineering role responsibility eg system engineer discipline engineer technical manager description cooperative work amongst different team participate system design,V
+ECSS-E-ST-10_0790168,sep shall describe external internal coordination line project management plan,V
+ECSS-E-ST-10_0790248,specification tree document shall contain description purpose objective reason prompt preparation,V
+ECSS-E-ST-10_0790249,specification tree document shall contain list applicable reference document use support generation document,V
+ECSS-E-ST-10_0790250,specification tree document shall contain brief description project key user need,V
+ECSS-E-ST-10_0790251,specification tree document shall provide complete list specification define system product contain graphical representation system product specification ie top level tree decompose lower level product specification,V
+ECSS-E-ST-10_0790252,recurrent product previous space project use specification shall identify tree structure addition every necessary product supplier responsibility specification shall identify tree structure,V
+ECSS-E-ST-10_0790253,specification tree shall coherent product tree see ecssmst business agreement structure see ecssmst,V
+ECSS-E-ST-10_0790312,rtm shall contain description purpose objective content reason prompt preparation,V
+ECSS-E-ST-10_0790313,rtm shall list applicable reference document support generation document,V
+ECSS-E-ST-10_0790314,rtm shall include follow technical requirement specification define ecssest annex product lower level element product tree define ecssmst annex b specification tree define ecssest annex j,V
+ECSS-E-ST-10_0790315,rtm shall list technical requirement product t,V
+ECSS-E-ST-10_0790316,rtm shall list lower level element constitute product technical requirement contain lowerlevel element t,V
+ECSS-E-ST-10_0790317,requirement identification shall identical rtm different t,V
+ECSS-E-ST-10_0790318,technical requirement product shall link least one requirement lower level element,M
+ECSS-E-ST-10_0790405,technical requirement lower level element link technical requirement product,M
+ECSS-E-ST-10_0790320,technical requirement lower level element link technical requirement product requirement shall justify evaluation existence removal product shall agree customer supplier,M
+ECSS-E-ST-10_0790321,rjf shall contain description purpose objective content reason prompt preparation,V
+ECSS-E-ST-10_0790322,rjf shall list applicable reference document support generation document,V
+ECSS-E-ST-10_0790323,rjf shall include reference technical requirement specification,V
+ECSS-E-ST-10_0790324,rjf shall present rationale selection concept technical requirement specification,V
+ECSS-E-ST-10_0790325,rjf shall present justify life profile situation concept present technical requirement specification,V
+ECSS-E-ST-10_0790326,rjf shall present justify different environment constraint life profile situation concept present technical requirement specification,V
+ECSS-E-ST-10_0790327,rjf shall list technical requirement identifier express corresponding t organize document,V
+ECSS-E-ST-10_0790328,technical requirement follow information shall provide justification requirement ie justify source entity owner responsible requirement one technical requirement induce several source reason specify performance justification quantify performance range approach use determine level eg measure estimation justification select verification method,M
+ECSS-E-ST-10_0790329,rjf shall present requirement traceability technical requirement ts justified source,V
 ECSS-E-ST-10-06_0770001,technical requirement shall formulate defined clause,M
 ECSS-E-ST-10-06_0770002,specification shall identifiable referable relate product system,V
 ECSS-E-ST-10-06_0770003,entity shall identify responsible specification,V
@@ -229,7 +272,7 @@ ECSS-E-ST-60-21_1350006,shall possible power gyro time mode operation without ca
 ECSS-E-ST-60-21_1350007,customer shall specify transition gyro operational mode phase transient behaviour,NF
 ECSS-E-ST-60-21_1350008,mode status shall present housekeep data,NF
 ECSS-E-ST-60-21_1350009,reset capacity shall available commonly define supplier customer,F
-ECSS-E-ST-60-21_1350010,operating mode requirement shall verify test qualification acceptance test,M
+ECSS-E-ST-60-21_1350010,operating mode requirement shall verify test qualification acceptance test,NF
 ECSS-E-ST-60-21_1350011,gyro channel shall provide valid inertial data interface bus switchon equipment within maximum specified duration angular rate within input range,F
 ECSS-E-ST-60-21_1350012,startup performance specify clause shall achieve within maximum specified duration switchon,NF
 ECSS-E-ST-60-21_1350013,startup duration shall measure external mean,NF
@@ -246,7 +289,7 @@ ECSS-E-ST-60-21_1350023,work continuous mode time correlation mechanism shall av
 ECSS-E-ST-60-21_1350024,work synchronous mode angular inertial data measurement acquisition shall synchronize external interrogation signal,F
 ECSS-E-ST-60-21_1350025,gyro work synchronous mode external interrogation signal shall accuracy specify clause,NF
 ECSS-E-ST-60-21_1350026,gyro work synchronous mode equipment shall offer also possibility choose synchronisation signal amongst two option synchronisation signal chosen data interface broadcast unicast data bus dedicate command serial link pulse synchro link interface,F
-ECSS-E-ST-60-21_1350027,requirement shall verify test external clock reference,M
+ECSS-E-ST-60-21_1350027,requirement shall verify test external clock reference,NF
 ECSS-E-ST-60-21_1350035,gyro shall provide periodic housekeep data data require monitoring execution nominal foreseen contingency operation throughout entire mission lifetime,F
 ECSS-E-ST-60-21_1350036,gyro shall allow onrequest housekeep data acquisition,F
 ECSS-E-ST-60-21_1350037,verification test shall perform test setup representative interface requirement specify customer,NF
@@ -258,12 +301,12 @@ ECSS-E-ST-60-21_1350042,measurement mode shall provide measurement data include 
 ECSS-E-ST-60-21_1350043,gyro shall output temperature measurement,F
 ECSS-E-ST-60-21_1350044,internal filter compensation apply measurement raw filter compensate data shall provide,F
 ECSS-E-ST-60-21_1350045,measurement bandwidth shall specify follow output angular rate unfiltered filtered angular increment unfiltered filter cumulated angular increment unfiltered,F
-ECSS-E-ST-60-21_1350046,measurement mode functional requirement shall verify test,M
+ECSS-E-ST-60-21_1350046,measurement mode functional requirement shall verify test,NF
 ECSS-E-ST-60-21_1350047,gyro shall provide test mode,F
 ECSS-E-ST-60-21_1350048,use test mode unit inflight shall specify necessary,F
 ECSS-E-ST-60-21_1350049,gyro shall provide programmable mode,F
 ECSS-E-ST-60-21_1350050,inflight protection misuse test programmable mode shall implement agreement user specification,NF
-ECSS-E-ST-60-21_1350051,auxiliary mode functional requirement shall verify test,M
+ECSS-E-ST-60-21_1350051,auxiliary mode functional requirement shall verify test,NF
 ECSS-E-ST-60-20_0920001,acquisition command shall supply minimum set input,F
 ECSS-E-ST-60-20_0920002,sensor cartography capability shall follow minimum output star position measurement date,F
 ECSS-E-ST-60-20_0920003,star image measure detectorfixed frame boresight reference frame brf output shall convert boresight reference frame brf,F
@@ -315,7 +358,7 @@ ECSS-Q-ST-80_0720007,supplier shall identify personnel responsible software prod
 ECSS-Q-ST-80_0720008,software product assurance managerengineer shall report project manager project product assurance manager organisational authority independence propose maintain software product assurance programme accordance project software product assurance requirement unimpeded access higher management necessary fulfil hisher duty,PM
 ECSS-Q-ST-80_0720009,supplier shall review project requirement establish make timely provision acquire develop resource skill management technical staff,PM
 ECSS-Q-ST-80_0720039,supplier shall establish software product assurance requirement next level supplier tailor role project include requirement produce software product assurance plan,M
-ECSS-Q-ST-80_0720040,supplier shall provide software product assurance requirement applicable next level supplier customer acceptance,M
+ECSS-Q-ST-80_0720040,supplier shall provide software product assurance requirement applicable next level supplier customer acceptance,PM
 ECSS-Q-ST-80_0720151,definition software relate system requirement specify requirement baseline ecssest clause shall apply,M
 ECSS-Q-ST-80_0720152,requirement baseline shall subject documentation control configuration management part development documentation,V
 ECSS-Q-ST-80_0720153,definition requirement baseline result safety dependability analyse include result hsia ecssqst clause shall use,V
@@ -326,8 +369,8 @@ ECSS-Q-ST-80_0720157,addition functional requirement technical specification sha
 ECSS-Q-ST-80_0720158,prior technical specification elaboration customer supplier shall agree follow principle rule minimum assignment person side responsible establish technical specification method agree requirement approve change effort prevent misunderstanding definition term explanation background requirement record review discussion result side,PM
 ECSS-Q-ST-80_0720228,software quality requirement include safety dependability requirement shall derive requirement defined system level,M
 ECSS-Q-ST-80_0720229,quality requirement shall express quantitative term constraint,M
-ECSS-Q-ST-80_0720230,supplier shall define assurance activity ensure product meet quality requirement specify technical specification,NF
-ECSS-Q-ST-80_0720231,order verify implementation product quality requirement supplier shall define metrication programme base identified quality model see clause specify metric collect stored mean collect metric measurement target value reference product quality requirement analyse perform collected metric include one derive descriptive statistic b trend analysis trend software problem result analysis perform collected metric feed back development team use identify corrective action schedule metric collection store analysis reporting reference whole software life cycle,NF
+ECSS-Q-ST-80_0720230,supplier shall define assurance activity ensure product meet quality requirement specify technical specification,PM
+ECSS-Q-ST-80_0720231,order verify implementation product quality requirement supplier shall define metrication programme base identified quality model see clause specify metric collect stored mean collect metric measurement target value reference product quality requirement analyse perform collected metric include one derive descriptive statistic b trend analysis trend software problem result analysis perform collected metric feed back development team use identify corrective action schedule metric collection store analysis reporting reference whole software life cycle,PM
 ECSS-Q-ST-80_0720232,follow basic product metric shall use size code complexity design code fault density failure intensity test coverage number failure,NF
 ECSS-Q-ST-80_0720233,result metric collection analysis shall include software product assurance report order provide customer insight level quality obtain,NF
 ECSS-Q-ST-80_0720234,numerical accuracy shall estimate verify,NF

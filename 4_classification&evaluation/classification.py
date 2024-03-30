@@ -1,5 +1,5 @@
 import pandas as pd
-from sklearn.model_selection import StratifiedKFold, cross_val_score
+from sklearn.model_selection import StratifiedKFold, cross_validate
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn import svm
 from sklearn.linear_model import LogisticRegression
@@ -37,7 +37,14 @@ y_pca_tfidf = df_pca_tfidf['_class_']
 
 # dataframe to store the mean value of each metric (accuracy, precision, recall and f1-score) 
 # for every classifier (kNN, SVM, LR, NB) 
-df_evaluation = pd.DataFrame(index=['kNN', 'SVM', 'LR', 'NB'])
+df_evaluation_metrics = pd.DataFrame(index=['kNN', 'SVM', 'LR', 'NB'])
+
+# dataframe to store the mean time for fitting each classifier on the train sets and 
+# the mean time for scoring each classifier on the test sets  
+df_evaluation_time = pd.DataFrame(index=['kNN', 'SVM', 'LR', 'NB'])
+
+#metrics for evaluation
+scoring = ['accuracy', 'precision_macro', 'recall_macro', 'f1_macro']
 
 
 # evaluate the k-Nearest-Neighbor classification by cross-validation
@@ -46,70 +53,101 @@ def kNN_cross_validation(X, y):
     clf = KNeighborsClassifier()
     k_folds = StratifiedKFold(n_splits = 5) # ensure an equal proportion of all classes in each fold
 
-    scores_acc = cross_val_score(clf, X, y, cv = k_folds, scoring='accuracy')
-    scores_pre = cross_val_score(clf, X, y, cv = k_folds, scoring='precision_macro')
-    scores_recall = cross_val_score(clf, X, y, cv = k_folds, scoring='recall_macro')
-    scores_f1 = cross_val_score(clf, X, y, cv = k_folds, scoring='f1_macro')
+    scores = cross_validate(clf, X, y, cv = k_folds, scoring=scoring)
 
-    return [scores_acc.mean(), scores_pre.mean(), scores_recall.mean(), scores_f1.mean()]
+    scores['test_accuracy'] = scores['test_accuracy'].mean()
+    scores['test_precision_macro'] = scores['test_precision_macro'].mean()
+    scores['test_recall_macro'] = scores['test_recall_macro'].mean()
+    scores['test_f1_macro'] = scores['test_f1_macro'].mean()
+    
+    scores['fit_time'] = scores['fit_time'].mean()
+    scores['score_time'] = scores['score_time'].mean()
+    
+    return scores
 
 # evaluate the Support Vector Machine classification by cross-validation
-def SVM_cross_validation(X, y):
+def svm_cross_validation(X, y):
 
     clf = svm.SVC(kernel='linear')
     k_folds = StratifiedKFold(n_splits = 5) # ensure an equal proportion of all classes in each fold
 
-    scores_acc = cross_val_score(clf, X, y, cv = k_folds, scoring='accuracy')
-    scores_pre = cross_val_score(clf, X, y, cv = k_folds, scoring='precision_macro')
-    scores_recall = cross_val_score(clf, X, y, cv = k_folds, scoring='recall_macro')
-    scores_f1 = cross_val_score(clf, X, y, cv = k_folds, scoring='f1_macro')
+    scores = cross_validate(clf, X, y, cv = k_folds, scoring=scoring)
 
-    return [scores_acc.mean(), scores_pre.mean(), scores_recall.mean(), scores_f1.mean()]
+    scores['test_accuracy'] = scores['test_accuracy'].mean()
+    scores['test_precision_macro'] = scores['test_precision_macro'].mean()
+    scores['test_recall_macro'] = scores['test_recall_macro'].mean()
+    scores['test_f1_macro'] = scores['test_f1_macro'].mean()
+
+    scores['fit_time'] = scores['fit_time'].mean()
+    scores['score_time'] = scores['score_time'].mean()
+
+    return scores
 
 # evaluate the Logistic Regression classification by cross-validation
-def LR_cross_validation(X, y):
+def lr_cross_validation(X, y):
 
     clf = LogisticRegression()
     k_folds = StratifiedKFold(n_splits = 5) # ensure an equal proportion of all classes in each fold
 
-    scores_acc = cross_val_score(clf, X, y, cv = k_folds, scoring='accuracy')
-    scores_pre = cross_val_score(clf, X, y, cv = k_folds, scoring='precision_macro')
-    scores_recall = cross_val_score(clf, X, y, cv = k_folds, scoring='recall_macro')
-    scores_f1 = cross_val_score(clf, X, y, cv = k_folds, scoring='f1_macro')
+    scores = cross_validate(clf, X, y, cv = k_folds, scoring=scoring)
 
-    return [scores_acc.mean(), scores_pre.mean(), scores_recall.mean(), scores_f1.mean()]
+    scores['test_accuracy'] = scores['test_accuracy'].mean()
+    scores['test_precision_macro'] = scores['test_precision_macro'].mean()
+    scores['test_recall_macro'] = scores['test_recall_macro'].mean()
+    scores['test_f1_macro'] = scores['test_f1_macro'].mean()
+
+    scores['fit_time'] = scores['fit_time'].mean()
+    scores['score_time'] = scores['score_time'].mean()
+
+    return scores
 
 # evaluate the Multinomial Naive Bayes classification by cross-validation
-def NB_cross_validation(X, y):
+def nb_cross_validation(X, y):
 
     clf = MultinomialNB()
     k_folds = StratifiedKFold(n_splits = 5) # ensure an equal proportion of all classes in each fold
 
-    scores_acc = cross_val_score(clf, X, y, cv = k_folds, scoring='accuracy')
-    scores_pre = cross_val_score(clf, X, y, cv = k_folds, scoring='precision_macro')
-    scores_recall = cross_val_score(clf, X, y, cv = k_folds, scoring='recall_macro')
-    scores_f1 = cross_val_score(clf, X, y, cv = k_folds, scoring='f1_macro')
+    scores = cross_validate(clf, X, y, cv = k_folds, scoring=scoring)
 
-    return [scores_acc.mean(), scores_pre.mean(), scores_recall.mean(), scores_f1.mean()]
+    scores['test_accuracy'] = scores['test_accuracy'].mean()
+    scores['test_precision_macro'] = scores['test_precision_macro'].mean()
+    scores['test_recall_macro'] = scores['test_recall_macro'].mean()
+    scores['test_f1_macro'] = scores['test_f1_macro'].mean()
+
+    scores['fit_time'] = scores['fit_time'].mean()
+    scores['score_time'] = scores['score_time'].mean()
+
+    return scores
 
 
-# store the evaluation scores for one classifier and one feature extraction technique in the evaluation dataframe
+# store the evaluation scores of a given classifier and a given feature extraction technique in the evaluation dataframe
 def store_evaluation_scores(scores, scores_chi, scores_pca, clf, feature_extraction):
 
-    df_evaluation.at[clf, feature_extraction + '_accuracy'] = scores[0]
-    df_evaluation.at[clf, feature_extraction + '_precision'] = scores[1]
-    df_evaluation.at[clf, feature_extraction + '_recall'] = scores[2]
-    df_evaluation.at[clf, feature_extraction + '_f1'] = scores[3]
+    # storing the values of the different metrics
+    df_evaluation_metrics.at[clf, feature_extraction + '_accuracy'] = scores['test_accuracy']
+    df_evaluation_metrics.at[clf, feature_extraction + '_precision'] = scores['test_precision_macro']
+    df_evaluation_metrics.at[clf, feature_extraction + '_recall'] = scores['test_recall_macro']
+    df_evaluation_metrics.at[clf, feature_extraction + '_f1'] = scores['test_f1_macro']
     
-    df_evaluation.at[clf, feature_extraction + '_chi_accuracy'] = scores_chi[0]
-    df_evaluation.at[clf, feature_extraction + '_chi_precision'] = scores_chi[1]
-    df_evaluation.at[clf, feature_extraction + '_chi_recall'] = scores_chi[2]
-    df_evaluation.at[clf, feature_extraction + '_chi_f1'] = scores_chi[3]
+    df_evaluation_metrics.at[clf, feature_extraction + '_chi_accuracy'] = scores_chi['test_accuracy']
+    df_evaluation_metrics.at[clf, feature_extraction + '_chi_precision'] = scores_chi['test_precision_macro']
+    df_evaluation_metrics.at[clf, feature_extraction + '_chi_recall'] = scores_chi['test_recall_macro']
+    df_evaluation_metrics.at[clf, feature_extraction + '_chi_f1'] = scores_chi['test_f1_macro']
 
-    df_evaluation.at[clf, feature_extraction + '_pca_accuracy'] = scores_pca[0]
-    df_evaluation.at[clf, feature_extraction + '_pca_precision'] = scores_pca[1]
-    df_evaluation.at[clf, feature_extraction + '_pca_recall'] = scores_pca[2]
-    df_evaluation.at[clf, feature_extraction + '_pca_f1'] = scores_pca[3]
+    df_evaluation_metrics.at[clf, feature_extraction + '_pca_accuracy'] = scores_pca['test_accuracy']
+    df_evaluation_metrics.at[clf, feature_extraction + '_pca_precision'] = scores_pca['test_precision_macro']
+    df_evaluation_metrics.at[clf, feature_extraction + '_pca_recall'] = scores_pca['test_recall_macro']
+    df_evaluation_metrics.at[clf, feature_extraction + '_pca_f1'] = scores_pca['test_f1_macro']
+
+    #storing the values of the fitting and scoring times
+    df_evaluation_time.at[clf, feature_extraction + '_fitting'] = scores['fit_time']
+    df_evaluation_time.at[clf, feature_extraction + '_scoring'] = scores['score_time']
+
+    df_evaluation_time.at[clf, feature_extraction + '_chi_fitting'] = scores['fit_time']
+    df_evaluation_time.at[clf, feature_extraction + '_chi_scoring'] = scores['score_time']
+
+    df_evaluation_time.at[clf, feature_extraction + '_pca_fitting'] = scores['fit_time']
+    df_evaluation_time.at[clf, feature_extraction + '_pca_scoring'] = scores['score_time']
 
 
 # start the evaluation of each classifier with requirements data of different stages of preparation
@@ -128,46 +166,49 @@ scores_pca_tfidf = kNN_cross_validation(X_pca_tfidf, y_pca_tfidf)
 store_evaluation_scores(scores_tfidf, scores_chi_tfidf, scores_pca_tfidf, 'kNN', 'TF-IDF')
 
 # SVM
-scores_bow = SVM_cross_validation(X_bow, y_bow)
-scores_chi_bow = SVM_cross_validation(X_chi_bow, y_chi_bow)
-scores_pca_bow = SVM_cross_validation(X_pca_bow, y_pca_bow)
+scores_bow = svm_cross_validation(X_bow, y_bow)
+scores_chi_bow = svm_cross_validation(X_chi_bow, y_chi_bow)
+scores_pca_bow = svm_cross_validation(X_pca_bow, y_pca_bow)
 
 store_evaluation_scores(scores_bow, scores_chi_bow, scores_pca_bow, 'SVM', 'BoW')
 
-scores_tfidf = SVM_cross_validation(X_tfidf, y_tfidf)
-scores_chi_tfidf = SVM_cross_validation(X_chi_tfidf, y_chi_tfidf)
-scores_pca_tfidf = SVM_cross_validation(X_pca_tfidf, y_pca_tfidf)
+scores_tfidf = svm_cross_validation(X_tfidf, y_tfidf)
+scores_chi_tfidf = svm_cross_validation(X_chi_tfidf, y_chi_tfidf)
+scores_pca_tfidf = svm_cross_validation(X_pca_tfidf, y_pca_tfidf)
 
 store_evaluation_scores(scores_tfidf, scores_chi_tfidf, scores_pca_tfidf, 'SVM', 'TF-IDF')
 
 # LR
-scores_bow = LR_cross_validation(X_bow, y_bow)
-scores_chi_bow = LR_cross_validation(X_chi_bow, y_chi_bow)
-scores_pca_bow = LR_cross_validation(X_pca_bow, y_pca_bow)
+scores_bow = lr_cross_validation(X_bow, y_bow)
+scores_chi_bow = lr_cross_validation(X_chi_bow, y_chi_bow)
+scores_pca_bow = lr_cross_validation(X_pca_bow, y_pca_bow)
 
 store_evaluation_scores(scores_bow, scores_chi_bow, scores_pca_bow, 'LR', 'BoW')
 
-scores_tfidf = LR_cross_validation(X_tfidf, y_tfidf)
-scores_chi_tfidf = LR_cross_validation(X_chi_tfidf, y_chi_tfidf)
-scores_pca_tfidf = LR_cross_validation(X_pca_tfidf, y_pca_tfidf)
+scores_tfidf = lr_cross_validation(X_tfidf, y_tfidf)
+scores_chi_tfidf = lr_cross_validation(X_chi_tfidf, y_chi_tfidf)
+scores_pca_tfidf = lr_cross_validation(X_pca_tfidf, y_pca_tfidf)
 
 store_evaluation_scores(scores_tfidf, scores_chi_tfidf, scores_pca_tfidf, 'LR', 'TF-IDF')
 
 # NB
-scores_bow = NB_cross_validation(X_bow, y_bow)
-scores_chi_bow = NB_cross_validation(X_chi_bow, y_chi_bow)
-scores_pca_bow = [0, 0, 0, 0] # PCA leads to negative values the MNB classifier cannot work with
+scores_bow = nb_cross_validation(X_bow, y_bow)
+scores_chi_bow = nb_cross_validation(X_chi_bow, y_chi_bow)
+scores_pca_bow = {'fit_time': 0, 'score_time': 0, 'test_accuracy': 0, 'test_precision_macro': 0, 'test_recall_macro': 0, 'test_f1_macro': 0} # PCA leads to negative values the MNB classifier cannot work with
 
 store_evaluation_scores(scores_bow, scores_chi_bow, scores_pca_bow, 'NB', 'BoW')
 
-scores_tfidf = NB_cross_validation(X_tfidf, y_tfidf)
-scores_chi_tfidf = NB_cross_validation(X_chi_tfidf, y_chi_tfidf)
-scores_pca_tfidf = [0, 0, 0, 0] # PCA leads to negative values the MNB classifier cannot work with
+scores_tfidf = nb_cross_validation(X_tfidf, y_tfidf)
+scores_chi_tfidf = nb_cross_validation(X_chi_tfidf, y_chi_tfidf)
+scores_pca_tfidf = {'fit_time': 0, 'score_time': 0, 'test_accuracy': 0, 'test_precision_macro': 0, 'test_recall_macro': 0, 'test_f1_macro': 0} # PCA leads to negative values the MNB classifier cannot work with
 
 store_evaluation_scores(scores_tfidf, scores_chi_tfidf, scores_pca_tfidf, 'NB', 'TF-IDF')
 
-# export the evaluation dataframe to an excel file
-df_evaluation.to_excel('4_classification&evaluation/output/evaluation.xlsx')
+
+# export the evaluation dataframes to excel files
+df_evaluation_metrics.to_excel('4_classification&evaluation/output/evaluation_metrics.xlsx')
+df_evaluation_time.to_excel('4_classification&evaluation/output/evaluation_time.xlsx')
 
 with pd.option_context('display.max_rows', None, 'display.max_columns', None): 
-    print(df_evaluation)
+    print(df_evaluation_metrics)
+    print(df_evaluation_time)
