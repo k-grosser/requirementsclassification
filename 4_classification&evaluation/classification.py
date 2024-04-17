@@ -4,6 +4,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn import svm
 from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import MultinomialNB
+from sklearn.ensemble import VotingClassifier
 
 # import requirements data (BoW without dimensionality reduction)
 df_bow = pd.read_csv(filepath_or_buffer='2_feature_extraction/output/req_vectorized_bow.csv', header=0)
@@ -37,11 +38,11 @@ y_pca_tfidf = df_pca_tfidf['_class_']
 
 # dataframe to store the mean value of each metric (accuracy, precision, recall and f1-score) 
 # for every classifier (kNN, SVM, LR, NB) 
-df_evaluation_metrics = pd.DataFrame(index=['kNN', 'SVM', 'LR', 'NB'])
+df_evaluation_metrics = pd.DataFrame(index=['kNN', 'SVM', 'LR', 'NB', 'Ensemble'])
 
 # dataframe to store the mean time for fitting each classifier on the train sets and 
 # the mean time for scoring each classifier on the test sets  
-df_evaluation_time = pd.DataFrame(index=['kNN', 'SVM', 'LR', 'NB'])
+df_evaluation_time = pd.DataFrame(index=['kNN', 'SVM', 'LR', 'NB', 'Ensemble'])
 
 #metrics for evaluation
 scoring = ['accuracy', 'precision_macro', 'recall_macro', 'f1_macro']
@@ -105,9 +106,38 @@ def lr_cross_validation(X, y):
 def nb_cross_validation(X, y):
 
     clf = MultinomialNB()
-    k_folds = StratifiedKFold(n_splits = 5) # ensure an equal proportion of all classes in each fold
+    k_folds = StratifiedKFold(n_splits = 5) # ensure an equal distribution of the classes in each fold
 
     scores = cross_validate(clf, X, y, cv = k_folds, scoring=scoring)
+
+    scores['test_accuracy'] = scores['test_accuracy'].mean()
+    scores['test_precision_macro'] = scores['test_precision_macro'].mean()
+    scores['test_recall_macro'] = scores['test_recall_macro'].mean()
+    scores['test_f1_macro'] = scores['test_f1_macro'].mean()
+
+    scores['fit_time'] = scores['fit_time'].mean()
+    scores['score_time'] = scores['score_time'].mean()
+
+    return scores
+
+# evaluate the Ensemble classification by cross-validation
+def ensemble_cross_validation(X, y, pca:bool):
+
+    clf1 = KNeighborsClassifier()
+    clf2 = svm.SVC(kernel='linear')
+    clf3 = LogisticRegression()
+    clf4 = MultinomialNB()
+
+    eclf = VotingClassifier(
+        estimators=[('kNN', clf1), ('svm', clf2), ('lr', clf3), ('mnb', clf4)], 
+        voting='hard')
+    # PCA leads to negative values the MNB classifier cannot work with
+    if pca:
+        eclf.set_params(mnb='drop')
+    
+    k_folds = StratifiedKFold(n_splits = 5) # ensure an equal distribution of the classes in each fold
+
+    scores = cross_validate(eclf, X, y, cv = k_folds, scoring=scoring)
 
     scores['test_accuracy'] = scores['test_accuracy'].mean()
     scores['test_precision_macro'] = scores['test_precision_macro'].mean()
@@ -204,6 +234,18 @@ scores_pca_tfidf = {'fit_time': 0, 'score_time': 0, 'test_accuracy': 0, 'test_pr
 
 store_evaluation_scores(scores_tfidf, scores_chi_tfidf, scores_pca_tfidf, 'NB', 'TF-IDF')
 
+# Ensemble
+scores_bow = ensemble_cross_validation(X_bow, y_bow, False)
+scores_chi_bow = ensemble_cross_validation(X_chi_bow, y_chi_bow, False)
+scores_pca_bow = ensemble_cross_validation(X_chi_bow, y_chi_bow, True)
+
+store_evaluation_scores(scores_bow, scores_chi_bow, scores_pca_bow, 'Ensemble', 'BoW')
+
+scores_tfidf = ensemble_cross_validation(X_tfidf, y_tfidf, False)
+scores_chi_tfidf = ensemble_cross_validation(X_chi_tfidf, y_chi_tfidf, False)
+scores_pca_tfidf = ensemble_cross_validation(X_chi_bow, y_chi_bow, True)
+
+store_evaluation_scores(scores_tfidf, scores_chi_tfidf, scores_pca_tfidf, 'Ensemble', 'TF-IDF')
 
 # export the evaluation dataframes to excel files
 df_evaluation_metrics.to_excel('4_classification&evaluation/output/evaluation_metrics.xlsx')
