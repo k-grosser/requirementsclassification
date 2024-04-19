@@ -6,8 +6,8 @@ from nltk.stem import WordNetLemmatizer
 from nltk import pos_tag
 
 # import requirements data
-df = pd.read_csv(filepath_or_buffer='0_data_collection/output/ECSS_standards.csv', header=0, quotechar='"', doublequote=True)
-#df = df.drop('ProjectID', axis=1)
+df_classes = pd.read_csv(filepath_or_buffer='0_data_collection/output/ECSS_standards.csv', header=0, quotechar='"', doublequote=True)
+df_subclasses = pd.read_csv(filepath_or_buffer='0_data_collection/output/ECSS_standards_subclasses.csv', header=0, quotechar='"', doublequote=True)
 
 # preprocess a requirement's text
 def preprocess_requirement(text):
@@ -35,6 +35,8 @@ def preprocess_requirement(text):
     return ' '.join(tokens)
 
 # apply preprocessing function on every requirement text in the dataset   
-df['RequirementText'] = df['RequirementText'].apply(preprocess_requirement)
+df_classes['RequirementText'] = df_classes['RequirementText'].apply(preprocess_requirement)
+df_subclasses['RequirementText'] = df_subclasses['RequirementText'].apply(preprocess_requirement)
 
-df.to_csv('1_preprocessing/output/req_preprocessed.csv', index=False)
+df_classes.to_csv('1_preprocessing/output/req_preprocessed.csv', index=False)
+df_subclasses.to_csv('1_preprocessing/output/req_sub_preprocessed.csv', index=False)

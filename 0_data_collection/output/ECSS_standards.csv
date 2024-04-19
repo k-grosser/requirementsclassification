@@ -1,8 +1,6 @@
 ID,RequirementText,_class_
-ECSS-E-ST-10_0790248,"The specification tree document shall contain a description of the purpose, objective and the reason prompting its preparation. ",V
 ECSS-E-ST-10_0790251,"The specification tree document shall provide the complete list of specifications defining the system or product, and contain a graphical representation where the system or product specification (i.e. at the top level of the tree) is decomposed into lower level product specifications.",V
 ECSS-E-ST-10_0790252,"When recurrent products from previous space projects are used, their specification shall be identified in the tree structure, and in addition, for every necessary product that is not under the supplier’s responsibility, their specification shall be identified in the tree structure.",V
-ECSS-E-ST-10_0790253,The specification tree shall be coherent with the product tree (see ECSS-M-ST-10) and the business agreement structure (see ECSS-M-ST-60).,V
 ECSS-E-ST-10_0790314,The RTM shall include the following: 1.	Technical requirements specification (as defined in ECSS-E-ST-10-06 Annex A) of the product and its lower level elements 2.	Product tree (as defined in ECSS-M-ST-10 Annex B) 3.	Specification tree (as defined in ECSS-E-ST-10 Annex J).,V
 ECSS-E-ST-10_0790315,The RTM shall list all the technical requirement of the product TS.,V
 ECSS-E-ST-10_0790316,The RTM shall list all the lower level elements constituting the product and their technical requirements (contained in the lower-level element TS).,V
@@ -238,7 +236,6 @@ ECSS-E-ST-40_0860247,"The SSS shall include requirements for      1. the ins
 ECSS-E-ST-40_0860249,"The IRD shall contain a description of the purpose, objective, content and the reason prompting its preparation.",V
 ECSS-E-ST-40_0860252,The IRD shall describe the product external interfaces to other systems ,V
 ECSS-E-ST-40_0860253,The IRD shall describe any item that limits the supplier’s options for designing and developing the interfaces of the software.,V
-ECSS-E-ST-40_0860257,References to the interface control documents that define the external interfaces with the other systems shall be provided,V
 ECSS-E-ST-40_0860258,The IRD shall list or make reference to the existing assumptions and dependencies,V
 ECSS-E-ST-40_0860259,Each requirement shall be uniquely identified.,M
 ECSS-E-ST-40_0860260,The IRD shall list the external interface requirements specifying the interface behaviour and its associated performances.,V
@@ -256,7 +253,7 @@ ECSS-E-ST-40_0860277,"When requirements are expressed as models, the supplier sh
 ECSS-E-ST-40_0860278,"The traceability information of each requirement derived from higher level documentation, to the applicable higher level requirement, shall be stated.     NOTE The documented trace can be provided automatically by tools when models are used to express requirements.",M
 ECSS-E-ST-40_0860280,The SRS shall describe the capabilities to be provided by the software item under definition.,V
 ECSS-E-ST-40_0860281,The SRS shall provide where applicable the link between the requirements and the system states and modes.,V
-ECSS-E-ST-40_0860282,"Functional requirement shall be grouped by subject, in accordance with the logical model organization (e.g. per controlled subsystem).",M
+ECSS-E-ST-40_0860282,"Functional requirement shall be grouped by subject, in accordance with the logical model organization (e.g. per controlled subsystem).",V
 ECSS-E-ST-40_0860284,The SRS shall describe the functional requirements related to software safety and dependability.,V
 ECSS-E-ST-40_0860285,The SRS shall list any specific requirement to the specified performance of software item under definition.,V
 ECSS-E-ST-40_0860286,The SRS shall list and describe (or reference in the ICD) the software item external interfaces.,V
@@ -279,7 +276,6 @@ ECSS-E-ST-40_0860308,"The SRS shall report the traceability matrices      1.
 ECSS-E-ST-40_0860668,"If a system specification defines a product that is a component of a parent system or project, then the SSS should list the activities that are supported by external systems.",V
 ECSS-E-ST-40_0860669,"If a given requirement need not to be taken into account for the software validation against the requirements baseline, then it should be clearly identified.     NOTE A matrix (requirements to validation method correlation table) can be used to state the validation methods applicable to each requirement. This information can be further split into an information for validation requirements and an information for acceptance requirements, depending upon the project needs.",M
 ECSS-E-ST-40_0860673,"If a system specification defines a product that is a component of a parent system or project, then the IRD should list the activities that are supported by external systems.",V
-ECSS-E-ST-40_0860674,"If a given requirement need not be taken into account for the software validation against the requirements baseline, then it should be clearly identified.     NOTE A matrix (requirements to validation method correlation table) is used to state the validation methods applicable to each requirement. This information is further split into an information for validation requirements and an information for acceptance requirements, depending upon the project needs.",M
 ECSS-E-ST-40_0860676,The SRS should provide background information and seek to justify the constraints.,V
 ECSS-E-ST-40_0860677,"Requirements may be characterized, for example as essential or not, with a priority level to prepare incremental delivery, stable or not.",M
 ECSS-E-ST-40_0860678,Each requirement definition should be organized according to the following:     1. General     2. Inputs     3. Outputs     4. Processing,M
@@ -290,26 +286,17 @@ ECSS-E-ST-60-10_1020003,In the general case all probabilities shall be expressed
 ECSS-E-ST-60-10_1020004,"Using the ‘ns’ notation for expressing probabilities shall be restricted to cases where the hypothesis of Gaussian distribution holds.     NOTE 1 For example: in the general case Pc = 0,95 or Pc = 95 % are both acceptable, but Pc = 2s is not. Indeed the ‘ns’ format assumes a Gaussian distribution; using this notation for a general statistical distribution can cause wrong assumptions to be made. For a Gaussian the 95 % (2s) bound is twice as far from the mean as the 68 % (1s) bound, but this relation does not hold for a general distribution.     NOTE 2 Upon certain conditions the assumption of Gaussian distribution is not to be excluded a priory. For example the central limit theorem states that the sum of a large number of independent and identically-distributed random variables is approximately normally distributed.",M
 ECSS-E-ST-60-10_1020005,"When specifying the statistical interpretation (4.1.2a.4), it shall be stated which variables are varied across their possible ranges and which are set to worst case.     NOTE The most commonly used interpretations (temporal, ensemble, mixed) are extreme cases and can be inappropriate in some situations. Annex A.1.2 discusses this further.",M
 ECSS-E-ST-60-20_0920001,The acquisition command shall be supplied as minimum set of inputs.,F
-ECSS-E-ST-60-20_0920001,The acquisition command shall be supplied as minimum set of inputs.,F
-ECSS-E-ST-60-20_0920002,"A sensor with cartography capability shall have the following minimum outputs:     1. star position,     2. measurement date.",F
 ECSS-E-ST-60-20_0920002,"A sensor with cartography capability shall have the following minimum outputs: 1.	star position, 2.	measurement date.",F
 ECSS-E-ST-60-20_0920003,"When the Star Image is measured in a Detector-fixed frame which is not the same as the Boresight Reference Frame (BRF), the output shall be converted into the Boresight Reference Frame (BRF).",F
 ECSS-E-ST-60-20_0920004,The date of measurement shall be expressed as a (scalar) number indicating the delay relative to a known external time reference agreed with the customer.,NF
-ECSS-E-ST-60-20_0920005,The minimum set of inputs to be supplied in order to initialize the Star Tracking shall be:     1. the initial star position;     2. the angular rate;     3. validity date.,F
 ECSS-E-ST-60-20_0920005,The minimum set of inputs to be supplied in order to initialize the Star Tracking shall be: 1.	the initial star position; 2.	the angular rate; 3.	validity date.,F
 ECSS-E-ST-60-20_0920006,"For aided tracking, data specified in 4.1.3.1a shall be supplied regularly by the spacecraft, at an update rate and accuracy agreed by the customer.",F
-ECSS-E-ST-60-20_0920006,"For aided tracking, data specified in 4.1.3.1a shall be supplied regularly by the spacecraft, at an update rate and accuracy agreed by the customer.",NF
-ECSS-E-ST-60-20_0920007,The unit of all inputs shall be indicated.,F
 ECSS-E-ST-60-20_0920007,The unit of all inputs shall be indicated.,F
 ECSS-E-ST-60-20_0920008,"A sensor with the star tracking capability shall have the following minimum outputs:     1. the position of each Star Image with respect to a sensor-defined reference frame;     2. focal length if star position on the detector chip is output in units of length;     3. the measurement date.         NOTE 1 The initial selection of the star images to be tracked by the sensor is not included within this capability and sometimes cannot be done without assistance external to the sensor.         NOTE 2 The output parameterization is the Star Image position in the Boresight Reference Frame (BRF), given by the two measures of the angular rotations   which define the transformation from the BRF to the star Stellar Reference Frame (SRF).         NOTE 3 This capability does not imply to autonomously identify the star images as images to be tracked or explicitly identified by the unit. However, it does include the ability to maintain the identification of each star image and to correctly update the co-ordinates of each image as it moves across the detector due to the angular rate of the sensor.",F
 ECSS-E-ST-60-20_0920008,A sensor with the star tracking capability shall have the following minimum outputs: 1.	the position of each Star Image with respect to a sensor-defined reference frame; 2.	focal length if star position on the detector chip  is output in units of length; 3.	the measurement date.,F
-ECSS-E-ST-60-20_0920009,The minimum set of inputs to be supplied in order to initialize the Autonomous Star Tracking shall be:     1. the angular rate;     2. the validity date.,F
 ECSS-E-ST-60-20_0920009,The minimum set of inputs to be supplied in order to initialize the Autonomous Star Tracking shall be: 1.	the angular rate; 2.	the validity date.,F
 ECSS-E-ST-60-20_0920010,"For aided tracking, data specified in 4.1.4.1a shall be supplied regularly by the spacecraft, at an update rate and accuracy agreed by the customer.",F
-ECSS-E-ST-60-20_0920010,"For aided tracking, data specified in 4.1.4.1a shall be supplied regularly by the spacecraft, at an update rate and accuracy agreed by the customer.",NF
 ECSS-E-ST-60-20_0920011,The unit of all inputs shall be indicated.,F
-ECSS-E-ST-60-20_0920011,The unit of all inputs shall be indicated.,F
-ECSS-E-ST-60-20_0920012,"A sensor with the autonomous star tracking capability shall have the minimum outputs:     1. the position of each star image with respect to a sensor-defined reference frame;     2. the Measurement date.         NOTE This capability does not imply the stars to be explicitly identified by the unit. However, it does include the ability to maintain the identification of each star image once selected, to correctly update the co-ordinates of each image as it moves across the detector, and autonomously manage the set of star images being tracked.",F
 ECSS-E-ST-60-20_0920012,A sensor with the autonomous star tracking capability shall have the minimum outputs: 1.	the position of each star image with respect to a sensor-defined reference frame; 2.	the Measurement date.,F
 ECSS-E-ST-60-20_0920013,The acquisition command shall be supplied as a minimum set of inputs. ,F
 ECSS-E-ST-60-20_0920013,"The acquisition command shall be supplied as a minimum set of inputs.      NOTE When a priori initial attitude information for example an initial quaternion or a restriction within the celestial sphere, is supplied by the ground the capability is referred as Assisted Attitude determination",F
@@ -318,8 +305,6 @@ ECSS-E-ST-60-20_0920014,A sensor with autonomous attitude determination shall ha
 ECSS-E-ST-60-20_0920015,The minimum set of inputs to be supplied in order to initialize the Autonomous Attitude Tracking shall be:     1. the attitude quaternion;     2. the 3-dimension angular rate vector giving the angular rate of the sensor BRF with respect to the IRF;         NOTE This vector is expressed in the sensor BRF.     3. the validity date for both supplied attitude and angular rate.,F
 ECSS-E-ST-60-20_0920015,The minimum set of inputs to be supplied in order to initialize the Autonomous Attitude Tracking shall be: 1.	the attitude quaternion; 2.	the 3-dimension angular rate vector giving the angular rate of the sensor BRF with respect to the IRF; 3.	the validity date for both supplied attitude and angular rate.,F
 ECSS-E-ST-60-20_0920016,"For aided tracking, data specified in 4.1.6.1a shall be supplied regularly by the spacecraft, at an update rate and accuracy agreed by the customer.",F
-ECSS-E-ST-60-20_0920016,"For aided tracking, data specified in 4.1.6.1a shall be supplied regularly by the spacecraft, at an update rate and accuracy agreed by the customer.",NF
-ECSS-E-ST-60-20_0920017,"Except for attitude quaternion, the unit of all inputs shall be indicated.",F
 ECSS-E-ST-60-20_0920017,"Except for attitude quaternion, the unit of all inputs shall be indicated.",F
 ECSS-E-ST-60-20_0920018,"The supplier shall document whether the star sensor initialization uses either: 1.	Internal initialization, or  2.	Direct initialization.",NF
 ECSS-E-ST-60-20_0920019,"A sensor with autonomous attitude tracking capability shall have the following minimum outputs: 1.	the orientation of the sensor defined reference frame with respect to the inertially defined reference frame (nominally in the form of an attitude quaternion); 2.	the Measurement date; 3.	a validity index or flag, estimating the validity of the determined attitude; 4.	measurement of Star Magnitude for each tracked Star Image.",F
@@ -337,9 +322,6 @@ ECSS-E-ST-60-20_0920031,The supplier shall document whether the autonomous attit
 ECSS-E-ST-60-20_0920090,The supplier shall document what type of relativistic correction is performed.,NF
 ECSS-E-ST-60-20_0920091,The supplier shall document the maximum error and minimum frequency of the spacecraft velocity provided to the sensor.,NF
 ECSS-E-ST-60-20_0920155,The set of core commands defined in Annex I should be used.,NF
-ECSS-E-ST-60-20_0920156,The set of core telemetries defined in Annex I should be used.,NF
-ECSS-E-ST-60-20_0920157,The set of core commands defined in Annex I should be used.,NF
-ECSS-E-ST-60-20_0920158,The set of core telemetries defined in Annex I should be used.,NF
 ECSS-E-ST-60-20_0920159,The set of core commands and telemetries defined in Annex I should be used.,NF
 ECSS-E-ST-60-21_1350001,The gyro shall provide a Measurement Mode.,F
 ECSS-E-ST-60-21_1350002,The TM data provided by the unit shall unambiguously report when the gyro has switched from Start-Up Mode to Measurement Mode.,F
@@ -448,8 +430,7 @@ ECSS-Q-ST-80_0720008,"The software product assurance manager/engineer shall   
 ECSS-Q-ST-80_0720009,The supplier shall review the project requirements to establish and make timely provision for acquiring or developing the resources and skills for the management and technical staff. ,PM
 ECSS-Q-ST-80_0720039,"The supplier shall establish software product assurance requirements for the next level suppliers, tailored to their role in the project, including a requirement to produce a software product assurance plan. ",M
 ECSS-Q-ST-80_0720040,The supplier shall provide the software product assurance requirements applicable to the next level suppliers for customer’s acceptance. ,PM
-ECSS-Q-ST-80_0720151,"For the definition of the software related system requirements to be specified in the requirements baseline, ECSS-E-ST-40 clause 5.2 shall apply.",M
-ECSS-Q-ST-80_0720154,The requirements baseline shall be analyzed to fully and unambiguously define the software requirements in the technical specification.,V
+ECSS-Q-ST-80_0720151,"For the definition of the software related system requirements to be specified in the requirements baseline, ECSS-E-ST-40 clause 5.2 shall apply.",PM
 ECSS-Q-ST-80_0720157,"In addition to the functional requirements, the technical specification shall include all non-functional requirements necessary to satisfy the requirements baseline, including, as a minimum, the following:     1. performance,     2. safety,     3. reliability,     4. robustness,     5. quality,     6. maintainability,     7. configuration management,     8. security,     9. privacy,     10. metrication, and     11. verification and validation.",V
 ECSS-Q-ST-80_0720158,"Prior to the technical specification elaboration, customer and supplier shall agree on the following principles and rules as a minimum:     1. assignment of persons (on both sides) responsible for establishing the technical specification;     2. methods for agreeing on requirements and approving changes;     3. efforts to prevent misunderstandings such as definition of terms, explanations of background of requirements;     4. recording and reviewing discussion results on both sides.",PM
 ECSS-Q-ST-80_0720228,The software quality requirements (including safety and dependability requirements) shall be derived from the requirements defined at system level.,M

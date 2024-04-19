@@ -1,0 +1,29 @@
+Hyperparameter Tuning Results
+
+pure Feature Selection with chi squared:
+- kNN:  BoW:    {'model__n_neighbors': 3, 'selector__k': 225}
+                accuracy: 0.6502564102564102
+        TF-IDF: {'model__n_neighbors': 21, 'selector__k': 750}
+                accuracy: 0.7361771561771562
+- SVM:  BoW:    {'model__degree': 3, 'model__gamma': 'scale', 'model__kernel': 'linear', 'selector__k': 625}
+                accuracy: 0.7854545454545454
+        TF-IDF: {'model__degree': 3, 'model__gamma': 'scale', 'model__kernel': 'linear', 'selector__k': 750}
+                accuracy: 0.8006526806526807
+- LR:   BoW:    {'model__multi_class': 'auto', 'model__solver': 'liblinear', 'selector__k': 200}
+                accuracy: 0.8130069930069931
+        TF-IDF: {'model__multi_class': 'auto', 'model__solver': 'liblinear', 'selector__k': 475}
+                accuracy: accuracy: 0.8007459207459208
+- MNB
+
+Feature Selection and Principal Component Analysis:
+- kNN:  BoW:    {'model__n_neighbors': 11, 'pca__n_components': 50, 'selector__k': 700}
+                accuracy: 0.6965501165501167
+        TF-IDF: {'model__n_neighbors': 25, 'pca__n_components': 250, 'selector__k': 775}
+                accuracy: 0.7390675990675991
+- SVM:  BoW:    {'model__kernel': 'linear', 'pca__n_components': 250, 'selector__k': 625}
+                accuracy: 0.7946853146853148
+        TF-IDF: {'model__kernel': 'linear', 'pca__n_components': 175, 'selector__k': 900}
+                accuracy: 0.8160839160839162
+- LR:   BoW:
+        TF-IDF:
+- MNB:
