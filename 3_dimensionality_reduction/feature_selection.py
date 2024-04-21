@@ -9,7 +9,6 @@ def select_features(df, k):
     # divide into predictor (X) and response (y) varibales
     X = df.drop('_class_', axis=1)
     y = df['_class_']
-    print(X.shape)
 
     # create and fit selector
     selector = SelectKBest(chi2, k=k)
@@ -21,6 +20,21 @@ def select_features(df, k):
 
     return df_chi2
 
-select_features(df_bow, 300).to_csv('3_dimensionality_reduction/output/req_chi2_bow.csv', index=False)
-select_features(df_tfidf, 350).to_csv('3_dimensionality_reduction/output/req_chi2_tfidf.csv', index=False)
+# perform feature selection on requirements data with parameters for k determined in hyperparameter_tuning.py for each classifier
+
+select_features(df_bow, 450).to_csv('3_dimensionality_reduction/output/req_chi2/req_chi2_bow_knn.csv', index=False)
+select_features(df_tfidf, 850).to_csv('3_dimensionality_reduction/output/req_chi2/req_chi2_tfidf_knn.csv', index=False)
+
+select_features(df_bow, 275).to_csv('3_dimensionality_reduction/output/req_chi2/req_chi2_bow_svm.csv', index=False)
+select_features(df_tfidf, 725).to_csv('3_dimensionality_reduction/output/req_chi2/req_chi2_tfidf_svm.csv', index=False)
+
+select_features(df_bow, 150).to_csv('3_dimensionality_reduction/output/req_chi2/req_chi2_bow_lr.csv', index=False)
+select_features(df_tfidf, 750).to_csv('3_dimensionality_reduction/output/req_chi2/req_chi2_tfidf_lr.csv', index=False)
+
+select_features(df_bow, 550).to_csv('3_dimensionality_reduction/output/req_chi2/req_chi2_bow_mnb.csv', index=False)
+select_features(df_tfidf, 675).to_csv('3_dimensionality_reduction/output/req_chi2/req_chi2_tfidf_mnb.csv', index=False)
+
+# feature selection with the average of all optimal values of k for the ensemble classifier
+select_features(df_bow, 356).to_csv('3_dimensionality_reduction/output/req_chi2/req_chi2_bow_ensemble.csv', index=False)
+select_features(df_tfidf, 750).to_csv('3_dimensionality_reduction/output/req_chi2/req_chi2_tfidf_ensemble.csv', index=False)
 
