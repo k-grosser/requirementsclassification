@@ -1,4 +1,6 @@
 import pandas as pd
+import numpy as np
+from sklearn.metrics import f1_score, precision_score, recall_score
 from sklearn.model_selection import StratifiedKFold, cross_validate
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn import svm
@@ -100,8 +102,13 @@ df_evaluation_metrics = pd.DataFrame(index=['kNN', 'SVM', 'LR', 'NB', 'Ensemble'
 # the mean time for scoring each classifier on the test sets  
 df_evaluation_time = pd.DataFrame(index=['kNN', 'SVM', 'LR', 'NB', 'Ensemble'])
 
+# dataframe to store the mean value of the metrics precision, recall and f1-score
+# for SVM classification on data with its dimensionality reduced by PCA 
+# since this combination achieved the best results
+df_evaluation_svm_pca = pd.DataFrame(index=['F', 'NF', 'PM', 'M', 'V'])
+
 #metrics for evaluation
-scoring = ['accuracy', 'precision_macro', 'recall_macro', 'f1_macro']
+scoring = ['accuracy', 'precision_weighted', 'recall_weighted', 'f1_weighted']
 
 
 # evaluate the k-Nearest-Neighbor classification by cross-validation
@@ -113,9 +120,9 @@ def kNN_cross_validation(X, y, n):
     scores = cross_validate(clf, X, y, cv = k_folds, scoring=scoring)
 
     scores['test_accuracy'] = scores['test_accuracy'].mean()
-    scores['test_precision_macro'] = scores['test_precision_macro'].mean()
-    scores['test_recall_macro'] = scores['test_recall_macro'].mean()
-    scores['test_f1_macro'] = scores['test_f1_macro'].mean()
+    scores['test_precision_weighted'] = scores['test_precision_weighted'].mean()
+    scores['test_recall_weighted'] = scores['test_recall_weighted'].mean()
+    scores['test_f1_weighted'] = scores['test_f1_weighted'].mean()
     
     scores['fit_time'] = scores['fit_time'].mean()
     scores['score_time'] = scores['score_time'].mean()
@@ -131,9 +138,9 @@ def svm_cross_validation(X, y):
     scores = cross_validate(clf, X, y, cv = k_folds, scoring=scoring)
 
     scores['test_accuracy'] = scores['test_accuracy'].mean()
-    scores['test_precision_macro'] = scores['test_precision_macro'].mean()
-    scores['test_recall_macro'] = scores['test_recall_macro'].mean()
-    scores['test_f1_macro'] = scores['test_f1_macro'].mean()
+    scores['test_precision_weighted'] = scores['test_precision_weighted'].mean()
+    scores['test_recall_weighted'] = scores['test_recall_weighted'].mean()
+    scores['test_f1_weighted'] = scores['test_f1_weighted'].mean()
 
     scores['fit_time'] = scores['fit_time'].mean()
     scores['score_time'] = scores['score_time'].mean()
@@ -149,9 +156,9 @@ def lr_cross_validation(X, y):
     scores = cross_validate(clf, X, y, cv = k_folds, scoring=scoring)
 
     scores['test_accuracy'] = scores['test_accuracy'].mean()
-    scores['test_precision_macro'] = scores['test_precision_macro'].mean()
-    scores['test_recall_macro'] = scores['test_recall_macro'].mean()
-    scores['test_f1_macro'] = scores['test_f1_macro'].mean()
+    scores['test_precision_weighted'] = scores['test_precision_weighted'].mean()
+    scores['test_recall_weighted'] = scores['test_recall_weighted'].mean()
+    scores['test_f1_weighted'] = scores['test_f1_weighted'].mean()
 
     scores['fit_time'] = scores['fit_time'].mean()
     scores['score_time'] = scores['score_time'].mean()
@@ -167,9 +174,9 @@ def nb_cross_validation(X, y):
     scores = cross_validate(clf, X, y, cv = k_folds, scoring=scoring)
 
     scores['test_accuracy'] = scores['test_accuracy'].mean()
-    scores['test_precision_macro'] = scores['test_precision_macro'].mean()
-    scores['test_recall_macro'] = scores['test_recall_macro'].mean()
-    scores['test_f1_macro'] = scores['test_f1_macro'].mean()
+    scores['test_precision_weighted'] = scores['test_precision_weighted'].mean()
+    scores['test_recall_weighted'] = scores['test_recall_weighted'].mean()
+    scores['test_f1_weighted'] = scores['test_f1_weighted'].mean()
 
     scores['fit_time'] = scores['fit_time'].mean()
     scores['score_time'] = scores['score_time'].mean()
@@ -196,14 +203,42 @@ def ensemble_cross_validation(X, y, pca:bool):
     scores = cross_validate(eclf, X, y, cv = k_folds, scoring=scoring)
 
     scores['test_accuracy'] = scores['test_accuracy'].mean()
-    scores['test_precision_macro'] = scores['test_precision_macro'].mean()
-    scores['test_recall_macro'] = scores['test_recall_macro'].mean()
-    scores['test_f1_macro'] = scores['test_f1_macro'].mean()
+    scores['test_precision_weighted'] = scores['test_precision_weighted'].mean()
+    scores['test_recall_weighted'] = scores['test_recall_weighted'].mean()
+    scores['test_f1_weighted'] = scores['test_f1_weighted'].mean()
 
     scores['fit_time'] = scores['fit_time'].mean()
     scores['score_time'] = scores['score_time'].mean()
 
     return scores
+
+# evaluate the Support Vector Machine classification by cross-validation in detail
+# calculate metrics for each class label
+def svm_cross_validation_detail(X, y):
+
+    clf = svm.SVC(kernel='linear')
+    k_folds = StratifiedKFold(n_splits = 5, random_state=4, shuffle=True) # ensure an equal proportion of all classes in each fold
+
+    scores_precision = np.empty((5, 5), dtype=float)
+    scores_recall = np.empty((5, 5), dtype=float)
+    scores_f1 = np.empty((5, 5), dtype=float)
+    count = 0
+
+    for train, test in k_folds.split(X, y):
+        X_train, X_test = X.iloc[train], X.iloc[test]
+        y_train, y_test = y.iloc[train], y.iloc[test]
+        clf = clf.fit(X_train, y_train)
+        y_pred = clf.predict(X_test)
+        scores_precision[count] = precision_score(y_true=y_test, y_pred=y_pred, labels=['F', 'NF', 'PM', 'M', 'V'], average=None)
+        scores_recall[count] = recall_score(y_true=y_test, y_pred=y_pred, labels=['F', 'NF', 'PM', 'M', 'V'], average=None)
+        scores_f1[count] = f1_score(y_true=y_test, y_pred=y_pred, labels=['F', 'NF', 'PM', 'M', 'V'], average=None)
+        count += 1
+
+    scores_precision_means = [scores_precision[:,i].mean() for i in range(5)]
+    scores_recall_means = [scores_recall[:,i].mean() for i in range(5)]
+    scores_f1_means = [scores_f1[:,i].mean() for i in range(5)]
+
+    return (scores_precision_means, scores_recall_means, scores_f1_means)
 
 
 # store the evaluation scores of a given classifier and a given feature extraction technique in the evaluation dataframe
@@ -211,19 +246,19 @@ def store_evaluation_scores(scores, scores_chi, scores_pca, clf, feature_extract
 
     # storing the values of the different metrics
     df_evaluation_metrics.at[clf, feature_extraction + '_accuracy'] = scores['test_accuracy']
-    df_evaluation_metrics.at[clf, feature_extraction + '_precision'] = scores['test_precision_macro']
-    df_evaluation_metrics.at[clf, feature_extraction + '_recall'] = scores['test_recall_macro']
-    df_evaluation_metrics.at[clf, feature_extraction + '_f1'] = scores['test_f1_macro']
+    df_evaluation_metrics.at[clf, feature_extraction + '_precision'] = scores['test_precision_weighted']
+    df_evaluation_metrics.at[clf, feature_extraction + '_recall'] = scores['test_recall_weighted']
+    df_evaluation_metrics.at[clf, feature_extraction + '_f1'] = scores['test_f1_weighted']
     
     df_evaluation_metrics.at[clf, feature_extraction + '_chi_accuracy'] = scores_chi['test_accuracy']
-    df_evaluation_metrics.at[clf, feature_extraction + '_chi_precision'] = scores_chi['test_precision_macro']
-    df_evaluation_metrics.at[clf, feature_extraction + '_chi_recall'] = scores_chi['test_recall_macro']
-    df_evaluation_metrics.at[clf, feature_extraction + '_chi_f1'] = scores_chi['test_f1_macro']
+    df_evaluation_metrics.at[clf, feature_extraction + '_chi_precision'] = scores_chi['test_precision_weighted']
+    df_evaluation_metrics.at[clf, feature_extraction + '_chi_recall'] = scores_chi['test_recall_weighted']
+    df_evaluation_metrics.at[clf, feature_extraction + '_chi_f1'] = scores_chi['test_f1_weighted']
 
     df_evaluation_metrics.at[clf, feature_extraction + '_pca_accuracy'] = scores_pca['test_accuracy']
-    df_evaluation_metrics.at[clf, feature_extraction + '_pca_precision'] = scores_pca['test_precision_macro']
-    df_evaluation_metrics.at[clf, feature_extraction + '_pca_recall'] = scores_pca['test_recall_macro']
-    df_evaluation_metrics.at[clf, feature_extraction + '_pca_f1'] = scores_pca['test_f1_macro']
+    df_evaluation_metrics.at[clf, feature_extraction + '_pca_precision'] = scores_pca['test_precision_weighted']
+    df_evaluation_metrics.at[clf, feature_extraction + '_pca_recall'] = scores_pca['test_recall_weighted']
+    df_evaluation_metrics.at[clf, feature_extraction + '_pca_f1'] = scores_pca['test_f1_weighted']
 
     #storing the values of the fitting and scoring times
     df_evaluation_time.at[clf, feature_extraction + '_fitting'] = scores['fit_time']
@@ -234,6 +269,25 @@ def store_evaluation_scores(scores, scores_chi, scores_pca, clf, feature_extract
 
     df_evaluation_time.at[clf, feature_extraction + '_pca_fitting'] = scores_pca['fit_time']
     df_evaluation_time.at[clf, feature_extraction + '_pca_scoring'] = scores_pca['score_time']
+
+def store_detailed_evaluation_scores(precision, recall, f1):
+    df_evaluation_svm_pca.at['F', 'Precision'] = precision[0]
+    df_evaluation_svm_pca.at['NF', 'Precision'] = precision[1]
+    df_evaluation_svm_pca.at['PM', 'Precision'] = precision[2]
+    df_evaluation_svm_pca.at['M', 'Precision'] = precision[3]
+    df_evaluation_svm_pca.at['V', 'Precision'] = precision[4]
+
+    df_evaluation_svm_pca.at['F', 'Recall'] = recall[0]
+    df_evaluation_svm_pca.at['NF', 'Recall'] = recall[1]
+    df_evaluation_svm_pca.at['PM', 'Recall'] = recall[2]
+    df_evaluation_svm_pca.at['M', 'Recall'] = recall[3]
+    df_evaluation_svm_pca.at['V', 'Recall'] = recall[4]
+
+    df_evaluation_svm_pca.at['F', 'F1-score'] = f1[0]
+    df_evaluation_svm_pca.at['NF', 'F1-score'] = f1[1]
+    df_evaluation_svm_pca.at['PM', 'F1-score'] = f1[2]
+    df_evaluation_svm_pca.at['M', 'F1-score'] = f1[3]
+    df_evaluation_svm_pca.at['V', 'F1-score'] = f1[4]
 
 
 # start the evaluation of each classifier with requirements data of different stages of preparation
@@ -264,6 +318,11 @@ scores_pca_tfidf = svm_cross_validation(X_pca_tfidf_svm, y_pca_tfidf_svm)
 
 store_evaluation_scores(scores_tfidf, scores_chi_tfidf, scores_pca_tfidf, 'SVM', 'TF-IDF')
 
+# calculate precision, recall and f1-score for each class label for a more detailed analysis
+# since this combination achieved the best results
+scores_detailed = svm_cross_validation_detail(X_pca_tfidf_svm, y_pca_tfidf_svm)
+store_detailed_evaluation_scores(scores_detailed[0], scores_detailed[1], scores_detailed[2])
+
 # LR
 scores_bow = lr_cross_validation(X_bow, y_bow)
 scores_chi_bow = lr_cross_validation(X_chi_bow_lr, y_chi_bow_lr)
@@ -280,13 +339,13 @@ store_evaluation_scores(scores_tfidf, scores_chi_tfidf, scores_pca_tfidf, 'LR', 
 # NB
 scores_bow = nb_cross_validation(X_bow, y_bow)
 scores_chi_bow = nb_cross_validation(X_chi_bow_mnb, y_chi_bow_mnb)
-scores_pca_bow = {'fit_time': 0, 'score_time': 0, 'test_accuracy': 0, 'test_precision_macro': 0, 'test_recall_macro': 0, 'test_f1_macro': 0} # PCA leads to negative values the MNB classifier cannot work with
+scores_pca_bow = {'fit_time': 0, 'score_time': 0, 'test_accuracy': 0, 'test_precision_weighted': 0, 'test_recall_weighted': 0, 'test_f1_weighted': 0} # PCA leads to negative values the MNB classifier cannot work with
 
 store_evaluation_scores(scores_bow, scores_chi_bow, scores_pca_bow, 'NB', 'BoW')
 
 scores_tfidf = nb_cross_validation(X_tfidf, y_tfidf)
 scores_chi_tfidf = nb_cross_validation(X_chi_tfidf_mnb, y_chi_tfidf_mnb)
-scores_pca_tfidf = {'fit_time': 0, 'score_time': 0, 'test_accuracy': 0, 'test_precision_macro': 0, 'test_recall_macro': 0, 'test_f1_macro': 0} # PCA leads to negative values the MNB classifier cannot work with
+scores_pca_tfidf = {'fit_time': 0, 'score_time': 0, 'test_accuracy': 0, 'test_precision_weighted': 0, 'test_recall_weighted': 0, 'test_f1_weighted': 0} # PCA leads to negative values the MNB classifier cannot work with
 
 store_evaluation_scores(scores_tfidf, scores_chi_tfidf, scores_pca_tfidf, 'NB', 'TF-IDF')
 
@@ -306,7 +365,9 @@ store_evaluation_scores(scores_tfidf, scores_chi_tfidf, scores_pca_tfidf, 'Ensem
 # export the evaluation dataframes to excel files
 df_evaluation_metrics.to_excel('4_classification&evaluation/output/evaluation_metrics.xlsx')
 df_evaluation_time.to_excel('4_classification&evaluation/output/evaluation_time.xlsx')
+df_evaluation_svm_pca.to_excel('4_classification&evaluation/output/evaluation_svm_pca.xlsx')
 
 with pd.option_context('display.max_rows', None, 'display.max_columns', None): 
     print(df_evaluation_metrics)
     print(df_evaluation_time)
+    print(df_evaluation_svm_pca)
