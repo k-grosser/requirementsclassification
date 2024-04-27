@@ -31,15 +31,14 @@ def transform_features(df, n):
     return df_pca
 
 # transform features according to parameters for n determined in hyperparameter_tuning.py for each classifier
-transform_features(df_bow_knn, 75).to_csv('3_dimensionality_reduction/output/req_pca/req_pca_bow_knn.csv', index=False)
-transform_features(df_tfidf_knn, 350).to_csv('3_dimensionality_reduction/output/req_pca/req_pca_tfidf_knn.csv', index=False)
+# transform_features(df_bow_knn, 75).to_csv('3_dimensionality_reduction/output/req_pca/req_pca_bow_knn.csv', index=False)
+# transform_features(df_tfidf_knn, 350).to_csv('3_dimensionality_reduction/output/req_pca/req_pca_tfidf_knn.csv', index=False)
 
-transform_features(df_bow_svm, 75).to_csv('3_dimensionality_reduction/output/req_pca/req_pca_bow_svm.csv', index=False)
-transform_features(df_tfidf_svm, 250).to_csv('3_dimensionality_reduction/output/req_pca/req_pca_tfidf_svm.csv', index=False)
+# transform_features(df_bow_svm, 75).to_csv('3_dimensionality_reduction/output/req_pca/req_pca_bow_svm.csv', index=False)
+# transform_features(df_tfidf_svm, 250).to_csv('3_dimensionality_reduction/output/req_pca/req_pca_tfidf_svm.csv', index=False)
 
-transform_features(df_bow_lr, 125).to_csv('3_dimensionality_reduction/output/req_pca/req_pca_bow_lr.csv', index=False)
-transform_features(df_tfidf_lr, 350).to_csv('3_dimensionality_reduction/output/req_pca/req_pca_tfidf_lr.csv', index=False)
+# transform_features(df_bow_lr, 125).to_csv('3_dimensionality_reduction/output/req_pca/req_pca_bow_lr.csv', index=False)
+# transform_features(df_tfidf_lr, 350).to_csv('3_dimensionality_reduction/output/req_pca/req_pca_tfidf_lr.csv', index=False)
 
-# pca with the average of all optimal values of n for the ensemble classifier
-transform_features(df_bow_ensemble, 90).to_csv('3_dimensionality_reduction/output/req_pca/req_pca_bow_ensemble.csv', index=False)
-transform_features(df_tfidf_ensemble, 315).to_csv('3_dimensionality_reduction/output/req_pca/req_pca_tfidf_ensemble.csv', index=False)
+transform_features(df_bow_ensemble, 225).to_csv('3_dimensionality_reduction/output/req_pca/req_pca_bow_ensemble.csv', index=False)
+transform_features(df_tfidf_ensemble, 325).to_csv('3_dimensionality_reduction/output/req_pca/req_pca_tfidf_ensemble.csv', index=False)

@@ -17,6 +17,10 @@ pure Feature Selection with chi squared:
                 accuracy: 0.8218714253031344
         TF-IDF: {'selector__k': 675}
                 accuracy: 0.8175703500343172
+- Ensemble:     BoW:    {'model__voting': 'soft', 'selector__k': 700}
+                        accuracy: 0.8562113932738503
+                TF-IDF: {'model__voting': 'soft', 'selector__k': 825}
+                        accuracy: 0.847609242736216
 
 Feature Selection and Principal Component Analysis:
 - kNN:  BoW:    {'model__n_neighbors': 5, 'pca__n_components': 75, 'selector__k': 850}
@@ -31,3 +35,7 @@ Feature Selection and Principal Component Analysis:
                 accuracy: 0.8411347517730497
         TF-IDF: {'pca__n_components': 350, 'selector__k': 725}
                 accuracy: 0.8390757263784032
+- Ensemble:     BoW:    {'model__voting': 'soft', 'pca__n_components': 225, 'selector__k': 250}
+                        accuracy: 0.8326012354152368
+                TF-IDF: {'model__voting': 'soft', 'pca__n_components': 325, 'selector__k': 750}
+                        accuracy: 0.8455044612216884

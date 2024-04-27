@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 from sklearn.metrics import f1_score, precision_score, recall_score
-from sklearn.model_selection import StratifiedKFold, cross_validate
+from sklearn.model_selection import StratifiedKFold, cross_val_score, cross_validate
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn import svm
 from sklearn.linear_model import LogisticRegression
@@ -186,20 +186,25 @@ def nb_cross_validation(X, y):
 # evaluate the Ensemble classification by cross-validation
 def ensemble_cross_validation(X, y, pca:bool):
 
-    clf1 = KNeighborsClassifier()
-    clf2 = svm.SVC(kernel='linear')
-    clf3 = LogisticRegression()
-    clf4 = MultinomialNB()
+    classifiers = list()
+    classifiers.append(('kNN', KNeighborsClassifier()))
+    classifiers.append(('svm', svm.SVC(kernel='linear', probability=True)))
+    classifiers.append(('lr', LogisticRegression(solver='liblinear')))
+    if not(pca): # PCA leads to negative values the MNB classifier cannot work with
+        classifiers.append(('mnb', MultinomialNB()))
+
+    k_folds = StratifiedKFold(n_splits = 5, random_state=4, shuffle=True) # ensure an equal distribution of the classes in each fold
+
+    weights = list()
+    for name, clf in classifiers:
+        acc = cross_val_score(clf, X, y, cv=k_folds, scoring='accuracy').mean()
+        weights.append(acc)
 
     eclf = VotingClassifier(
-        estimators=[('kNN', clf1), ('svm', clf2), ('lr', clf3), ('mnb', clf4)], 
-        voting='hard')
-    # PCA leads to negative values the MNB classifier cannot work with
-    if pca:
-        eclf.set_params(mnb='drop')
+        estimators=classifiers, 
+        voting='soft',
+        weights=weights)
     
-    k_folds = StratifiedKFold(n_splits = 5) # ensure an equal distribution of the classes in each fold
-
     scores = cross_validate(eclf, X, y, cv = k_folds, scoring=scoring)
 
     scores['test_accuracy'] = scores['test_accuracy'].mean()
@@ -212,8 +217,8 @@ def ensemble_cross_validation(X, y, pca:bool):
 
     return scores
 
-# evaluate the Support Vector Machine classification by cross-validation in detail
-# calculate metrics for each class label
+# evaluate the SVM classification by cross-validation in detail by
+# calculating the metrics for each class label
 def svm_cross_validation_detail(X, y):
 
     clf = svm.SVC(kernel='linear')
@@ -352,13 +357,13 @@ store_evaluation_scores(scores_tfidf, scores_chi_tfidf, scores_pca_tfidf, 'NB', 
 # Ensemble
 scores_bow = ensemble_cross_validation(X_bow, y_bow, False)
 scores_chi_bow = ensemble_cross_validation(X_chi_bow_ensemble, y_chi_bow_ensemble, False)
-scores_pca_bow = ensemble_cross_validation(X_chi_bow_ensemble, y_chi_bow_ensemble, True)
+scores_pca_bow = ensemble_cross_validation(X_pca_bow_ensemble, y_pca_bow_ensemble, True)
 
 store_evaluation_scores(scores_bow, scores_chi_bow, scores_pca_bow, 'Ensemble', 'BoW')
 
 scores_tfidf = ensemble_cross_validation(X_tfidf, y_tfidf, False)
 scores_chi_tfidf = ensemble_cross_validation(X_chi_tfidf_ensemble, y_chi_tfidf_ensemble, False)
-scores_pca_tfidf = ensemble_cross_validation(X_chi_bow_ensemble, y_chi_bow_ensemble, True)
+scores_pca_tfidf = ensemble_cross_validation(X_pca_tfidf_ensemble, y_pca_tfidf_ensemble, True)
 
 store_evaluation_scores(scores_tfidf, scores_chi_tfidf, scores_pca_tfidf, 'Ensemble', 'TF-IDF')
 
