@@ -23,13 +23,11 @@ df_subclasses['RequirementText'] = df_classes['RequirementText'].apply(
 df_classes.dropna(subset=['_class_'], inplace=True)
 df_subclasses.dropna(subset=['_subclass_'], inplace=True)
 
-# print distribution of requirement types
-print('distribution of requirement types:')
-print('F:', len(df[df['_class_']=='F']))
-print('NF:', len(df[df['_class_']=='NF']))
-print('PM:', len(df[df['_class_']=='PM']))
-print('M:', len(df[df['_class_']=='M']))
-print('V:', len(df[df['_class_']=='V']))
+# remove classes with less than 5 occurences
+index = df_subclasses[(df_subclasses['_subclass_'] == 'V') | (df_subclasses['_subclass_'] == 'C') |
+                      (df_subclasses['_subclass_'] == 'S') | (df_subclasses['_subclass_'] == 'O') | (df_subclasses['_subclass_'] == 'F')].index
+df_subclasses.drop(index, inplace=True)
+
 
 df_classes.to_csv('0_data_collection/output/ECSS_standards.csv', index=False)
-df_subclasses.to_csv('0_data_collection/output/ECSS_standards_subclasses.csv', index=False)
+df_subclasses.to_csv('0_data_collection/output/ECSS_standards_meta.csv', index=False)

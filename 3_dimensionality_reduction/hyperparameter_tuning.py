@@ -19,16 +19,28 @@ df_tfidf = pd.read_csv(filepath_or_buffer='2_feature_extraction/output/req_vecto
 features_tfidf = df_tfidf.drop('_class_', axis=1)
 labels_tfidf = df_tfidf['_class_']
 
+# meta subtypes
+df_meta_bow = pd.read_csv(filepath_or_buffer='2_feature_extraction/output/req_meta_vectorized_bow.csv', header=0)
+features_meta_bow = df_meta_bow.drop('_subclass_', axis=1)
+labels_meta_bow = df_meta_bow['_subclass_']
+
+df_meta_tfidf = pd.read_csv(filepath_or_buffer='2_feature_extraction/output/req_meta_vectorized_tfidf.csv', header=0)
+features_meta_tfidf = df_meta_tfidf.drop('_subclass_', axis=1)
+labels_meta_tfidf = df_meta_tfidf['_subclass_']
+
+
 def search_parameters(X, y):
     # pipeline with feature selector, PCA and the model
     pipeline = Pipeline(
         [
         ('selector', SelectKBest(chi2)),
+
         #('pca', PCA()),
-        #('model', KNeighborsClassifier())
+
+        ('model', KNeighborsClassifier())
         #('model', SVC(kernel='linear'))
         #('model', LogisticRegression(solver='liblinear'))
-        ('model', MultinomialNB())
+        #('model', MultinomialNB())
         ]
     )
     # same class distribution and mixing of data in each fold
@@ -38,14 +50,14 @@ def search_parameters(X, y):
     search = GridSearchCV(
         estimator=pipeline,
         param_grid = {
-            'selector__k':np.arange(50,901,25),
-            #'pca__n_components':np.arange(50,501,25),
+            'selector__k':np.arange(10,351,10),
+            #'pca__n_components':np.arange(10,351,10),
 
-            #'model__n_neighbors': [3,5,7,9,11,13,15,17,19,21,23,25,27]
+            'model__n_neighbors': [3,5,7]
 
-            #'model__kernel': ['linear', 'poly', 'rbf'],
-            #'model__gamma': ['scale','auto'],
-            #'model__degree': [3,4,5]
+            # 'model__kernel': ['linear', 'poly', 'rbf'],
+            # 'model__gamma': ['scale','auto'],
+            # 'model__degree': [3,4,5]
 
             #'model__solver': ['lbfgs', 'liblinear', 'newton-cg', 'newton-cholesky', 'sag', 'saga'],
             #'model__multi_class': ['auto', 'ovr', 'multinomial']
@@ -91,8 +103,8 @@ def search_parameters_ensemble(X, y, pca):
     search = GridSearchCV(
         estimator=pipeline,
         param_grid = {
-            'selector__k':np.arange(50,901,25),
-            'pca__n_components':np.arange(50,601,25),
+            'selector__k':np.arange(10,381,10),
+            'pca__n_components':np.arange(10,351,10),
             'model__voting': ['hard', 'soft']
         },
         cv = k_folds,
@@ -107,7 +119,13 @@ def search_parameters_ensemble(X, y, pca):
 
 
 print('Best setting for bow:')
-search_parameters_ensemble(features_bow, labels_bow, True)
+# search_parameters(features_bow, labels_bow)
+# search_parameters_ensemble(features_bow, labels_bow, True)
+# search_parameters(features_meta_bow, labels_meta_bow)
+#search_parameters_ensemble(features_meta_bow, labels_meta_bow, True)
 
 print('Best setting for tfidf:')
-search_parameters_ensemble(features_tfidf, labels_tfidf, True)
+# search_parameters(features_tfidf, labels_tfidf)
+# search_parameters_ensemble(features_tfidf, labels_tfidf, True)
+# search_parameters(features_meta_tfidf, labels_meta_tfidf)
+search_parameters_ensemble(features_meta_tfidf, labels_meta_tfidf, True)

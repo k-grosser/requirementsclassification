@@ -5,7 +5,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 # import preprocessed requirements data
 df_classes = pd.read_csv(filepath_or_buffer='1_preprocessing/output/req_preprocessed.csv', header=0, quotechar='"', doublequote=True)
 corpus_classes = df_classes['RequirementText']
-df_subclasses = pd.read_csv(filepath_or_buffer='1_preprocessing/output/req_sub_preprocessed.csv', header=0, quotechar='"', doublequote=True)
+df_subclasses = pd.read_csv(filepath_or_buffer='1_preprocessing/output/req_meta_preprocessed.csv', header=0, quotechar='"', doublequote=True)
 corpus_subclasses = df_subclasses['RequirementText']
 
 # bag of words
@@ -24,7 +24,7 @@ df_sub_bow = pd.DataFrame(data=feature_vectors_bow_sub.toarray(), columns=vector
 df_sub_bow['_subclass_'] = df_subclasses['_subclass_']
 
 df_bow.to_csv('2_feature_extraction/output/req_vectorized_bow.csv', index=False)
-df_sub_bow.to_csv('2_feature_extraction/output/req_sub_vectorized_bow.csv', index=False)
+df_sub_bow.to_csv('2_feature_extraction/output/req_meta_vectorized_bow.csv', index=False)
 
 # term frequency - inverse document frequency
 # create the matrix of TF-IDF features 
@@ -42,4 +42,4 @@ df_sub_tfidf = pd.DataFrame(data=feature_vectors_tfidf_sub.toarray(), columns=ve
 df_sub_tfidf['_subclass_'] = df_subclasses['_subclass_']
 
 df_tfidf.to_csv('2_feature_extraction/output/req_vectorized_tfidf.csv', index=False)
-df_sub_tfidf.to_csv('2_feature_extraction/output/req_sub_vectorized_tfidf.csv', index=False)
+df_sub_tfidf.to_csv('2_feature_extraction/output/req_meta_vectorized_tfidf.csv', index=False)
