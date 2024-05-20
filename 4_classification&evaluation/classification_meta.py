@@ -1,6 +1,4 @@
 import pandas as pd
-import numpy as np
-from sklearn.metrics import f1_score, precision_score, recall_score
 from sklearn.model_selection import StratifiedKFold, cross_val_score, cross_validate
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn import svm
@@ -246,15 +244,15 @@ def store_evaluation_scores(scores, scores_chi, scores_pca, clf, feature_extract
 # start the evaluation of each classifier with requirements data of different stages of preparation
 
 # kNN
-scores_bow = kNN_cross_validation(X_bow, y_bow, 3)
+scores_bow = kNN_cross_validation(X_bow, y_bow, 5)
 scores_chi_bow = kNN_cross_validation(X_chi_bow_knn, y_chi_bow_knn, 3)
-scores_pca_bow = kNN_cross_validation(X_pca_bow_knn, y_pca_bow_knn, 5)
+scores_pca_bow = kNN_cross_validation(X_pca_bow_knn, y_pca_bow_knn, 3)
 
 store_evaluation_scores(scores_bow, scores_chi_bow, scores_pca_bow, 'kNN', 'BoW')
 
-scores_tfidf = kNN_cross_validation(X_tfidf, y_tfidf, 15)
-scores_chi_tfidf = kNN_cross_validation(X_chi_tfidf_knn, y_chi_tfidf_knn, 15)
-scores_pca_tfidf = kNN_cross_validation(X_pca_tfidf_knn, y_pca_tfidf_knn, 15)
+scores_tfidf = kNN_cross_validation(X_tfidf, y_tfidf, 5)
+scores_chi_tfidf = kNN_cross_validation(X_chi_tfidf_knn, y_chi_tfidf_knn, 5)
+scores_pca_tfidf = kNN_cross_validation(X_pca_tfidf_knn, y_pca_tfidf_knn, 5)
 
 store_evaluation_scores(scores_tfidf, scores_chi_tfidf, scores_pca_tfidf, 'kNN', 'TF-IDF')
 

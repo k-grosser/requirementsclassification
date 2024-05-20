@@ -1,7 +1,7 @@
 from sklearn.ensemble import VotingClassifier
 from sklearn.feature_selection import SelectKBest, chi2
 from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import GridSearchCV, StratifiedKFold, cross_val_score, train_test_split
+from sklearn.model_selection import GridSearchCV, StratifiedKFold, cross_val_score
 from sklearn.decomposition import PCA
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.neighbors import KNeighborsClassifier
@@ -43,6 +43,7 @@ def search_parameters(X, y):
         #('model', MultinomialNB())
         ]
     )
+
     # same class distribution and mixing of data in each fold
     k_folds = StratifiedKFold(n_splits = 5, random_state=4, shuffle=True)
     
@@ -50,10 +51,10 @@ def search_parameters(X, y):
     search = GridSearchCV(
         estimator=pipeline,
         param_grid = {
-            'selector__k':np.arange(10,351,10),
+            'selector__k':np.arange(10,361,10),
             #'pca__n_components':np.arange(10,351,10),
 
-            'model__n_neighbors': [3,5,7]
+            'model__n_neighbors': [3,5,7,9]
 
             # 'model__kernel': ['linear', 'poly', 'rbf'],
             # 'model__gamma': ['scale','auto'],
@@ -63,14 +64,15 @@ def search_parameters(X, y):
             #'model__multi_class': ['auto', 'ovr', 'multinomial']
         },
         cv = k_folds,
+        refit=False,
         n_jobs=4,
         verbose=1,
     )
     # run fit with all sets of parameters
     search.fit(X, y)
     # parameter setting with the best results
-    print(search.best_params_)
-    print('accuracy:', search.best_score_)
+    print('best parameter setting:', search.best_params_)
+    print('measured accuracy:', search.best_score_)
 
 def search_parameters_ensemble(X, y, pca):
     classifiers = list()
@@ -119,13 +121,13 @@ def search_parameters_ensemble(X, y, pca):
 
 
 print('Best setting for bow:')
-# search_parameters(features_bow, labels_bow)
-# search_parameters_ensemble(features_bow, labels_bow, True)
-# search_parameters(features_meta_bow, labels_meta_bow)
-#search_parameters_ensemble(features_meta_bow, labels_meta_bow, True)
+search_parameters(features_bow, labels_bow)
+search_parameters_ensemble(features_bow, labels_bow, True)
+search_parameters(features_meta_bow, labels_meta_bow)
+search_parameters_ensemble(features_meta_bow, labels_meta_bow, True)
 
 print('Best setting for tfidf:')
-# search_parameters(features_tfidf, labels_tfidf)
-# search_parameters_ensemble(features_tfidf, labels_tfidf, True)
-# search_parameters(features_meta_tfidf, labels_meta_tfidf)
+search_parameters(features_tfidf, labels_tfidf)
+search_parameters_ensemble(features_tfidf, labels_tfidf, True)
+search_parameters(features_meta_tfidf, labels_meta_tfidf)
 search_parameters_ensemble(features_meta_tfidf, labels_meta_tfidf, True)
