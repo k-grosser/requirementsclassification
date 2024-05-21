@@ -89,12 +89,13 @@ def extend_by_context(df : pd.DataFrame):
 def find_contexts_in_text(text : str, standard : str, branch : str):
     contexts = list()
     
-    # check list of full terms
-    for index, row in df_terms.iterrows():
+    # check if requirement text contains terms from the lookup table
+    for index, row in df_lookup.iterrows():
         term = row['Term']
-        standards = row['ECSS Standards']
-        branches = row['Branches']
         if re.search(term, text, re.IGNORECASE):
+            standards = row['ECSS Standards']
+            branches = row['Branches']
+
             if standard in standards:
                 contexts.append('context_' + term + '_' + standard) 
             elif branch in branches:
@@ -102,22 +103,9 @@ def find_contexts_in_text(text : str, standard : str, branch : str):
             elif 'ECSS-S-ST-00-01C' in standards: 
                 contexts.append('context_' + term + '_' + 'ECSS')
 
-    # check list of abbreviations
-    for index, row in df_abbreviations.iterrows():
-        term = row['Term']
-        standards = row['ECSS Standards']
-        branches = row['Branches']
-        if re.search(term, text, re.IGNORECASE):
-            if standard in standards:
-                contexts.append('context_' + term + '_' + standard) 
-            elif branch in branches:
-                contexts.append('context_' + term + '_' + branch)
-            else: 
-                contexts.append('context_' + term + '_' + 'ECSS')
-
     return contexts
 
+# extending the requirements data by context information
+extend_by_context(df_req)
 
-print(df_terms)
-print(df_abbreviations)
-print(df_req)
+df_req.to_csv('0_data_collection/output/ECSS_standards_context.csv', index=False)
