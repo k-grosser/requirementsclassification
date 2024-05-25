@@ -26,7 +26,7 @@ add_branches(df_abbreviations)
 
 # build the lookup table for terms and abbreviations with their belonging contexts 
 def build_lookup_table():
-    df_lookup = pd.DataFrame(columns=['Term', 'ECSS Standards', 'Branches'])
+    df_lookup = pd.DataFrame(columns=['Term', 'Type', 'ECSS Standards', 'Branches'])
 
     # iterate over all terms
     for index, row in df_terms.iterrows():
@@ -35,7 +35,7 @@ def build_lookup_table():
         branch = row['Branch']
         
         if term not in df_lookup['Term'].tolist():
-            df_lookup = df_lookup._append({'Term': term, 'ECSS Standards': [standard], 'Branches': [branch]}, ignore_index=True)
+            df_lookup = df_lookup._append({'Term': term, 'Type': 'full term', 'ECSS Standards': [standard], 'Branches': [branch]}, ignore_index=True)
         else:
             # add the standard to the term's list of standards
             standards = df_lookup.loc[df_lookup['Term'] == term, 'ECSS Standards'].values[0]
@@ -55,7 +55,7 @@ def build_lookup_table():
         if row['Active or Superseded Standard'] == 'superseded':
             continue
         if term not in df_lookup['Term'].tolist():
-            df_lookup = df_lookup._append({'Term': term, 'ECSS Standards': [standard], 'Branches': [branch]}, ignore_index=True)
+            df_lookup = df_lookup._append({'Term': term, 'Type': 'abbreviation', 'ECSS Standards': [standard], 'Branches': [branch]}, ignore_index=True)
         else:
             # add the standard to the term's list of standards
             standards = df_lookup.loc[df_lookup['Term'] == term, 'ECSS Standards'].values[0]
@@ -78,21 +78,26 @@ df_req = pd.read_csv(filepath_or_buffer='0_data_collection/output/ECSS_standards
 
 # add context information to the requirements data
 def extend_by_context(df : pd.DataFrame):
+
     for index, row in df.iterrows():
         text = row['RequirementText']
         standard = row['ECSS Source Reference']
         contexts = find_contexts_in_text(text, standard, standard[5])
+
         for context in contexts:
             df.at[index, context] = 1
 
-# find terms with context information in a requirement text belonging to a certain standard and return them
+# find terms with context information in a requirement text 
+# belonging to a certain standard and branch and return them
 def find_contexts_in_text(text : str, standard : str, branch : str):
     contexts = list()
     
     # check if requirement text contains terms from the lookup table
     for index, row in df_lookup.iterrows():
         term = row['Term']
-        if re.search(term, text, re.IGNORECASE):
+        type = row['Type']
+
+        if ((type == 'full term') and (re.search(term, text, re.IGNORECASE))) or ((type == 'abbreviation') and (text.startswith(term+' ') or (' '+term+' ' in text) or text.endswith(' '+term+'.'))):
             standards = row['ECSS Standards']
             branches = row['Branches']
 
