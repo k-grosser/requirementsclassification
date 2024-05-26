@@ -97,7 +97,9 @@ def find_contexts_in_text(text : str, standard : str, branch : str):
         term = row['Term']
         type = row['Type']
 
-        if ((type == 'full term') and (re.search(term, text, re.IGNORECASE))) or ((type == 'abbreviation') and (text.startswith(term+' ') or (' '+term+' ' in text) or text.endswith(' '+term+'.'))):
+        if  ((type == 'full term') and (re.search(term, text, re.IGNORECASE))) or \
+            ((type == 'abbreviation') and (text.startswith(term+' ') or \
+            (' '+term+' ' in text) or text.endswith(' '+term+'.'))):
             standards = row['ECSS Standards']
             branches = row['Branches']
 

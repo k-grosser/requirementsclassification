@@ -7,7 +7,8 @@ from nltk import pos_tag
 
 # import requirements data
 df_classes = pd.read_csv(filepath_or_buffer='0_data_collection/output/ECSS_standards.csv', header=0, quotechar='"', doublequote=True)
-df_subclasses = pd.read_csv(filepath_or_buffer='0_data_collection/output/ECSS_standards_meta.csv', header=0, quotechar='"', doublequote=True)
+df_meta = pd.read_csv(filepath_or_buffer='0_data_collection/output/ECSS_standards_meta.csv', header=0, quotechar='"', doublequote=True)
+df_context = pd.read_csv(filepath_or_buffer='0_data_collection/output/ECSS_standards_context.csv', header=0, quotechar='"', doublequote=True)
 
 # preprocess a requirement's text
 def preprocess_requirement(text):
@@ -36,7 +37,9 @@ def preprocess_requirement(text):
 
 # apply preprocessing function on every requirement text in the dataset   
 df_classes['RequirementText'] = df_classes['RequirementText'].apply(preprocess_requirement)
-df_subclasses['RequirementText'] = df_subclasses['RequirementText'].apply(preprocess_requirement)
+df_meta['RequirementText'] = df_meta['RequirementText'].apply(preprocess_requirement)
+df_context['RequirementText'] = df_context['RequirementText'].apply(preprocess_requirement)
 
 df_classes.to_csv('1_preprocessing/output/req_preprocessed.csv', index=False)
-df_subclasses.to_csv('1_preprocessing/output/req_meta_preprocessed.csv', index=False)
+df_meta.to_csv('1_preprocessing/output/req_meta_preprocessed.csv', index=False)
+df_context.to_csv('1_preprocessing/output/req_context_preprocessed.csv', index=False)

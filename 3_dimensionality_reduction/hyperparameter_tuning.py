@@ -28,6 +28,15 @@ df_meta_tfidf = pd.read_csv(filepath_or_buffer='2_feature_extraction/output/req_
 features_meta_tfidf = df_meta_tfidf.drop('_subclass_', axis=1)
 labels_meta_tfidf = df_meta_tfidf['_subclass_']
 
+# requirements with context information
+df_context_bow = pd.read_csv(filepath_or_buffer='2_feature_extraction/output/req_context_vectorized_bow.csv', header=0)
+features_context_bow = df_context_bow.drop('_class_', axis=1)
+labels_context_bow = df_context_bow['_class_']
+
+df_context_tfidf = pd.read_csv(filepath_or_buffer='2_feature_extraction/output/req_context_vectorized_tfidf.csv', header=0)
+features_context_tfidf = df_context_tfidf.drop('_class_', axis=1)
+labels_context_tfidf = df_context_tfidf['_class_']
+
 
 def search_parameters(X, y):
     # pipeline with feature selector, PCA and the model
@@ -121,13 +130,23 @@ def search_parameters_ensemble(X, y, pca):
 
 
 print('Best setting for bow:')
-search_parameters(features_bow, labels_bow)
-search_parameters_ensemble(features_bow, labels_bow, True)
-search_parameters(features_meta_bow, labels_meta_bow)
-search_parameters_ensemble(features_meta_bow, labels_meta_bow, True)
+# # start hyperparameter tuning for features only retrieved from requirement texts
+# search_parameters(features_bow, labels_bow)
+# search_parameters_ensemble(features_bow, labels_bow, True)
+# # start hyperparameter tuning for meta subtypes
+# search_parameters(features_meta_bow, labels_meta_bow)
+# search_parameters_ensemble(features_meta_bow, labels_meta_bow, True)
+# start hyperparameter tuning for features retrieved from requirement texts and the context of terms
+search_parameters(features_context_bow, labels_context_bow)
+search_parameters_ensemble(features_context_bow, labels_context_bow, True)
 
 print('Best setting for tfidf:')
-search_parameters(features_tfidf, labels_tfidf)
-search_parameters_ensemble(features_tfidf, labels_tfidf, True)
-search_parameters(features_meta_tfidf, labels_meta_tfidf)
-search_parameters_ensemble(features_meta_tfidf, labels_meta_tfidf, True)
+# # start hyperparameter tuning for features only retrieved from requirement texts
+# search_parameters(features_tfidf, labels_tfidf)
+# search_parameters_ensemble(features_tfidf, labels_tfidf, True)
+# # start hyperparameter tuning for meta subtypes
+# search_parameters(features_meta_tfidf, labels_meta_tfidf)
+# search_parameters_ensemble(features_meta_tfidf, labels_meta_tfidf, True)
+# start hyperparameter tuning for features retrieved from requirement texts and the context of terms
+search_parameters(features_context_tfidf, labels_context_tfidf)
+search_parameters_ensemble(features_context_tfidf, labels_context_tfidf, True)
