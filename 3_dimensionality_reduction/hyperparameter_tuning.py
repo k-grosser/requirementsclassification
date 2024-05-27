@@ -46,10 +46,10 @@ def search_parameters(X, y):
 
         #('pca', PCA()),
 
-        ('model', KNeighborsClassifier())
+        #('model', KNeighborsClassifier())
         #('model', SVC(kernel='linear'))
         #('model', LogisticRegression(solver='liblinear'))
-        #('model', MultinomialNB())
+        ('model', MultinomialNB())
         ]
     )
 
@@ -60,10 +60,10 @@ def search_parameters(X, y):
     search = GridSearchCV(
         estimator=pipeline,
         param_grid = {
-            'selector__k':np.arange(10,361,10),
-            #'pca__n_components':np.arange(10,351,10),
+            'selector__k':np.arange(50,1601,50),
+            #'pca__n_components':np.arange(50,1501,50)
 
-            'model__n_neighbors': [3,5,7,9]
+            #'model__n_neighbors': [3,5,7,9]
 
             # 'model__kernel': ['linear', 'poly', 'rbf'],
             # 'model__gamma': ['scale','auto'],
@@ -81,7 +81,7 @@ def search_parameters(X, y):
     search.fit(X, y)
     # parameter setting with the best results
     print('best parameter setting:', search.best_params_)
-    print('measured accuracy:', search.best_score_)
+    print('accuracy:', search.best_score_)
 
 def search_parameters_ensemble(X, y, pca):
     classifiers = list()
@@ -114,8 +114,8 @@ def search_parameters_ensemble(X, y, pca):
     search = GridSearchCV(
         estimator=pipeline,
         param_grid = {
-            'selector__k':np.arange(10,381,10),
-            'pca__n_components':np.arange(10,351,10),
+            'selector__k':np.arange(50,1601,50),
+            'pca__n_components':np.arange(50,1501,50),
             'model__voting': ['hard', 'soft']
         },
         cv = k_folds,
@@ -137,7 +137,7 @@ print('Best setting for bow:')
 # search_parameters(features_meta_bow, labels_meta_bow)
 # search_parameters_ensemble(features_meta_bow, labels_meta_bow, True)
 # start hyperparameter tuning for features retrieved from requirement texts and the context of terms
-search_parameters(features_context_bow, labels_context_bow)
+# search_parameters(features_context_bow, labels_context_bow)
 search_parameters_ensemble(features_context_bow, labels_context_bow, True)
 
 print('Best setting for tfidf:')
@@ -148,5 +148,5 @@ print('Best setting for tfidf:')
 # search_parameters(features_meta_tfidf, labels_meta_tfidf)
 # search_parameters_ensemble(features_meta_tfidf, labels_meta_tfidf, True)
 # start hyperparameter tuning for features retrieved from requirement texts and the context of terms
-search_parameters(features_context_tfidf, labels_context_tfidf)
+# search_parameters(features_context_tfidf, labels_context_tfidf)
 search_parameters_ensemble(features_context_tfidf, labels_context_tfidf, True)

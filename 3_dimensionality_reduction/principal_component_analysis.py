@@ -82,15 +82,15 @@ def transform_features(df, n, y_label):
 # transform_features(df_meta_tfidf_ensemble, 40, '_subclass_').to_csv('3_dimensionality_reduction/output/req_meta_pca/req_pca_tfidf_ensemble.csv', index=False)
 
 # transform features for requirements with context information
-transform_features(df_context_bow_knn, 10, '_subclass_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_bow_knn.csv', index=False)
-transform_features(df_context_tfidf_knn, 50, '_subclass_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_tfidf_knn.csv', index=False)
+transform_features(df_context_bow_knn, 200, '_class_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_bow_knn.csv', index=False)
+transform_features(df_context_tfidf_knn, 350, '_class_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_tfidf_knn.csv', index=False)
 
-transform_features(df_context_bow_svm, 30, '_subclass_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_bow_svm.csv', index=False)
-transform_features(df_context_tfidf_svm, 20, '_subclass_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_tfidf_svm.csv', index=False)
+transform_features(df_context_bow_svm, 50, '_class_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_bow_svm.csv', index=False)
+transform_features(df_context_tfidf_svm, 250, '_class_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_tfidf_svm.csv', index=False)
 
-transform_features(df_context_bow_lr, 20, '_subclass_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_bow_lr.csv', index=False)
-transform_features(df_context_tfidf_lr, 10, '_subclass_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_tfidf_lr.csv', index=False)
+transform_features(df_context_bow_lr, 350, '_class_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_bow_lr.csv', index=False)
+transform_features(df_context_tfidf_lr, 250, '_class_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_tfidf_lr.csv', index=False)
 
-transform_features(df_context_bow_ensemble, 40, '_subclass_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_bow_ensemble.csv', index=False)
-transform_features(df_context_tfidf_ensemble, 40, '_subclass_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_tfidf_ensemble.csv', index=False)
+transform_features(df_context_bow_ensemble, 350, '_class_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_bow_ensemble.csv', index=False)
+transform_features(df_context_tfidf_ensemble, 250, '_class_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_tfidf_ensemble.csv', index=False)
 

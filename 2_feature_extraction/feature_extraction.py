@@ -10,6 +10,7 @@ df_meta = pd.read_csv(filepath_or_buffer='1_preprocessing/output/req_meta_prepro
 corpus_meta = df_meta['RequirementText']
 
 df_context = pd.read_csv(filepath_or_buffer='1_preprocessing/output/req_context_preprocessed.csv', header=0, quotechar='"', doublequote=True)
+# corpus_context = df_context['RequirementText'] + df_context['Context']
 corpus_context = df_context['RequirementText']
 df_context = df_context.drop(['ECSS Source Reference', 'ID', 'RequirementText'], axis=1)
 
@@ -34,6 +35,7 @@ df_meta_bow['_subclass_'] = df_meta['_subclass_']
 df_context_bow = pd.DataFrame(data=feature_vectors_bow_context.toarray(), columns=vectorizer_bow_context.get_feature_names_out())
 # adding the class and context information to the feature vectors retrieved from the requirement text
 df_context_bow = pd.concat([df_context_bow, df_context], axis=1)
+# df_context_bow['_class_'] = df_context['_class_']
 
 df_bow.to_csv('2_feature_extraction/output/req_vectorized_bow.csv', index=False)
 df_meta_bow.to_csv('2_feature_extraction/output/req_meta_vectorized_bow.csv', index=False)
@@ -60,6 +62,7 @@ df_meta_tfidf['_subclass_'] = df_meta['_subclass_']
 df_context_tfidf = pd.DataFrame(data=feature_vectors_tfidf_context.toarray(), columns=vectorizer_tfidf_context.get_feature_names_out())
 # adding the class and context information to the feature vectors retrieved from the requirement text
 df_context_tfidf = pd.concat([df_context_tfidf, df_context], axis=1)
+# df_context_tfidf['_class_'] = df_context['_class_']
 
 df_tfidf.to_csv('2_feature_extraction/output/req_vectorized_tfidf.csv', index=False)
 df_meta_tfidf.to_csv('2_feature_extraction/output/req_meta_vectorized_tfidf.csv', index=False)

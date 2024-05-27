@@ -1,4 +1,3 @@
-import numpy
 import pandas as pd 
 import re
 
@@ -86,6 +85,17 @@ def extend_by_context(df : pd.DataFrame):
 
         for context in contexts:
             df.at[index, context] = 1
+
+        # fill NaN values with 0
+        df.fillna(0, inplace=True)
+
+        # # create a string which lists all context information for a requirement
+        # context_string = ' '
+        # for context in contexts:
+        #     context_string = context_string + context + ' '
+
+        # # store the string with the context information in the dataframe
+        # df.at[index, 'Context'] = context_string
 
 # find terms with context information in a requirement text 
 # belonging to a certain standard and branch and return them

@@ -82,3 +82,48 @@ Feature Selection and Principal Component Analysis:
                         accuracy: 0.8114285714285714
                 TF-IDF: {'model__voting': 'soft', 'pca__n_components': 40, 'selector__k': 370}
                         accuracy: 0.7704761904761905
+
+
+
+Results for requirements with Context information:
+
+pure Feature Selection with chi squared:
+- kNN:  BoW:    {'model__n_neighbors': 3, 'selector__k': 600}
+                accuracy: 0.7123999084877604
+        TF-IDF: {'model__n_neighbors': 3, 'selector__k': 1600}
+                accuracy: 0.7123541523678791
+- SVM:  BoW:    {'selector__k': 350}
+                accuracy: 0.8133379089453214
+        TF-IDF: {'selector__k': 1250}
+                accuracy: 0.8091741020361474
+- LR:   BoW:    {'selector__k': 600}
+                accuracy: 0.8562342713337909
+        TF-IDF: {'selector__k': 1250}
+                accuracy: 0.8262640128117136
+- MNB:  BoW:    {'selector__k': 1500}
+                accuracy: 0.8412262640128118
+        TF-IDF: {'selector__k': 750}
+                accuracy: 0.8069549302219172
+- Ensemble:     BoW:    {'model__voting': 'soft', 'selector__k': 1500}
+                        accuracy: 0.8605811027224892
+                TF-IDF: {'model__voting': 'hard', 'selector__k': 1400}
+                        accuracy: 0.8284145504461222
+
+
+Feature Selection and Principal Component Analysis:
+- kNN:  BoW:    {'model__n_neighbors': 3, 'pca__n_components': 200, 'selector__k': 450}
+                accuracy: 0.7166552276366966
+        TF-IDF: {'model__n_neighbors': 3, 'pca__n_components': 350, 'selector__k': 1600}
+                accuracy: 0.7102036147334705
+- SVM:  BoW:    {'pca__n_components': 50, 'selector__k': 750}
+                accuracy: 0.8197895218485473
+        TF-IDF: {'pca__n_components': 250, 'selector__k': 350}
+                accuracy: 0.8090368336765043
+- LR:   BoW:    {'pca__n_components': 350, 'selector__k': 600}
+                accuracy: 0.8498055364905056
+        TF-IDF: {'pca__n_components': 250, 'selector__k': 500}
+                accuracy: 0.8262411347517731
+- Ensemble:     BoW:    {'model__voting': 'hard', 'pca__n_components': 350, 'selector__k': 500}
+                        accuracy: 0.8412948981926333
+                TF-IDF: {'model__voting': 'hard', 'pca__n_components': 250, 'selector__k': 1550}
+                        accuracy: 0.8220086936627775
