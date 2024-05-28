@@ -88,42 +88,43 @@ Feature Selection and Principal Component Analysis:
 Results for requirements with Context information:
 
 pure Feature Selection with chi squared:
-- kNN:  BoW:    {'model__n_neighbors': 3, 'selector__k': 600}
-                accuracy: 0.7123999084877604
-        TF-IDF: {'model__n_neighbors': 3, 'selector__k': 1600}
-                accuracy: 0.7123541523678791
+- kNN:  BoW:    {'model__n_neighbors': 3, 'selector__k': 650}
+                accuracy: 0.7059025394646534
+        TF-IDF: {'model__n_neighbors': 9, 'selector__k': 1350}
+                accuracy: 0.8004118050789293
 - SVM:  BoW:    {'selector__k': 350}
                 accuracy: 0.8133379089453214
         TF-IDF: {'selector__k': 1250}
-                accuracy: 0.8091741020361474
-- LR:   BoW:    {'selector__k': 600}
-                accuracy: 0.8562342713337909
+                accuracy: 0.8520247083047356
+- LR:   BoW:    {'selector__k': 550}
+                accuracy: 0.8476778769160376
+        TF-IDF: {'selector__k': 1350}
+                accuracy: 0.8563029055136125
+- MNB:  BoW:    {'selector__k': 1050}
+                accuracy: 0.8412948981926333
         TF-IDF: {'selector__k': 1250}
-                accuracy: 0.8262640128117136
-- MNB:  BoW:    {'selector__k': 1500}
-                accuracy: 0.8412262640128118
-        TF-IDF: {'selector__k': 750}
-                accuracy: 0.8069549302219172
-- Ensemble:     BoW:    {'model__voting': 'soft', 'selector__k': 1500}
-                        accuracy: 0.8605811027224892
-                TF-IDF: {'model__voting': 'hard', 'selector__k': 1400}
-                        accuracy: 0.8284145504461222
+                accuracy: 0.8326241134751774
+- Ensemble:     BoW:    {'model__voting': 'soft', 'selector__k': 1450}
+                        accuracy: 0.8584305650880806
+                TF-IDF: {'model__voting': 'hard', 'selector__k': 1200}
+                        accuracy: 0.8648821779913064
+                        
 
 
 Feature Selection and Principal Component Analysis:
-- kNN:  BoW:    {'model__n_neighbors': 3, 'pca__n_components': 200, 'selector__k': 450}
-                accuracy: 0.7166552276366966
-        TF-IDF: {'model__n_neighbors': 3, 'pca__n_components': 350, 'selector__k': 1600}
-                accuracy: 0.7102036147334705
-- SVM:  BoW:    {'pca__n_components': 50, 'selector__k': 750}
-                accuracy: 0.8197895218485473
-        TF-IDF: {'pca__n_components': 250, 'selector__k': 350}
-                accuracy: 0.8090368336765043
-- LR:   BoW:    {'pca__n_components': 350, 'selector__k': 600}
-                accuracy: 0.8498055364905056
-        TF-IDF: {'pca__n_components': 250, 'selector__k': 500}
-                accuracy: 0.8262411347517731
-- Ensemble:     BoW:    {'model__voting': 'hard', 'pca__n_components': 350, 'selector__k': 500}
-                        accuracy: 0.8412948981926333
-                TF-IDF: {'model__voting': 'hard', 'pca__n_components': 250, 'selector__k': 1550}
-                        accuracy: 0.8220086936627775
+- kNN:  BoW:    {'model__n_neighbors': 3, 'pca__n_components': 50, 'selector__k': 700}
+                accuracy: 0.7145504461221689
+        TF-IDF: {'model__n_neighbors': 5, 'pca__n_components': 200, 'selector__k': 1600}
+                accuracy: 0.8004804392587509
+- SVM:  BoW:    {'pca__n_components': 50, 'selector__k': 1150}
+                accuracy: 0.8176161061541981
+        TF-IDF: {'pca__n_components': 300, 'selector__k': 1350}
+                accuracy: 0.8562800274536719
+- LR:   BoW:    {'pca__n_components': 250, 'selector__k': 1250}
+                accuracy: 0.8497826584305651
+        TF-IDF: {'pca__n_components': 350, 'selector__k': 1500}
+                accuracy: 0.8584305650880806
+- Ensemble:     BoW:    {'model__voting': 'hard', 'pca__n_components': 150, 'selector__k': 650}
+                        accuracy: 0.8412033859528713
+                TF-IDF: {'model__voting': 'soft', 'pca__n_components': 300, 'selector__k': 1500}
+                        accuracy: 0.8605353466026081

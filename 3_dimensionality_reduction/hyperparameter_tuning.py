@@ -44,12 +44,12 @@ def search_parameters(X, y):
         [
         ('selector', SelectKBest(chi2)),
 
-        #('pca', PCA()),
+        ('pca', PCA()),
 
         #('model', KNeighborsClassifier())
         #('model', SVC(kernel='linear'))
-        #('model', LogisticRegression(solver='liblinear'))
-        ('model', MultinomialNB())
+        ('model', LogisticRegression(solver='liblinear'))
+        #('model', MultinomialNB())
         ]
     )
 
@@ -61,7 +61,7 @@ def search_parameters(X, y):
         estimator=pipeline,
         param_grid = {
             'selector__k':np.arange(50,1601,50),
-            #'pca__n_components':np.arange(50,1501,50)
+            'pca__n_components':np.arange(50,1001,50),
 
             #'model__n_neighbors': [3,5,7,9]
 
@@ -115,7 +115,7 @@ def search_parameters_ensemble(X, y, pca):
         estimator=pipeline,
         param_grid = {
             'selector__k':np.arange(50,1601,50),
-            'pca__n_components':np.arange(50,1501,50),
+            'pca__n_components':np.arange(50,1001,50),
             'model__voting': ['hard', 'soft']
         },
         cv = k_folds,
