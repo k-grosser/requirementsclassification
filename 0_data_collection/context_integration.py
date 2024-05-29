@@ -30,6 +30,8 @@ def build_lookup_table(df, term_type):
     # iterate over all terms/ abbreviations
     for index, row in df.iterrows():
         term = row[term_type]
+        if term_type == 'Term':
+            term = term.lower()
         standard = row['ECSS Standard'].replace(' ', '').replace('.', '').replace('-', '_')
         branch = row['Branch']
         
@@ -88,7 +90,8 @@ def find_contexts_in_text(lookup_table : pd.DataFrame, text : str, standard : st
     for index, row in lookup_table.iterrows():
         term = row['Term']
 
-        if  text.startswith(term+' ') or (' '+term+' ' in text) or text.endswith(' '+term+'.') or text.endswith(' '+term):
+        if  text.startswith(term+' ') or (' '+term+' ' in text) or \
+            text.endswith(' '+term+'.') or text.endswith(' '+term):
 
             standards = row['ECSS Standards']
             branches = row['Branches']

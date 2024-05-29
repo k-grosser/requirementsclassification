@@ -96,7 +96,7 @@ pure Feature Selection with chi squared:
                 accuracy: 0.8133379089453214
         TF-IDF: {'selector__k': 1250}
                 accuracy: 0.8520247083047356
-- LR:   BoW:    {'selector__k': 550}
+- LR:   BoW:    {'selector__k': 500}
                 accuracy: 0.8476778769160376
         TF-IDF: {'selector__k': 1350}
                 accuracy: 0.8563029055136125

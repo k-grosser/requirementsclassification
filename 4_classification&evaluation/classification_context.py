@@ -177,7 +177,7 @@ def nb_cross_validation(X, y):
     return scores
 
 # evaluate the Ensemble classification by cross-validation
-def ensemble_cross_validation(X, y, pca:bool):
+def ensemble_cross_validation(X, y, pca:bool, voting):
 
     classifiers = list()
     classifiers.append(('kNN', KNeighborsClassifier()))
@@ -195,7 +195,7 @@ def ensemble_cross_validation(X, y, pca:bool):
 
     eclf = VotingClassifier(
         estimators=classifiers, 
-        voting='soft',
+        voting=voting,
         weights=weights)
     
     scores = cross_validate(eclf, X, y, cv = k_folds, scoring=scoring)
@@ -296,15 +296,15 @@ scores_pca_tfidf = {'fit_time': 0, 'score_time': 0, 'test_accuracy': 0, 'test_pr
 store_evaluation_scores(scores_tfidf, scores_chi_tfidf, scores_pca_tfidf, 'NB', 'TF-IDF')
 
 # Ensemble
-scores_bow = ensemble_cross_validation(X_bow, y_bow, False)
-scores_chi_bow = ensemble_cross_validation(X_chi_bow_ensemble, y_chi_bow_ensemble, False)
-scores_pca_bow = ensemble_cross_validation(X_pca_bow_ensemble, y_pca_bow_ensemble, True)
+scores_bow = ensemble_cross_validation(X_bow, y_bow, False, 'soft')
+scores_chi_bow = ensemble_cross_validation(X_chi_bow_ensemble, y_chi_bow_ensemble, False, 'soft')
+scores_pca_bow = ensemble_cross_validation(X_pca_bow_ensemble, y_pca_bow_ensemble, True, 'hard')
 
 store_evaluation_scores(scores_bow, scores_chi_bow, scores_pca_bow, 'Ensemble', 'BoW')
 
-scores_tfidf = ensemble_cross_validation(X_tfidf, y_tfidf, False)
-scores_chi_tfidf = ensemble_cross_validation(X_chi_tfidf_ensemble, y_chi_tfidf_ensemble, False)
-scores_pca_tfidf = ensemble_cross_validation(X_pca_tfidf_ensemble, y_pca_tfidf_ensemble, True)
+scores_tfidf = ensemble_cross_validation(X_tfidf, y_tfidf, False, 'soft')
+scores_chi_tfidf = ensemble_cross_validation(X_chi_tfidf_ensemble, y_chi_tfidf_ensemble, False, 'hard')
+scores_pca_tfidf = ensemble_cross_validation(X_pca_tfidf_ensemble, y_pca_tfidf_ensemble, True, 'soft')
 
 store_evaluation_scores(scores_tfidf, scores_chi_tfidf, scores_pca_tfidf, 'Ensemble', 'TF-IDF')
 

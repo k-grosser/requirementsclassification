@@ -130,23 +130,23 @@ def search_parameters_ensemble(X, y, pca):
 
 
 print('Best setting for bow:')
-# # start hyperparameter tuning for features only retrieved from requirement texts
-# search_parameters(features_bow, labels_bow)
-# search_parameters_ensemble(features_bow, labels_bow, True)
-# # start hyperparameter tuning for meta subtypes
-# search_parameters(features_meta_bow, labels_meta_bow)
-# search_parameters_ensemble(features_meta_bow, labels_meta_bow, True)
+# start hyperparameter tuning for features only retrieved from requirement texts
+search_parameters(features_bow, labels_bow)
+search_parameters_ensemble(features_bow, labels_bow, True)
+# start hyperparameter tuning for meta subtypes
+search_parameters(features_meta_bow, labels_meta_bow)
+search_parameters_ensemble(features_meta_bow, labels_meta_bow, True)
 # start hyperparameter tuning for features retrieved from requirement texts and the context of terms
-# search_parameters(features_context_bow, labels_context_bow)
+search_parameters(features_context_bow, labels_context_bow)
 search_parameters_ensemble(features_context_bow, labels_context_bow, True)
 
 print('Best setting for tfidf:')
-# # start hyperparameter tuning for features only retrieved from requirement texts
-# search_parameters(features_tfidf, labels_tfidf)
-# search_parameters_ensemble(features_tfidf, labels_tfidf, True)
-# # start hyperparameter tuning for meta subtypes
-# search_parameters(features_meta_tfidf, labels_meta_tfidf)
-# search_parameters_ensemble(features_meta_tfidf, labels_meta_tfidf, True)
+# start hyperparameter tuning for features only retrieved from requirement texts
+search_parameters(features_tfidf, labels_tfidf)
+search_parameters_ensemble(features_tfidf, labels_tfidf, True)
+# start hyperparameter tuning for meta subtypes
+search_parameters(features_meta_tfidf, labels_meta_tfidf)
+search_parameters_ensemble(features_meta_tfidf, labels_meta_tfidf, True)
 # start hyperparameter tuning for features retrieved from requirement texts and the context of terms
-# search_parameters(features_context_tfidf, labels_context_tfidf)
+search_parameters(features_context_tfidf, labels_context_tfidf)
 search_parameters_ensemble(features_context_tfidf, labels_context_tfidf, True)
