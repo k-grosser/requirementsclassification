@@ -46,8 +46,8 @@ def search_parameters(X, y):
 
         ('pca', PCA()),
 
-        #('model', KNeighborsClassifier())
-        #('model', SVC(kernel='linear'))
+        # ('model', KNeighborsClassifier())
+        # ('model', SVC(kernel='linear'))
         ('model', LogisticRegression(solver='liblinear'))
         #('model', MultinomialNB())
         ]
@@ -63,7 +63,7 @@ def search_parameters(X, y):
             'selector__k':np.arange(50,1601,50),
             'pca__n_components':np.arange(50,1001,50),
 
-            #'model__n_neighbors': [3,5,7,9]
+            # 'model__n_neighbors': [3,5,7,9]
 
             # 'model__kernel': ['linear', 'poly', 'rbf'],
             # 'model__gamma': ['scale','auto'],

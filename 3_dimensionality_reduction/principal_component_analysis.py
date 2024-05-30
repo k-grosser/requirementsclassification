@@ -82,15 +82,15 @@ transform_features(df_meta_bow_ensemble, 40, '_subclass_').to_csv('3_dimensional
 transform_features(df_meta_tfidf_ensemble, 40, '_subclass_').to_csv('3_dimensionality_reduction/output/req_meta_pca/req_pca_tfidf_ensemble.csv', index=False)
 
 # transform features for requirements with context information
-transform_features(df_context_bow_knn, 50, '_class_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_bow_knn.csv', index=False)
-transform_features(df_context_tfidf_knn, 200, '_class_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_tfidf_knn.csv', index=False)
+transform_features(df_context_bow_knn, 150, '_class_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_bow_knn.csv', index=False)
+transform_features(df_context_tfidf_knn, 300, '_class_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_tfidf_knn.csv', index=False)
 
 transform_features(df_context_bow_svm, 50, '_class_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_bow_svm.csv', index=False)
 transform_features(df_context_tfidf_svm, 300, '_class_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_tfidf_svm.csv', index=False)
 
-transform_features(df_context_bow_lr, 250, '_class_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_bow_lr.csv', index=False)
+transform_features(df_context_bow_lr, 300, '_class_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_bow_lr.csv', index=False)
 transform_features(df_context_tfidf_lr, 350, '_class_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_tfidf_lr.csv', index=False)
 
-transform_features(df_context_bow_ensemble, 150, '_class_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_bow_ensemble.csv', index=False)
+transform_features(df_context_bow_ensemble, 300, '_class_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_bow_ensemble.csv', index=False)
 transform_features(df_context_tfidf_ensemble, 300, '_class_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_tfidf_ensemble.csv', index=False)
 

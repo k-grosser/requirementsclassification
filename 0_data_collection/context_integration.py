@@ -17,7 +17,10 @@ df_terms['Term'] = df_terms['Term'].apply(
 def add_branches(df : pd.DataFrame):
     for index, row in df.iterrows():
         standard = row['ECSS Standard']
-        df.at[index, 'Branch']=standard[5]
+        branch = standard[5]
+        if branch == 'S':
+            branch = ''
+        df.at[index, 'Branch'] = branch
 
 # adding branches
 add_branches(df_terms)
@@ -60,10 +63,11 @@ df_lookup_abbreviations.to_csv('0_data_collection/output/lookup_abbreviations.cs
 # import requirements data without context information
 df_req = pd.read_csv(filepath_or_buffer='0_data_collection/output/ECSS_standards.csv', header=0, quotechar='"', doublequote=True)
 df_req['ECSS Source Reference'] = df_req['ECSS Source Reference'].apply(lambda x: x.replace(' ', '').replace('.', '').replace('-', '_'))
+df_req['Context'] = df_req.apply(lambda _: '', axis=1)
 
 df_req_preprocessed = pd.read_csv(filepath_or_buffer='1_preprocessing/output/req_preprocessed.csv', header=0, quotechar='"', doublequote=True)
 df_req_preprocessed['ECSS Source Reference'] = df_req['ECSS Source Reference'].apply(lambda x: x.replace(' ', '').replace('.', '').replace('-', '_'))
-
+df_req_preprocessed['Context'] = df_req.apply(lambda _: '', axis=1)
 
 # add context information to the requirements data
 def extend_by_context(df : pd.DataFrame, lookup_table : pd.DataFrame):
@@ -79,7 +83,7 @@ def extend_by_context(df : pd.DataFrame, lookup_table : pd.DataFrame):
             context_string = context_string + context + ' '
 
         # store the string with the context information in the dataframe
-        df.at[index, 'Context'] = context_string
+        df.at[index, 'Context'] += context_string
 
 # find terms with context information in a requirement text 
 # belonging to a certain standard and branch and return them

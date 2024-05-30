@@ -8,13 +8,13 @@ recurring product,"['ECSS_E_ST_10CRev1', 'ECSS_E_ST_10C']",['E']
 system engineering,"['ECSS_E_ST_10CRev1', 'ECSS_E_ST_10C']",['E']
 verification matrix,"['ECSS_E_ST_10CRev1', 'ECSS_E_ST_10C']",['E']
 constraint,['ECSS_E_ST_10_06C'],['E']
-environment,"['ECSS_E_ST_10_06C', 'ECSS_S_ST_00_01C']","['E', 'S']"
-function,"['ECSS_E_ST_10_06C', 'ECSS_M_ST_10CRev1', 'ECSS_S_ST_00_01C']","['E', 'M', 'S']"
-functional analysis,"['ECSS_E_ST_10_06C', 'ECSS_S_ST_00_01C']","['E', 'S']"
-life cycle,"['ECSS_E_ST_10_06C', 'ECSS_S_ST_00_01C']","['E', 'S']"
-mission,"['ECSS_E_ST_10_06C', 'ECSS_E_ST_35CRev1', 'ECSS_E_ST_70C', 'ECSS_S_ST_00_01C']","['E', 'S']"
+environment,"['ECSS_E_ST_10_06C', 'ECSS_S_ST_00_01C']","['E', '']"
+function,"['ECSS_E_ST_10_06C', 'ECSS_M_ST_10CRev1', 'ECSS_S_ST_00_01C']","['E', 'M', '']"
+functional analysis,"['ECSS_E_ST_10_06C', 'ECSS_S_ST_00_01C']","['E', '']"
+life cycle,"['ECSS_E_ST_10_06C', 'ECSS_S_ST_00_01C']","['E', '']"
+mission,"['ECSS_E_ST_10_06C', 'ECSS_E_ST_35CRev1', 'ECSS_E_ST_70C', 'ECSS_S_ST_00_01C']","['E', '']"
 need,['ECSS_E_ST_10_06C'],['E']
-specification,"['ECSS_E_ST_10_06C', 'ECSS_S_ST_00_01C']","['E', 'S']"
+specification,"['ECSS_E_ST_10_06C', 'ECSS_S_ST_00_01C']","['E', '']"
 technical requirements specification,['ECSS_E_ST_10_06C'],['E']
 coordinate system,['ECSS_E_ST_10_09C'],['E']
 frame,"['ECSS_E_ST_10_09C', 'ECSS_E_ST_50_11C', 'ECSS_E_ST_50_16C', 'ECSS_E_ST_50CRev1']",['E']
@@ -24,13 +24,13 @@ context of use,['ECSS_E_ST_10_11C'],['E']
 crew,['ECSS_E_ST_10_11C'],['E']
 crew station,['ECSS_E_ST_10_11C'],['E']
 crew systems,['ECSS_E_ST_10_11C'],['E']
-effectiveness,"['ECSS_E_ST_10_11C', 'ECSS_S_ST_00_01C']","['E', 'S']"
-efficiency,"['ECSS_E_ST_10_11C', 'ECSS_S_ST_00_01C']","['E', 'S']"
+effectiveness,"['ECSS_E_ST_10_11C', 'ECSS_S_ST_00_01C']","['E', '']"
+efficiency,"['ECSS_E_ST_10_11C', 'ECSS_S_ST_00_01C']","['E', '']"
 human-machine system,['ECSS_E_ST_10_11C'],['E']
 human centred design,['ECSS_E_ST_10_11C'],['E']
 operation,"['ECSS_E_ST_10_11C', 'ECSS_E_ST_40_07C']",['E']
 operations nomenclature,['ECSS_E_ST_10_11C'],['E']
-procedure,"['ECSS_E_ST_10_11C', 'ECSS_E_ST_70_32C', 'ECSS_S_ST_00_01C']","['E', 'S']"
+procedure,"['ECSS_E_ST_10_11C', 'ECSS_E_ST_70_32C', 'ECSS_S_ST_00_01C']","['E', '']"
 stakeholder,['ECSS_E_ST_10_11C'],['E']
 synoptic display,['ECSS_E_ST_10_11C'],['E']
 task,['ECSS_E_ST_10_11C'],['E']
@@ -39,9 +39,9 @@ absorbed dose,"['ECSS_E_ST_10_12C', 'ECSS_E_ST_10_04CRev1', 'ECSS_Q_ST_70_06C', 
 air kerma,['ECSS_E_ST_10_12C'],['E']
 "ambient dose equivalent, h*",['ECSS_E_ST_10_12C'],['E']
 bremsstrahlung,"['ECSS_E_ST_10_12C', 'ECSS_E_ST_10_04CRev1', 'ECSS_Q_ST_70_06C', 'ECSS_E_ST_10_04C']","['E', 'Q']"
-component,"['ECSS_E_ST_10_12C', 'ECSS_E_ST_35CRev1', 'ECSS_E_ST_33_11CRev1', 'ECSS_E_ST_40_07C', 'ECSS_S_ST_00_01C', 'ECSS_Q_ST_70_08C', 'ECSS_E_ST_33_01C', 'ECSS_E_ST_33_11C']","['E', 'S', 'Q']"
+component,"['ECSS_E_ST_10_12C', 'ECSS_E_ST_35CRev1', 'ECSS_E_ST_33_11CRev1', 'ECSS_E_ST_40_07C', 'ECSS_S_ST_00_01C', 'ECSS_Q_ST_70_08C', 'ECSS_E_ST_33_01C', 'ECSS_E_ST_33_11C']","['E', '', 'Q']"
 continuous slowing down approximation range,['ECSS_E_ST_10_12C'],['E']
-cots,"['ECSS_E_ST_10_12C', 'ECSS_S_ST_00_01C']","['E', 'S']"
+cots,"['ECSS_E_ST_10_12C', 'ECSS_S_ST_00_01C']","['E', '']"
 critical charge,['ECSS_E_ST_10_12C'],['E']
 cross-section,['ECSS_E_ST_10_12C'],['E']
 directional dose equivalent,['ECSS_E_ST_10_12C'],['E']
@@ -134,13 +134,13 @@ temperature stability,['ECSS_E_ST_31C'],['E']
 temperature standard deviation,['ECSS_E_ST_31C'],['E']
 temperature uniformity,['ECSS_E_ST_31C'],['E']
 temperature variation,['ECSS_E_ST_31C'],['E']
-thermal balance test,"['ECSS_E_ST_31C', 'ECSS_S_ST_00_01C']","['E', 'S']"
+thermal balance test,"['ECSS_E_ST_31C', 'ECSS_S_ST_00_01C']","['E', '']"
 thermal design case,['ECSS_E_ST_31C'],['E']
 thermal mathematical model,['ECSS_E_ST_31C'],['E']
 thermal node,['ECSS_E_ST_31C'],['E']
-thermal vacuum test,"['ECSS_E_ST_31C', 'ECSS_S_ST_00_01C']","['E', 'S']"
+thermal vacuum test,"['ECSS_E_ST_31C', 'ECSS_S_ST_00_01C']","['E', '']"
 uncertainties,['ECSS_E_ST_31C'],['E']
-unit,"['ECSS_E_ST_31C', 'ECSS_E_ST_50_11C', 'ECSS_E_ST_50_12CRev1', 'ECSS_E_ST_20_07CRev2', 'ECSS_S_ST_00_01C', 'ECSS_E_ST_20_07C', 'ECSS_E_ST_50_12C', 'ECSS_E_ST_20_07CRev1']","['E', 'S']"
+unit,"['ECSS_E_ST_31C', 'ECSS_E_ST_50_11C', 'ECSS_E_ST_50_12CRev1', 'ECSS_E_ST_20_07CRev2', 'ECSS_S_ST_00_01C', 'ECSS_E_ST_20_07C', 'ECSS_E_ST_50_12C', 'ECSS_E_ST_20_07CRev1']","['E', '']"
 unit acceptance test temperature range,['ECSS_E_ST_31C'],['E']
 unit internal design temperature range,['ECSS_E_ST_31C'],['E']
 unit qualification test temperature range,['ECSS_E_ST_31C'],['E']
@@ -225,7 +225,7 @@ quantifiable structure variable,['ECSS_E_ST_32_03C'],['E']
 rigid body motion matrix,['ECSS_E_ST_32_03C'],['E']
 size of fe model,['ECSS_E_ST_32_03C'],['E']
 static reduction,['ECSS_E_ST_32_03C'],['E']
-structural model,"['ECSS_E_ST_32_03C', 'ECSS_S_ST_00_01C']","['E', 'S']"
+structural model,"['ECSS_E_ST_32_03C', 'ECSS_S_ST_00_01C']","['E', '']"
 composite sandwich construction,"['ECSS_E_ST_32_08CRev1', 'ECSS_E_ST_32_08C']",['E']
 material design allowable,"['ECSS_E_ST_32_08CRev1', 'ECSS_E_ST_32_08C']",['E']
 micro-yield,"['ECSS_E_ST_32_08CRev1', 'ECSS_E_ST_32_08C']",['E']
@@ -309,7 +309,7 @@ detrimental deformation,['ECSS_E_ST_32CRev1'],['E']
 dynamic load,['ECSS_E_ST_32CRev1'],['E']
 effective mass,['ECSS_E_ST_32CRev1'],['E']
 factor of safety,['ECSS_E_ST_32CRev1'],['E']
-failure,"['ECSS_E_ST_32CRev1', 'ECSS_Q_ST_70_45C', 'ECSS_S_ST_00_01C']","['E', 'Q', 'S']"
+failure,"['ECSS_E_ST_32CRev1', 'ECSS_Q_ST_70_45C', 'ECSS_S_ST_00_01C']","['E', 'Q', '']"
 fail-safe structure,['ECSS_E_ST_32CRev1'],['E']
 flaw,['ECSS_E_ST_32CRev1'],['E']
 generalized mass,['ECSS_E_ST_32CRev1'],['E']
@@ -364,7 +364,7 @@ buffeting,['ECSS_E_ST_35CRev1'],['E']
 "characteristic velocity, c*",['ECSS_E_ST_35CRev1'],['E']
 charred thickness,['ECSS_E_ST_35CRev1'],['E']
 chill-down,['ECSS_E_ST_35CRev1'],['E']
-contaminant,"['ECSS_E_ST_35CRev1', 'ECSS_E_ST_10_04CRev1', 'ECSS_Q_ST_70_54C', 'ECSS_Q_ST_70_01C', 'ECSS_Q_ST_70_06C', 'ECSS_S_ST_00_01C', 'ECSS_Q_ST_60_14C', 'ECSS_E_ST_10_04C']","['E', 'Q', 'S']"
+contaminant,"['ECSS_E_ST_35CRev1', 'ECSS_E_ST_10_04CRev1', 'ECSS_Q_ST_70_54C', 'ECSS_Q_ST_70_01C', 'ECSS_Q_ST_70_06C', 'ECSS_S_ST_00_01C', 'ECSS_Q_ST_60_14C', 'ECSS_E_ST_10_04C']","['E', 'Q', '']"
 corridor,['ECSS_E_ST_35CRev1'],['E']
 critical speed,['ECSS_E_ST_35CRev1'],['E']
 cryo-pumping,['ECSS_E_ST_35CRev1'],['E']
@@ -389,8 +389,8 @@ hypergolic propellants,['ECSS_E_ST_35CRev1'],['E']
 impulse bit,['ECSS_E_ST_35CRev1'],['E']
 initiator,"['ECSS_E_ST_35CRev1', 'ECSS_E_ST_50_51C', 'ECSS_E_ST_33_11CRev1', 'ECSS_E_ST_33_11C']",['E']
 insulation thickness,['ECSS_E_ST_35CRev1'],['E']
-interface,"['ECSS_E_ST_35CRev1', 'ECSS_E_ST_31_04C', 'ECSS_E_ST_40_07C', 'ECSS_S_ST_00_01C', 'ECSS_E_ST_50C']","['E', 'S']"
-launch vehicle,"['ECSS_E_ST_35CRev1', 'ECSS_S_ST_00_01C']","['E', 'S']"
+interface,"['ECSS_E_ST_35CRev1', 'ECSS_E_ST_31_04C', 'ECSS_E_ST_40_07C', 'ECSS_S_ST_00_01C', 'ECSS_E_ST_50C']","['E', '']"
+launch vehicle,"['ECSS_E_ST_35CRev1', 'ECSS_S_ST_00_01C']","['E', '']"
 limit testing,"['ECSS_E_ST_35CRev1', 'ECSS_E_ST_33_11CRev1', 'ECSS_E_ST_33_11C']",['E']
 liquid rocket engine,['ECSS_E_ST_35CRev1'],['E']
 minimum impulse bit,['ECSS_E_ST_35CRev1'],['E']
@@ -416,10 +416,10 @@ simulant,['ECSS_E_ST_35CRev1'],['E']
 side load,['ECSS_E_ST_35CRev1'],['E']
 sizing,['ECSS_E_ST_35CRev1'],['E']
 solid rocket motor,['ECSS_E_ST_35CRev1'],['E']
-spacecraft,"['ECSS_E_ST_35CRev1', 'ECSS_S_ST_00_01C']","['E', 'S']"
+spacecraft,"['ECSS_E_ST_35CRev1', 'ECSS_S_ST_00_01C']","['E', '']"
 "specific impulse, isp",['ECSS_E_ST_35CRev1'],['E']
-subsystem,"['ECSS_E_ST_35CRev1', 'ECSS_S_ST_00_01C']","['E', 'S']"
-system,"['ECSS_E_ST_35CRev1', 'ECSS_S_ST_00_01C', 'ECSS_Q_ST_40C']","['E', 'S', 'Q']"
+subsystem,"['ECSS_E_ST_35CRev1', 'ECSS_S_ST_00_01C']","['E', '']"
+system,"['ECSS_E_ST_35CRev1', 'ECSS_S_ST_00_01C', 'ECSS_Q_ST_40C']","['E', '', 'Q']"
 termination point,['ECSS_E_ST_35CRev1'],['E']
 throttling,['ECSS_E_ST_35CRev1'],['E']
 thrust,['ECSS_E_ST_35CRev1'],['E']
@@ -488,8 +488,8 @@ test script,"['ECSS_E_ST_40C', 'ECSS_Q_ST_80CRev1', 'ECSS_Q_ST_80C']","['E', 'Q'
 unit test,"['ECSS_E_ST_40C', 'ECSS_Q_ST_80CRev1', 'ECSS_Q_ST_80C']","['E', 'Q']"
 unreachable code,"['ECSS_E_ST_40C', 'ECSS_Q_ST_80CRev1', 'ECSS_Q_ST_80C']","['E', 'Q']"
 usability,"['ECSS_E_ST_40C', 'ECSS_Q_ST_80CRev1', 'ECSS_Q_ST_80C']","['E', 'Q']"
-validation,"['ECSS_E_ST_40C', 'ECSS_E_ST_31_04C', 'ECSS_Q_ST_80CRev1', 'ECSS_S_ST_00_01C', 'ECSS_Q_ST_80C']","['E', 'Q', 'S']"
-verification,"['ECSS_E_ST_40C', 'ECSS_Q_ST_80CRev1', 'ECSS_S_ST_00_01C', 'ECSS_Q_ST_80C']","['E', 'Q', 'S']"
+validation,"['ECSS_E_ST_40C', 'ECSS_E_ST_31_04C', 'ECSS_Q_ST_80CRev1', 'ECSS_S_ST_00_01C', 'ECSS_Q_ST_80C']","['E', 'Q', '']"
+verification,"['ECSS_E_ST_40C', 'ECSS_Q_ST_80CRev1', 'ECSS_S_ST_00_01C', 'ECSS_Q_ST_80C']","['E', 'Q', '']"
 walk-through,"['ECSS_E_ST_40C', 'ECSS_Q_ST_80CRev1', 'ECSS_Q_ST_80C']","['E', 'Q']"
 category a,"['ECSS_E_ST_50_02C', 'ECSS_E_ST_50_05CRev2', 'ECSS_E_ST_50_05CRev1', 'ECSS_E_ST_50_01C']",['E']
 category b,"['ECSS_E_ST_50_02C', 'ECSS_E_ST_50_05CRev2', 'ECSS_E_ST_50_05CRev1', 'ECSS_E_ST_50_01C']",['E']
@@ -606,11 +606,11 @@ space segment status,['ECSS_E_ST_70_11C'],['E']
 telecommand function,['ECSS_E_ST_70_11C'],['E']
 entity,"['ECSS_E_ST_70C', 'ECSS_E_ST_50CRev1', 'ECSS_E_ST_50C']",['E']
 ground segment operations,['ECSS_E_ST_70C'],['E']
-ground segment,"['ECSS_E_ST_70C', 'ECSS_Q_ST_30_09C', 'ECSS_S_ST_00_01C']","['E', 'Q', 'S']"
+ground segment,"['ECSS_E_ST_70C', 'ECSS_Q_ST_30_09C', 'ECSS_S_ST_00_01C']","['E', 'Q', '']"
 ground segment customer,['ECSS_E_ST_70C'],['E']
 ground segment supplier,['ECSS_E_ST_70C'],['E']
 ground system,['ECSS_E_ST_70C'],['E']
-incident,"['ECSS_E_ST_70C', 'ECSS_S_ST_00_01C']","['E', 'S']"
+incident,"['ECSS_E_ST_70C', 'ECSS_S_ST_00_01C']","['E', '']"
 mission exploitation,['ECSS_E_ST_70C'],['E']
 mission information,['ECSS_E_ST_70C'],['E']
 mission operations,['ECSS_E_ST_70C'],['E']
@@ -671,7 +671,7 @@ slicing,"['ECSS_E_ST_20_08CRev1', 'ECSS_E_ST_20_08C']",['E']
 cladding,"['ECSS_E_ST_20_08CRev1', 'ECSS_E_ST_20_08C']",['E']
 deformed interconnector,"['ECSS_E_ST_20_08CRev1', 'ECSS_E_ST_20_08C']",['E']
 interconnected cell,"['ECSS_E_ST_20_08CRev1', 'ECSS_E_ST_20_08C']",['E']
-solar cell assembly,"['ECSS_E_ST_20_08CRev1', 'ECSS_E_ST_20CRev2', 'ECSS_S_ST_00_01C', 'ECSS_E_ST_20_08C', 'ECSS_E_ST_20C', 'ECSS_E_ST_20CRev1']","['E', 'S']"
+solar cell assembly,"['ECSS_E_ST_20_08CRev1', 'ECSS_E_ST_20CRev2', 'ECSS_S_ST_00_01C', 'ECSS_E_ST_20_08C', 'ECSS_E_ST_20C', 'ECSS_E_ST_20CRev1']","['E', '']"
 tearing interconnector,"['ECSS_E_ST_20_08CRev1', 'ECSS_E_ST_20_08C']",['E']
 bare solar cell,"['ECSS_E_ST_20_08CRev1', 'ECSS_E_ST_20_08C']",['E']
 component bare solar cell,"['ECSS_E_ST_20_08CRev1', 'ECSS_E_ST_20_08C']",['E']
@@ -762,7 +762,7 @@ trip-off time,['ECSS_E_ST_20_20C'],['E']
 undervoltage protection,['ECSS_E_ST_20_20C'],['E']
 acceptance notification,['ECSS_E_ST_70_41C'],['E']
 acceptance verification report,['ECSS_E_ST_70_41C'],['E']
-capability,"['ECSS_E_ST_70_41C', 'ECSS_S_ST_00_01C']","['E', 'S']"
+capability,"['ECSS_E_ST_70_41C', 'ECSS_S_ST_00_01C']","['E', '']"
 data report,['ECSS_E_ST_70_41C'],['E']
 event report,['ECSS_E_ST_70_41C'],['E']
 execution notification,['ECSS_E_ST_70_41C'],['E']
@@ -792,7 +792,7 @@ angular white noise,['ECSS_E_ST_60_21C'],['E']
 anti-aliasing filter,['ECSS_E_ST_60_21C'],['E']
 bias,"['ECSS_E_ST_60_21C', 'ECSS_E_ST_60_20CRev2', 'ECSS_E_ST_60_20CRev1']",['E']
 bias instability,['ECSS_E_ST_60_21C'],['E']
-calibration,"['ECSS_E_ST_60_21C', 'ECSS_S_ST_00_01C']","['E', 'S']"
+calibration,"['ECSS_E_ST_60_21C', 'ECSS_S_ST_00_01C']","['E', '']"
 configuration status,['ECSS_E_ST_60_21C'],['E']
 cumulated angular increments,['ECSS_E_ST_60_21C'],['E']
 deadband,['ECSS_E_ST_60_21C'],['E']
@@ -854,7 +854,7 @@ explosive subsystem,['ECSS_E_ST_33_11CRev1'],['E']
 fail operational,"['ECSS_E_ST_33_11CRev1', 'ECSS_E_ST_33_11C']",['E']
 fail safe,"['ECSS_E_ST_33_11CRev1', 'ECSS_Q_ST_40CRev1']","['E', 'Q']"
 gas generators,"['ECSS_E_ST_33_11CRev1', 'ECSS_E_ST_33_11C']",['E']
-lot,"['ECSS_E_ST_33_11CRev1', 'ECSS_Q_ST_70_04C', 'ECSS_S_ST_00_01C', 'ECSS_E_ST_33_11C']","['E', 'Q', 'S']"
+lot,"['ECSS_E_ST_33_11CRev1', 'ECSS_Q_ST_70_04C', 'ECSS_S_ST_00_01C', 'ECSS_E_ST_33_11C']","['E', 'Q', '']"
 lot acceptance,"['ECSS_E_ST_33_11CRev1', 'ECSS_E_ST_33_11C']",['E']
 no fire,"['ECSS_E_ST_33_11CRev1', 'ECSS_E_ST_33_11C']",['E']
 packaged charge,"['ECSS_E_ST_33_11CRev1', 'ECSS_E_ST_33_11C']",['E']
@@ -984,7 +984,7 @@ routing switch,"['ECSS_E_ST_50_11C', 'ECSS_E_ST_50_12CRev1', 'ECSS_E_ST_50_12C']
 routing table,"['ECSS_E_ST_50_11C', 'ECSS_E_ST_50_12CRev1']",['E']
 row,['ECSS_E_ST_50_11C'],['E']
 schedule,"['ECSS_E_ST_50_11C', 'ECSS_E_ST_40_07C']",['E']
-segment,"['ECSS_E_ST_50_11C', 'ECSS_S_ST_00_01C']","['E', 'S']"
+segment,"['ECSS_E_ST_50_11C', 'ECSS_S_ST_00_01C']","['E', '']"
 sending row,['ECSS_E_ST_50_11C'],['E']
 serialisation,"['ECSS_E_ST_50_11C', 'ECSS_E_ST_50_12CRev1']",['E']
 serialiser,['ECSS_E_ST_50_11C'],['E']
@@ -1102,7 +1102,7 @@ protoflight test,"['ECSS_E_ST_32_10CRev2Corr1', 'ECSS_E_ST_32_10CRev1', 'ECSS_E_
 test factors,"['ECSS_E_ST_32_10CRev2Corr1', 'ECSS_E_ST_32_10CRev1', 'ECSS_E_ST_32_10CRev2']",['E']
 ultimate design factor of safety,"['ECSS_E_ST_32_10CRev2Corr1', 'ECSS_E_ST_32_10CRev1', 'ECSS_E_ST_32_10CRev2']",['E']
 yield design factor of safety,"['ECSS_E_ST_32_10CRev2Corr1', 'ECSS_E_ST_32_10CRev1', 'ECSS_E_ST_32_10CRev2']",['E']
-actuator,"['ECSS_E_ST_33_01CRev2', 'ECSS_E_ST_20_21C', 'ECSS_S_ST_00_01C', 'ECSS_E_ST_33_01C', 'ECSS_E_ST_33_01CRev1']","['E', 'S']"
+actuator,"['ECSS_E_ST_33_01CRev2', 'ECSS_E_ST_20_21C', 'ECSS_S_ST_00_01C', 'ECSS_E_ST_33_01C', 'ECSS_E_ST_33_01CRev1']","['E', '']"
 control system,"['ECSS_E_ST_33_01CRev2', 'ECSS_E_ST_33_01C', 'ECSS_E_ST_33_01CRev1']",['E']
 deliverable output torque,"['ECSS_E_ST_33_01CRev2', 'ECSS_E_ST_33_01C', 'ECSS_E_ST_33_01CRev1']",['E']
 deliverable output force,"['ECSS_E_ST_33_01CRev2', 'ECSS_E_ST_33_01C', 'ECSS_E_ST_33_01CRev1']",['E']
@@ -1210,13 +1210,13 @@ volatile hydrocarbon,"['ECSS_E_ST_35_06CRev2', 'ECSS_E_ST_35_06CRev1']",['E']
 aggregate,['ECSS_E_ST_40_07C'],['E']
 association,['ECSS_E_ST_40_07C'],['E']
 breakpoint,['ECSS_E_ST_40_07C'],['E']
-composite,"['ECSS_E_ST_40_07C', 'ECSS_S_ST_00_01C']","['E', 'S']"
+composite,"['ECSS_E_ST_40_07C', 'ECSS_S_ST_00_01C']","['E', '']"
 composition,['ECSS_E_ST_40_07C'],['E']
-configuration,"['ECSS_E_ST_40_07C', 'ECSS_S_ST_00_01C']","['E', 'S']"
+configuration,"['ECSS_E_ST_40_07C', 'ECSS_S_ST_00_01C']","['E', '']"
 constructor,['ECSS_E_ST_40_07C'],['E']
 consumer,"['ECSS_E_ST_40_07C', 'ECSS_M_ST_10_01C']","['E', 'M']"
 container,"['ECSS_E_ST_40_07C', 'ECSS_Q_ST_60_14CRev1Corr1', 'ECSS_Q_ST_60_14C']","['E', 'Q']"
-contract,"['ECSS_E_ST_40_07C', 'ECSS_S_ST_00_01C']","['E', 'S']"
+contract,"['ECSS_E_ST_40_07C', 'ECSS_S_ST_00_01C']","['E', '']"
 data transfer,['ECSS_E_ST_40_07C'],['E']
 entry point,['ECSS_E_ST_40_07C'],['E']
 epoch time,['ECSS_E_ST_40_07C'],['E']
@@ -1228,7 +1228,7 @@ field,['ECSS_E_ST_40_07C'],['E']
 input field,['ECSS_E_ST_40_07C'],['E']
 logger,['ECSS_E_ST_40_07C'],['E']
 mission time,['ECSS_E_ST_40_07C'],['E']
-model,"['ECSS_E_ST_40_07C', 'ECSS_S_ST_00_01C']","['E', 'S']"
+model,"['ECSS_E_ST_40_07C', 'ECSS_S_ST_00_01C']","['E', '']"
 model implementation,['ECSS_E_ST_40_07C'],['E']
 model instance,['ECSS_E_ST_40_07C'],['E']
 output field,['ECSS_E_ST_40_07C'],['E']
@@ -1254,9 +1254,9 @@ value,['ECSS_E_ST_40_07C'],['E']
 value type,['ECSS_E_ST_40_07C'],['E']
 zulu time,['ECSS_E_ST_40_07C'],['E']
 analysis margin,['ECSS_E_ST_20_01C'],['E']
-assembly,"['ECSS_E_ST_20_01C', 'ECSS_S_ST_00_01C']","['E', 'S']"
+assembly,"['ECSS_E_ST_20_01C', 'ECSS_S_ST_00_01C']","['E', '']"
 backscattered electron,['ECSS_E_ST_20_01C'],['E']
-batch,"['ECSS_E_ST_20_01C', 'ECSS_Q_ST_70_03C', 'ECSS_Q_ST_70_04C', 'ECSS_Q_ST_70_20C', 'ECSS_Q_ST_70_22C', 'ECSS_Q_ST_70_13CRev1', 'ECSS_Q_ST_70_60CCorr1', 'ECSS_S_ST_00_01C', 'ECSS_Q_ST_70_13C']","['E', 'Q', 'S']"
+batch,"['ECSS_E_ST_20_01C', 'ECSS_Q_ST_70_03C', 'ECSS_Q_ST_70_04C', 'ECSS_Q_ST_70_20C', 'ECSS_Q_ST_70_22C', 'ECSS_Q_ST_70_13CRev1', 'ECSS_Q_ST_70_60CCorr1', 'ECSS_S_ST_00_01C', 'ECSS_Q_ST_70_13C']","['E', 'Q', '']"
 batch acceptance margin,['ECSS_E_ST_20_01C'],['E']
 critical gap,['ECSS_E_ST_20_01C'],['E']
 discharge,['ECSS_E_ST_20_01C'],['E']
@@ -1358,9 +1358,9 @@ critical stress-intensity factor,"['ECSS_E_ST_32_01CRev2', 'ECSS_E_ST_32_01CRev1
 cyclic loading,"['ECSS_E_ST_32_01CRev2', 'ECSS_E_ST_32_01CRev1']",['E']
 damage tolerance threshold strain,"['ECSS_E_ST_32_01CRev2', 'ECSS_E_ST_32_01CRev1']",['E']
 damage tolerant,"['ECSS_E_ST_32_01CRev2', 'ECSS_E_ST_32_01CRev1']",['E']
-defect,"['ECSS_E_ST_32_01CRev2', 'ECSS_Q_ST_70_39C', 'ECSS_S_ST_00_01C', 'ECSS_E_ST_32_01CRev1']","['E', 'Q', 'S']"
+defect,"['ECSS_E_ST_32_01CRev2', 'ECSS_Q_ST_70_39C', 'ECSS_S_ST_00_01C', 'ECSS_E_ST_32_01CRev1']","['E', 'Q', '']"
 detected defect,"['ECSS_E_ST_32_01CRev2', 'ECSS_E_ST_32_01CRev1']",['E']
-fail-safe,"['ECSS_E_ST_32_01CRev2', 'ECSS_Q_ST_70_46CRev1', 'ECSS_S_ST_00_01C', 'ECSS_Q_ST_40C', 'ECSS_E_ST_32_01CRev1']","['E', 'Q', 'S']"
+fail-safe,"['ECSS_E_ST_32_01CRev2', 'ECSS_Q_ST_70_46CRev1', 'ECSS_S_ST_00_01C', 'ECSS_Q_ST_40C', 'ECSS_E_ST_32_01CRev1']","['E', 'Q', '']"
 fatigue,"['ECSS_E_ST_32_01CRev2', 'ECSS_Q_ST_70_45C', 'ECSS_E_ST_32_01CRev1']","['E', 'Q']"
 fracture critical item,"['ECSS_E_ST_32_01CRev2', 'ECSS_E_ST_32_01CRev1']",['E']
 fracture limited life item,"['ECSS_E_ST_32_01CRev2', 'ECSS_E_ST_32_01CRev1']",['E']
@@ -1486,7 +1486,7 @@ review item discrepancy,['ECSS_M_ST_10_01C'],['M']
 review prerequisite,['ECSS_M_ST_10_01C'],['M']
 review team,['ECSS_M_ST_10_01C'],['M']
 review team leader,['ECSS_M_ST_10_01C'],['M']
-discipline,"['ECSS_M_ST_10CRev1', 'ECSS_S_ST_00_01C']","['M', 'S']"
+discipline,"['ECSS_M_ST_10CRev1', 'ECSS_S_ST_00_01C']","['M', '']"
 domain,['ECSS_M_ST_10CRev1'],['M']
 change control,['ECSS_M_ST_40CRev1'],['M']
 class 1 change,['ECSS_M_ST_40CRev1'],['M']
@@ -1504,7 +1504,7 @@ technical data package,['ECSS_M_ST_40CRev1'],['M']
 technical description,['ECSS_M_ST_40CRev1'],['M']
 cost reimbursement contract,['ECSS_M_ST_60C'],['M']
 cost estimating,['ECSS_M_ST_60C'],['M']
-critical path,"['ECSS_M_ST_60C', 'ECSS_S_ST_00_01C']","['M', 'S']"
+critical path,"['ECSS_M_ST_60C', 'ECSS_S_ST_00_01C']","['M', '']"
 direct manpower cost,['ECSS_M_ST_60C'],['M']
 economic conditions,['ECSS_M_ST_60C'],['M']
 fixed price contract,['ECSS_M_ST_60C'],['M']
@@ -1524,7 +1524,7 @@ inspectability,"['ECSS_Q_ST_20CRev2Corr1', 'ECSS_Q_ST_20CRev1']",['Q']
 producibility,"['ECSS_Q_ST_20CRev2Corr1', 'ECSS_Q_ST_20CRev1']",['Q']
 bioaerosol,['ECSS_Q_ST_70_54C'],['Q']
 biological contamination,['ECSS_Q_ST_70_54C'],['Q']
-cleanliness,"['ECSS_Q_ST_70_54C', 'ECSS_S_ST_00_01C', 'ECSS_E_ST_33_01C']","['Q', 'S', 'E']"
+cleanliness,"['ECSS_Q_ST_70_54C', 'ECSS_S_ST_00_01C', 'ECSS_E_ST_33_01C']","['Q', '', 'E']"
 decontamination,['ECSS_Q_ST_70_54C'],['Q']
 direct measurement method,['ECSS_Q_ST_70_54C'],['Q']
 indirect measurement method,['ECSS_Q_ST_70_54C'],['Q']
@@ -1536,7 +1536,7 @@ thin film contamination,['ECSS_Q_ST_70_54C'],['Q']
 viable particle,['ECSS_Q_ST_70_54C'],['Q']
 cleaning efficacy,['ECSS_Q_ST_70_54C'],['Q']
 manufacturer,"['ECSS_Q_ST_20_10C', 'ECSS_Q_ST_60_12C']",['Q']
-active redundancy,"['ECSS_Q_ST_30_02C', 'ECSS_Q_ST_30_09C', 'ECSS_S_ST_00_01C']","['Q', 'S']"
+active redundancy,"['ECSS_Q_ST_30_02C', 'ECSS_Q_ST_30_09C', 'ECSS_S_ST_00_01C']","['Q', '']"
 area analysis,['ECSS_Q_ST_30_02C'],['Q']
 criticality,"['ECSS_Q_ST_30_02C', 'ECSS_Q_ST_40CRev1', 'ECSS_Q_ST_30CRev1']",['Q']
 end effect,['ECSS_Q_ST_30_02C'],['Q']
@@ -1556,7 +1556,7 @@ protection device,['ECSS_Q_ST_30_02C'],['Q']
 achieved availability,['ECSS_Q_ST_30_09C'],['Q']
 corrective maintenance,['ECSS_Q_ST_30_09C'],['Q']
 flight segment,['ECSS_Q_ST_30_09C'],['Q']
-hot redundancy,"['ECSS_Q_ST_30_09C', 'ECSS_S_ST_00_01C']","['Q', 'S']"
+hot redundancy,"['ECSS_Q_ST_30_09C', 'ECSS_S_ST_00_01C']","['Q', '']"
 instantaneous availability,['ECSS_Q_ST_30_09C'],['Q']
 lead time,['ECSS_Q_ST_30_09C'],['Q']
 logistic delay,['ECSS_Q_ST_30_09C'],['Q']
@@ -1568,13 +1568,13 @@ mean time to failure,['ECSS_Q_ST_30_09C'],['Q']
 mean time to outage,['ECSS_Q_ST_30_09C'],['Q']
 mean time to repair,['ECSS_Q_ST_30_09C'],['Q']
 mean up time,['ECSS_Q_ST_30_09C'],['Q']
-outage,"['ECSS_Q_ST_30_09C', 'ECSS_S_ST_00_01C']","['Q', 'S']"
+outage,"['ECSS_Q_ST_30_09C', 'ECSS_S_ST_00_01C']","['Q', '']"
 passive redundancy,['ECSS_Q_ST_30_09C'],['Q']
 preventive maintenance,['ECSS_Q_ST_30_09C'],['Q']
 steady-state availability,['ECSS_Q_ST_30_09C'],['Q']
 consequence tree,['ECSS_Q_ST_40_02C'],['Q']
 detection time,['ECSS_Q_ST_40_02C'],['Q']
-hazard,"['ECSS_Q_ST_40_02C', 'ECSS_S_ST_00_01C']","['Q', 'S']"
+hazard,"['ECSS_Q_ST_40_02C', 'ECSS_S_ST_00_01C']","['Q', '']"
 hazard acceptance,['ECSS_Q_ST_40_02C'],['Q']
 hazard analysis,['ECSS_Q_ST_40_02C'],['Q']
 hazard control,"['ECSS_Q_ST_40_02C', 'ECSS_Q_ST_40CRev1', 'ECSS_Q_ST_40C']",['Q']
@@ -1643,12 +1643,12 @@ validated process,['ECSS_Q_ST_60_12C'],['Q']
 wafer lot,['ECSS_Q_ST_60_12C'],['Q']
 airborne particle,['ECSS_Q_ST_70_01C'],['Q']
 airborne particle cleanliness class,['ECSS_Q_ST_70_01C'],['Q']
-bakeout,"['ECSS_Q_ST_70_01C', 'ECSS_Q_ST_70_02C', 'ECSS_S_ST_00_01C']","['Q', 'S']"
+bakeout,"['ECSS_Q_ST_70_01C', 'ECSS_Q_ST_70_02C', 'ECSS_S_ST_00_01C']","['Q', '']"
 biocontamination,"['ECSS_Q_ST_70_01C', 'ECSS_Q_ST_70_58C']",['Q']
 cleaning,['ECSS_Q_ST_70_01C'],['Q']
 cleanliness  control,['ECSS_Q_ST_70_01C'],['Q']
 cleanliness level,['ECSS_Q_ST_70_01C'],['Q']
-cleanroom,"['ECSS_Q_ST_70_01C', 'ECSS_Q_ST_70_02C', 'ECSS_S_ST_00_01C']","['Q', 'S']"
+cleanroom,"['ECSS_Q_ST_70_01C', 'ECSS_Q_ST_70_02C', 'ECSS_S_ST_00_01C']","['Q', '']"
 clean zone,['ECSS_Q_ST_70_01C'],['Q']
 "contaminate, to",['ECSS_Q_ST_70_01C'],['Q']
 contamination budget,['ECSS_Q_ST_70_01C'],['Q']
@@ -1660,9 +1660,9 @@ induced contaminant environment,['ECSS_Q_ST_70_01C'],['Q']
 molecular contamination,['ECSS_Q_ST_70_01C'],['Q']
 monitoring,['ECSS_Q_ST_70_01C'],['Q']
 obscuration factor,"['ECSS_Q_ST_70_01C', 'ECSS_Q_ST_70_50C']",['Q']
-offgassing,"['ECSS_Q_ST_70_01C', 'ECSS_Q_ST_70_29C', 'ECSS_S_ST_00_01C']","['Q', 'S']"
+offgassing,"['ECSS_Q_ST_70_01C', 'ECSS_Q_ST_70_29C', 'ECSS_S_ST_00_01C']","['Q', '']"
 outgassed quantity,['ECSS_Q_ST_70_01C'],['Q']
-outgassing,"['ECSS_Q_ST_70_01C', 'ECSS_Q_ST_70_02C', 'ECSS_S_ST_00_01C']","['Q', 'S']"
+outgassing,"['ECSS_Q_ST_70_01C', 'ECSS_Q_ST_70_02C', 'ECSS_S_ST_00_01C']","['Q', '']"
 particle fallout,"['ECSS_Q_ST_70_01C', 'ECSS_Q_ST_70_50C']",['Q']
 particle size,['ECSS_Q_ST_70_01C'],['Q']
 particulate,['ECSS_Q_ST_70_01C'],['Q']
@@ -1706,8 +1706,8 @@ red-plague,['ECSS_Q_ST_70_20C'],['Q']
 oxygen concentration limit during the combustion of polymeric materials,['ECSS_Q_ST_70_21C'],['Q']
 shelf-life,['ECSS_Q_ST_70_22C'],['Q']
 modification,"['ECSS_Q_ST_70_28C', 'ECSS_Q_ST_20_07C']",['Q']
-repair,"['ECSS_Q_ST_70_28C', 'ECSS_S_ST_00_01C']","['Q', 'S']"
-rework,"['ECSS_Q_ST_70_28C', 'ECSS_S_ST_00_01C']","['Q', 'S']"
+repair,"['ECSS_Q_ST_70_28C', 'ECSS_S_ST_00_01C']","['Q', '']"
+rework,"['ECSS_Q_ST_70_28C', 'ECSS_S_ST_00_01C']","['Q', '']"
 cause,"['ECSS_Q_ST_40CRev1', 'ECSS_Q_ST_40C']",['Q']
 hazardous command,"['ECSS_Q_ST_40CRev1', 'ECSS_Q_ST_40C']",['Q']
 operator error,"['ECSS_Q_ST_40CRev1', 'ECSS_Q_ST_40C']",['Q']
@@ -1727,7 +1727,7 @@ gas-tight area,['ECSS_Q_ST_70_30C'],['Q']
 reference corner,['ECSS_Q_ST_70_30C'],['Q']
 terminal post,['ECSS_Q_ST_70_30C'],['Q']
 wire-wrapped connection,['ECSS_Q_ST_70_30C'],['Q']
-stress-corrosion,"['ECSS_Q_ST_70_36C', 'ECSS_S_ST_00_01C']","['Q', 'S']"
+stress-corrosion,"['ECSS_Q_ST_70_36C', 'ECSS_S_ST_00_01C']","['Q', '']"
 residual strength,['ECSS_Q_ST_70_37C'],['Q']
 crack tip plastic zone,['ECSS_Q_ST_70_45C'],['Q']
 creep,['ECSS_Q_ST_70_45C'],['Q']
@@ -1766,12 +1766,12 @@ aseptic,['ECSS_Q_ST_70_58C'],['Q']
 biobarrier,['ECSS_Q_ST_70_58C'],['Q']
 bioburden controlled,['ECSS_Q_ST_70_58C'],['Q']
 bioburden reduction,['ECSS_Q_ST_70_58C'],['Q']
-commissioning,"['ECSS_Q_ST_70_58C', 'ECSS_S_ST_00_01C', 'ECSS_E_ST_10_02C']","['Q', 'S', 'E']"
+commissioning,"['ECSS_Q_ST_70_58C', 'ECSS_S_ST_00_01C', 'ECSS_E_ST_10_02C']","['Q', '', 'E']"
 controlled environment,['ECSS_Q_ST_70_58C'],['Q']
 disinfection,['ECSS_Q_ST_70_58C'],['Q']
 formal system,['ECSS_Q_ST_70_58C'],['Q']
 occupancy states,['ECSS_Q_ST_70_58C'],['Q']
-planetary protection,"['ECSS_Q_ST_70_58C', 'ECSS_S_ST_00_01C']","['Q', 'S']"
+planetary protection,"['ECSS_Q_ST_70_58C', 'ECSS_S_ST_00_01C']","['Q', '']"
 sporicide,['ECSS_Q_ST_70_58C'],['Q']
 sterile,['ECSS_Q_ST_70_58C'],['Q']
 background count,['ECSS_Q_ST_70_50C'],['Q']
@@ -1922,7 +1922,7 @@ mission critical,['ECSS_Q_ST_70_39C'],['Q']
 non-critical structure,['ECSS_Q_ST_70_39C'],['Q']
 piece part,['ECSS_Q_ST_70_39C'],['Q']
 post weld sample,['ECSS_Q_ST_70_39C'],['Q']
-process,"['ECSS_Q_ST_70_39C', 'ECSS_Q_ST_70CRev2', 'ECSS_S_ST_00_01C', 'ECSS_Q_ST_70C', 'ECSS_Q_ST_70CRev1']","['Q', 'S']"
+process,"['ECSS_Q_ST_70_39C', 'ECSS_Q_ST_70CRev2', 'ECSS_S_ST_00_01C', 'ECSS_Q_ST_70C', 'ECSS_Q_ST_70CRev1']","['Q', '']"
 production run,['ECSS_Q_ST_70_39C'],['Q']
 re-acceptance,['ECSS_Q_ST_70_39C'],['Q']
 repair welding,['ECSS_Q_ST_70_39C'],['Q']
@@ -1960,7 +1960,7 @@ back-drilled via,['ECSS_Q_ST_70_60CCorr1'],['Q']
 blind-via-in-pad,['ECSS_Q_ST_70_60CCorr1'],['Q']
 blister,"['ECSS_Q_ST_70_60CCorr1', 'ECSS_Q_ST_70_61C', 'ECSS_Q_ST_70_10C', 'ECSS_Q_ST_70_11C', 'ECSS_Q_ST_70_08C']",['Q']
 cap lift,['ECSS_Q_ST_70_60CCorr1'],['Q']
-contamination,"['ECSS_Q_ST_70_60CCorr1', 'ECSS_S_ST_00_01C', 'ECSS_Q_ST_70_08C']","['Q', 'S']"
+contamination,"['ECSS_Q_ST_70_60CCorr1', 'ECSS_S_ST_00_01C', 'ECSS_Q_ST_70_08C']","['Q', '']"
 coupon,['ECSS_Q_ST_70_60CCorr1'],['Q']
 coverlay,['ECSS_Q_ST_70_60CCorr1'],['Q']
 destructive physical analysis,"['ECSS_Q_ST_70_60CCorr1', 'ECSS_Q_ST_60CRev3', 'ECSS_Q_ST_60CRev2']",['Q']
@@ -2033,7 +2033,7 @@ critical process,"['ECSS_Q_ST_70CRev2', 'ECSS_Q_ST_70C', 'ECSS_Q_ST_70CRev1']",[
 critical material,"['ECSS_Q_ST_70CRev2', 'ECSS_Q_ST_70C', 'ECSS_Q_ST_70CRev1']",['Q']
 mechanical part,"['ECSS_Q_ST_70CRev2', 'ECSS_Q_ST_70CRev1']",['Q']
 request for approval,"['ECSS_Q_ST_70CRev2', 'ECSS_Q_ST_70C', 'ECSS_Q_ST_70CRev1']",['Q']
-special process,"['ECSS_Q_ST_70CRev2', 'ECSS_S_ST_00_01C', 'ECSS_Q_ST_70C', 'ECSS_Q_ST_70CRev1']","['Q', 'S']"
+special process,"['ECSS_Q_ST_70CRev2', 'ECSS_S_ST_00_01C', 'ECSS_Q_ST_70C', 'ECSS_Q_ST_70CRev1']","['Q', '']"
 antistatic material,"['ECSS_Q_ST_60_14CRev1Corr1', 'ECSS_Q_ST_60_14C']",['Q']
 conductive material,"['ECSS_Q_ST_60_14CRev1Corr1', 'ECSS_Q_ST_60_14C']",['Q']
 date code,"['ECSS_Q_ST_60_14CRev1Corr1', 'ECSS_Q_ST_60_14C']",['Q']
@@ -2172,175 +2172,175 @@ brazing responsible,['ECSS_Q_ST_70_40C'],['Q']
 design and engineering authority,['ECSS_Q_ST_70_40C'],['Q']
 parent material,['ECSS_Q_ST_70_40C'],['Q']
 soldering,"['ECSS_Q_ST_70_40C', 'ECSS_Q_ST_70_08C']",['Q']
-acceptance,['ECSS_S_ST_00_01C'],['S']
-accident,['ECSS_S_ST_00_01C'],['S']
-alert,['ECSS_S_ST_00_01C'],['S']
-allowable load,['ECSS_S_ST_00_01C'],['S']
-analysis,"['ECSS_S_ST_00_01C', 'ECSS_E_ST_10_02C']","['S', 'E']"
-anomaly,['ECSS_S_ST_00_01C'],['S']
-applicable document,['ECSS_S_ST_00_01C'],['S']
-approval,['ECSS_S_ST_00_01C'],['S']
-assurance,['ECSS_S_ST_00_01C'],['S']
-audit,['ECSS_S_ST_00_01C'],['S']
-audit criteria,['ECSS_S_ST_00_01C'],['S']
-audit evidence,['ECSS_S_ST_00_01C'],['S']
-auditee,['ECSS_S_ST_00_01C'],['S']
-auditor,['ECSS_S_ST_00_01C'],['S']
-availability,['ECSS_S_ST_00_01C'],['S']
-backward contamination,['ECSS_S_ST_00_01C'],['S']
-baseline,['ECSS_S_ST_00_01C'],['S']
-black box,['ECSS_S_ST_00_01C'],['S']
-business agreement,['ECSS_S_ST_00_01C'],['S']
-catastrophic,['ECSS_S_ST_00_01C'],['S']
-certification,['ECSS_S_ST_00_01C'],['S']
-clean area,['ECSS_S_ST_00_01C'],['S']
-cold redundancy,['ECSS_S_ST_00_01C'],['S']
-common cause failure,['ECSS_S_ST_00_01C'],['S']
-common mode failure,['ECSS_S_ST_00_01C'],['S']
-configuration baseline,['ECSS_S_ST_00_01C'],['S']
-configuration control,['ECSS_S_ST_00_01C'],['S']
-configuration document,['ECSS_S_ST_00_01C'],['S']
-configuration identification,['ECSS_S_ST_00_01C'],['S']
-configuration item,['ECSS_S_ST_00_01C'],['S']
-configuration management,['ECSS_S_ST_00_01C'],['S']
-configuration status accounting,['ECSS_S_ST_00_01C'],['S']
-configuration verification,['ECSS_S_ST_00_01C'],['S']
-conformance,['ECSS_S_ST_00_01C'],['S']
-conformity,['ECSS_S_ST_00_01C'],['S']
-corrective action,['ECSS_S_ST_00_01C'],['S']
-critical,"['ECSS_S_ST_00_01C', 'ECSS_E_ST_10C']","['S', 'E']"
-critical item,['ECSS_S_ST_00_01C'],['S']
-customer,['ECSS_S_ST_00_01C'],['S']
-dependability,['ECSS_S_ST_00_01C'],['S']
-derating,"['ECSS_S_ST_00_01C', 'ECSS_Q_ST_30_11C', 'ECSS_Q_ST_30_11CRev1']","['S', 'Q']"
-design,['ECSS_S_ST_00_01C'],['S']
-development,['ECSS_S_ST_00_01C'],['S']
-deviation,['ECSS_S_ST_00_01C'],['S']
-discrepancy,['ECSS_S_ST_00_01C'],['S']
-disposal,['ECSS_S_ST_00_01C'],['S']
-element,['ECSS_S_ST_00_01C'],['S']
-emergency,['ECSS_S_ST_00_01C'],['S']
-embedded space segment element,['ECSS_S_ST_00_01C'],['S']
-end item,['ECSS_S_ST_00_01C'],['S']
-engineering model,['ECSS_S_ST_00_01C'],['S']
-engineering qualification model,['ECSS_S_ST_00_01C'],['S']
-equipment,['ECSS_S_ST_00_01C'],['S']
-failure mode,['ECSS_S_ST_00_01C'],['S']
-failure tolerance,['ECSS_S_ST_00_01C'],['S']
-fault,['ECSS_S_ST_00_01C'],['S']
-fault tolerance,['ECSS_S_ST_00_01C'],['S']
-firmware,['ECSS_S_ST_00_01C'],['S']
-flammability,['ECSS_S_ST_00_01C'],['S']
-flight model,['ECSS_S_ST_00_01C'],['S']
-flight operations,['ECSS_S_ST_00_01C'],['S']
-flight spare,['ECSS_S_ST_00_01C'],['S']
-forward contamination,['ECSS_S_ST_00_01C'],['S']
-function tree,['ECSS_S_ST_00_01C'],['S']
-ground segment element,['ECSS_S_ST_00_01C'],['S']
-ground segment equipment,['ECSS_S_ST_00_01C'],['S']
-ground segment subsystem,['ECSS_S_ST_00_01C'],['S']
-ground segment system,['ECSS_S_ST_00_01C'],['S']
-ground support equipment,"['ECSS_S_ST_00_01C', 'ECSS_Q_ST_20C', 'ECSS_Q_ST_20CRev1']","['S', 'Q']"
-handbook,['ECSS_S_ST_00_01C'],['S']
-hazardous event,['ECSS_S_ST_00_01C'],['S']
-human factors,['ECSS_S_ST_00_01C'],['S']
-implementation document,['ECSS_S_ST_00_01C'],['S']
-informative,['ECSS_S_ST_00_01C'],['S']
-inhibit,['ECSS_S_ST_00_01C'],['S']
-inspection,"['ECSS_S_ST_00_01C', 'ECSS_E_ST_10_02C']","['S', 'E']"
-integration,"['ECSS_S_ST_00_01C', 'ECSS_E_ST_10C']","['S', 'E']"
-interchangeability,['ECSS_S_ST_00_01C'],['S']
-launch base,['ECSS_S_ST_00_01C'],['S']
-launch campaign,['ECSS_S_ST_00_01C'],['S']
-launch complex,['ECSS_S_ST_00_01C'],['S']
-launch operations,['ECSS_S_ST_00_01C'],['S']
-launch range,['ECSS_S_ST_00_01C'],['S']
-launch segment,['ECSS_S_ST_00_01C'],['S']
-launch segment element,['ECSS_S_ST_00_01C'],['S']
-launch segment equipment,['ECSS_S_ST_00_01C'],['S']
-launch segment subsystem,['ECSS_S_ST_00_01C'],['S']
-launch segment system,['ECSS_S_ST_00_01C'],['S']
-launch service,['ECSS_S_ST_00_01C'],['S']
-launch system,['ECSS_S_ST_00_01C'],['S']
-launcher,['ECSS_S_ST_00_01C'],['S']
-launcher element,['ECSS_S_ST_00_01C'],['S']
-[launcher] production facilities,['ECSS_S_ST_00_01C'],['S']
-launcher stage,['ECSS_S_ST_00_01C'],['S']
-launcher system,['ECSS_S_ST_00_01C'],['S']
-life profile,['ECSS_S_ST_00_01C'],['S']
-lifetime,['ECSS_S_ST_00_01C'],['S']
-maintainability,['ECSS_S_ST_00_01C'],['S']
-maintenance,['ECSS_S_ST_00_01C'],['S']
-material,['ECSS_S_ST_00_01C'],['S']
-multipaction,"['ECSS_S_ST_00_01C', 'ECSS_E_ST_10_03C']","['S', 'E']"
-nonconformance,['ECSS_S_ST_00_01C'],['S']
-nonconformity,['ECSS_S_ST_00_01C'],['S']
-normative,['ECSS_S_ST_00_01C'],['S']
-off-the-shelf,['ECSS_S_ST_00_01C'],['S']
-orbital debris,['ECSS_S_ST_00_01C'],['S']
-part,"['ECSS_S_ST_00_01C', 'ECSS_Q_ST_70C']","['S', 'Q']"
-payload,['ECSS_S_ST_00_01C'],['S']
-performance,"['ECSS_S_ST_00_01C', 'ECSS_Q_ST_30_11C']","['S', 'Q']"
-preventive action,['ECSS_S_ST_00_01C'],['S']
-product,['ECSS_S_ST_00_01C'],['S']
-product assurance,['ECSS_S_ST_00_01C'],['S']
-product tree,['ECSS_S_ST_00_01C'],['S']
-project,['ECSS_S_ST_00_01C'],['S']
-project requirements document,['ECSS_S_ST_00_01C'],['S']
-protoflight model,['ECSS_S_ST_00_01C'],['S']
-provision,['ECSS_S_ST_00_01C'],['S']
-qualification,['ECSS_S_ST_00_01C'],['S']
-qualification model,['ECSS_S_ST_00_01C'],['S']
-quality,['ECSS_S_ST_00_01C'],['S']
-quality assurance,['ECSS_S_ST_00_01C'],['S']
-quality control,['ECSS_S_ST_00_01C'],['S']
-redundancy,['ECSS_S_ST_00_01C'],['S']
-reliability,['ECSS_S_ST_00_01C'],['S']
-relifing,['ECSS_S_ST_00_01C'],['S']
-requirement,['ECSS_S_ST_00_01C'],['S']
-residual risk,['ECSS_S_ST_00_01C'],['S']
-review,['ECSS_S_ST_00_01C'],['S']
-risk,['ECSS_S_ST_00_01C'],['S']
-safety,['ECSS_S_ST_00_01C'],['S']
-safety critical function,"['ECSS_S_ST_00_01C', 'ECSS_U_ST_20C']","['S', 'U']"
-safing,['ECSS_S_ST_00_01C'],['S']
-scrap,['ECSS_S_ST_00_01C'],['S']
-security,['ECSS_S_ST_00_01C'],['S']
-severity,['ECSS_S_ST_00_01C'],['S']
-single point failure,['ECSS_S_ST_00_01C'],['S']
-solar array,['ECSS_S_ST_00_01C'],['S']
-solar cell,['ECSS_S_ST_00_01C'],['S']
-solar panel,['ECSS_S_ST_00_01C'],['S']
-space debris,['ECSS_S_ST_00_01C'],['S']
-space mission,['ECSS_S_ST_00_01C'],['S']
-space programme,['ECSS_S_ST_00_01C'],['S']
-space segment,"['ECSS_S_ST_00_01C', 'ECSS_Q_ST_30C']","['S', 'Q']"
-space segment element,['ECSS_S_ST_00_01C'],['S']
-space segment equipment,['ECSS_S_ST_00_01C'],['S']
-space segment subsystem,['ECSS_S_ST_00_01C'],['S']
-space segment system,['ECSS_S_ST_00_01C'],['S']
-space system,['ECSS_S_ST_00_01C'],['S']
-stand-alone space segment element,['ECSS_S_ST_00_01C'],['S']
-standard,['ECSS_S_ST_00_01C'],['S']
-statement of work,['ECSS_S_ST_00_01C'],['S']
-structural-thermal model,['ECSS_S_ST_00_01C'],['S']
-supplier,['ECSS_S_ST_00_01C'],['S']
-support segment,['ECSS_S_ST_00_01C'],['S']
-support system,['ECSS_S_ST_00_01C'],['S']
-tailoring,['ECSS_S_ST_00_01C'],['S']
-technical memorandum,['ECSS_S_ST_00_01C'],['S']
-test,"['ECSS_S_ST_00_01C', 'ECSS_E_ST_10_02C']","['S', 'E']"
-thermal ambient test,['ECSS_S_ST_00_01C'],['S']
-thermal model,['ECSS_S_ST_00_01C'],['S']
-third party,['ECSS_S_ST_00_01C'],['S']
-toxic,"['ECSS_S_ST_00_01C', 'ECSS_Q_ST_70_31C']","['S', 'Q']"
-traceability,['ECSS_S_ST_00_01C'],['S']
-uncertainty,['ECSS_S_ST_00_01C'],['S']
-upper part [a5],['ECSS_S_ST_00_01C'],['S']
-upper stage [a5],['ECSS_S_ST_00_01C'],['S']
-waiver,['ECSS_S_ST_00_01C'],['S']
-work breakdown structure,['ECSS_S_ST_00_01C'],['S']
-work package,['ECSS_S_ST_00_01C'],['S']
+acceptance,['ECSS_S_ST_00_01C'],['']
+accident,['ECSS_S_ST_00_01C'],['']
+alert,['ECSS_S_ST_00_01C'],['']
+allowable load,['ECSS_S_ST_00_01C'],['']
+analysis,"['ECSS_S_ST_00_01C', 'ECSS_E_ST_10_02C']","['', 'E']"
+anomaly,['ECSS_S_ST_00_01C'],['']
+applicable document,['ECSS_S_ST_00_01C'],['']
+approval,['ECSS_S_ST_00_01C'],['']
+assurance,['ECSS_S_ST_00_01C'],['']
+audit,['ECSS_S_ST_00_01C'],['']
+audit criteria,['ECSS_S_ST_00_01C'],['']
+audit evidence,['ECSS_S_ST_00_01C'],['']
+auditee,['ECSS_S_ST_00_01C'],['']
+auditor,['ECSS_S_ST_00_01C'],['']
+availability,['ECSS_S_ST_00_01C'],['']
+backward contamination,['ECSS_S_ST_00_01C'],['']
+baseline,['ECSS_S_ST_00_01C'],['']
+black box,['ECSS_S_ST_00_01C'],['']
+business agreement,['ECSS_S_ST_00_01C'],['']
+catastrophic,['ECSS_S_ST_00_01C'],['']
+certification,['ECSS_S_ST_00_01C'],['']
+clean area,['ECSS_S_ST_00_01C'],['']
+cold redundancy,['ECSS_S_ST_00_01C'],['']
+common cause failure,['ECSS_S_ST_00_01C'],['']
+common mode failure,['ECSS_S_ST_00_01C'],['']
+configuration baseline,['ECSS_S_ST_00_01C'],['']
+configuration control,['ECSS_S_ST_00_01C'],['']
+configuration document,['ECSS_S_ST_00_01C'],['']
+configuration identification,['ECSS_S_ST_00_01C'],['']
+configuration item,['ECSS_S_ST_00_01C'],['']
+configuration management,['ECSS_S_ST_00_01C'],['']
+configuration status accounting,['ECSS_S_ST_00_01C'],['']
+configuration verification,['ECSS_S_ST_00_01C'],['']
+conformance,['ECSS_S_ST_00_01C'],['']
+conformity,['ECSS_S_ST_00_01C'],['']
+corrective action,['ECSS_S_ST_00_01C'],['']
+critical,"['ECSS_S_ST_00_01C', 'ECSS_E_ST_10C']","['', 'E']"
+critical item,['ECSS_S_ST_00_01C'],['']
+customer,['ECSS_S_ST_00_01C'],['']
+dependability,['ECSS_S_ST_00_01C'],['']
+derating,"['ECSS_S_ST_00_01C', 'ECSS_Q_ST_30_11C', 'ECSS_Q_ST_30_11CRev1']","['', 'Q']"
+design,['ECSS_S_ST_00_01C'],['']
+development,['ECSS_S_ST_00_01C'],['']
+deviation,['ECSS_S_ST_00_01C'],['']
+discrepancy,['ECSS_S_ST_00_01C'],['']
+disposal,['ECSS_S_ST_00_01C'],['']
+element,['ECSS_S_ST_00_01C'],['']
+emergency,['ECSS_S_ST_00_01C'],['']
+embedded space segment element,['ECSS_S_ST_00_01C'],['']
+end item,['ECSS_S_ST_00_01C'],['']
+engineering model,['ECSS_S_ST_00_01C'],['']
+engineering qualification model,['ECSS_S_ST_00_01C'],['']
+equipment,['ECSS_S_ST_00_01C'],['']
+failure mode,['ECSS_S_ST_00_01C'],['']
+failure tolerance,['ECSS_S_ST_00_01C'],['']
+fault,['ECSS_S_ST_00_01C'],['']
+fault tolerance,['ECSS_S_ST_00_01C'],['']
+firmware,['ECSS_S_ST_00_01C'],['']
+flammability,['ECSS_S_ST_00_01C'],['']
+flight model,['ECSS_S_ST_00_01C'],['']
+flight operations,['ECSS_S_ST_00_01C'],['']
+flight spare,['ECSS_S_ST_00_01C'],['']
+forward contamination,['ECSS_S_ST_00_01C'],['']
+function tree,['ECSS_S_ST_00_01C'],['']
+ground segment element,['ECSS_S_ST_00_01C'],['']
+ground segment equipment,['ECSS_S_ST_00_01C'],['']
+ground segment subsystem,['ECSS_S_ST_00_01C'],['']
+ground segment system,['ECSS_S_ST_00_01C'],['']
+ground support equipment,"['ECSS_S_ST_00_01C', 'ECSS_Q_ST_20C', 'ECSS_Q_ST_20CRev1']","['', 'Q']"
+handbook,['ECSS_S_ST_00_01C'],['']
+hazardous event,['ECSS_S_ST_00_01C'],['']
+human factors,['ECSS_S_ST_00_01C'],['']
+implementation document,['ECSS_S_ST_00_01C'],['']
+informative,['ECSS_S_ST_00_01C'],['']
+inhibit,['ECSS_S_ST_00_01C'],['']
+inspection,"['ECSS_S_ST_00_01C', 'ECSS_E_ST_10_02C']","['', 'E']"
+integration,"['ECSS_S_ST_00_01C', 'ECSS_E_ST_10C']","['', 'E']"
+interchangeability,['ECSS_S_ST_00_01C'],['']
+launch base,['ECSS_S_ST_00_01C'],['']
+launch campaign,['ECSS_S_ST_00_01C'],['']
+launch complex,['ECSS_S_ST_00_01C'],['']
+launch operations,['ECSS_S_ST_00_01C'],['']
+launch range,['ECSS_S_ST_00_01C'],['']
+launch segment,['ECSS_S_ST_00_01C'],['']
+launch segment element,['ECSS_S_ST_00_01C'],['']
+launch segment equipment,['ECSS_S_ST_00_01C'],['']
+launch segment subsystem,['ECSS_S_ST_00_01C'],['']
+launch segment system,['ECSS_S_ST_00_01C'],['']
+launch service,['ECSS_S_ST_00_01C'],['']
+launch system,['ECSS_S_ST_00_01C'],['']
+launcher,['ECSS_S_ST_00_01C'],['']
+launcher element,['ECSS_S_ST_00_01C'],['']
+[launcher] production facilities,['ECSS_S_ST_00_01C'],['']
+launcher stage,['ECSS_S_ST_00_01C'],['']
+launcher system,['ECSS_S_ST_00_01C'],['']
+life profile,['ECSS_S_ST_00_01C'],['']
+lifetime,['ECSS_S_ST_00_01C'],['']
+maintainability,['ECSS_S_ST_00_01C'],['']
+maintenance,['ECSS_S_ST_00_01C'],['']
+material,['ECSS_S_ST_00_01C'],['']
+multipaction,"['ECSS_S_ST_00_01C', 'ECSS_E_ST_10_03C']","['', 'E']"
+nonconformance,['ECSS_S_ST_00_01C'],['']
+nonconformity,['ECSS_S_ST_00_01C'],['']
+normative,['ECSS_S_ST_00_01C'],['']
+off-the-shelf,['ECSS_S_ST_00_01C'],['']
+orbital debris,['ECSS_S_ST_00_01C'],['']
+part,"['ECSS_S_ST_00_01C', 'ECSS_Q_ST_70C']","['', 'Q']"
+payload,['ECSS_S_ST_00_01C'],['']
+performance,"['ECSS_S_ST_00_01C', 'ECSS_Q_ST_30_11C']","['', 'Q']"
+preventive action,['ECSS_S_ST_00_01C'],['']
+product,['ECSS_S_ST_00_01C'],['']
+product assurance,['ECSS_S_ST_00_01C'],['']
+product tree,['ECSS_S_ST_00_01C'],['']
+project,['ECSS_S_ST_00_01C'],['']
+project requirements document,['ECSS_S_ST_00_01C'],['']
+protoflight model,['ECSS_S_ST_00_01C'],['']
+provision,['ECSS_S_ST_00_01C'],['']
+qualification,['ECSS_S_ST_00_01C'],['']
+qualification model,['ECSS_S_ST_00_01C'],['']
+quality,['ECSS_S_ST_00_01C'],['']
+quality assurance,['ECSS_S_ST_00_01C'],['']
+quality control,['ECSS_S_ST_00_01C'],['']
+redundancy,['ECSS_S_ST_00_01C'],['']
+reliability,['ECSS_S_ST_00_01C'],['']
+relifing,['ECSS_S_ST_00_01C'],['']
+requirement,['ECSS_S_ST_00_01C'],['']
+residual risk,['ECSS_S_ST_00_01C'],['']
+review,['ECSS_S_ST_00_01C'],['']
+risk,['ECSS_S_ST_00_01C'],['']
+safety,['ECSS_S_ST_00_01C'],['']
+safety critical function,"['ECSS_S_ST_00_01C', 'ECSS_U_ST_20C']","['', 'U']"
+safing,['ECSS_S_ST_00_01C'],['']
+scrap,['ECSS_S_ST_00_01C'],['']
+security,['ECSS_S_ST_00_01C'],['']
+severity,['ECSS_S_ST_00_01C'],['']
+single point failure,['ECSS_S_ST_00_01C'],['']
+solar array,['ECSS_S_ST_00_01C'],['']
+solar cell,['ECSS_S_ST_00_01C'],['']
+solar panel,['ECSS_S_ST_00_01C'],['']
+space debris,['ECSS_S_ST_00_01C'],['']
+space mission,['ECSS_S_ST_00_01C'],['']
+space programme,['ECSS_S_ST_00_01C'],['']
+space segment,"['ECSS_S_ST_00_01C', 'ECSS_Q_ST_30C']","['', 'Q']"
+space segment element,['ECSS_S_ST_00_01C'],['']
+space segment equipment,['ECSS_S_ST_00_01C'],['']
+space segment subsystem,['ECSS_S_ST_00_01C'],['']
+space segment system,['ECSS_S_ST_00_01C'],['']
+space system,['ECSS_S_ST_00_01C'],['']
+stand-alone space segment element,['ECSS_S_ST_00_01C'],['']
+standard,['ECSS_S_ST_00_01C'],['']
+statement of work,['ECSS_S_ST_00_01C'],['']
+structural-thermal model,['ECSS_S_ST_00_01C'],['']
+supplier,['ECSS_S_ST_00_01C'],['']
+support segment,['ECSS_S_ST_00_01C'],['']
+support system,['ECSS_S_ST_00_01C'],['']
+tailoring,['ECSS_S_ST_00_01C'],['']
+technical memorandum,['ECSS_S_ST_00_01C'],['']
+test,"['ECSS_S_ST_00_01C', 'ECSS_E_ST_10_02C']","['', 'E']"
+thermal ambient test,['ECSS_S_ST_00_01C'],['']
+thermal model,['ECSS_S_ST_00_01C'],['']
+third party,['ECSS_S_ST_00_01C'],['']
+toxic,"['ECSS_S_ST_00_01C', 'ECSS_Q_ST_70_31C']","['', 'Q']"
+traceability,['ECSS_S_ST_00_01C'],['']
+uncertainty,['ECSS_S_ST_00_01C'],['']
+upper part [a5],['ECSS_S_ST_00_01C'],['']
+upper stage [a5],['ECSS_S_ST_00_01C'],['']
+waiver,['ECSS_S_ST_00_01C'],['']
+work breakdown structure,['ECSS_S_ST_00_01C'],['']
+work package,['ECSS_S_ST_00_01C'],['']
 assay,['ECSS_U_ST_20C'],['U']
 controlled condition,['ECSS_U_ST_20C'],['U']
 extant life,['ECSS_U_ST_20C'],['U']
