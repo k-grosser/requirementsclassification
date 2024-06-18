@@ -107,6 +107,9 @@ df_evaluation_time = pd.DataFrame(index=['kNN', 'SVM', 'LR', 'NB', 'Ensemble'])
 # since this combination achieved the best results
 df_evaluation_svm_pca = pd.DataFrame(index=['F', 'NF', 'PM', 'M', 'V'])
 
+# dataframe to store the standard deviation of the f1 score during cross validation
+df_f1_standard_deviations = pd.DataFrame(index=['kNN', 'SVM', 'LR', 'NB', 'Ensemble'])
+
 #metrics for evaluation
 scoring = ['accuracy', 'precision_weighted', 'recall_weighted', 'f1_weighted']
 
@@ -294,6 +297,43 @@ def store_detailed_evaluation_scores(precision, recall, f1):
     df_evaluation_svm_pca.at['M', 'F1-score'] = f1[3]
     df_evaluation_svm_pca.at['V', 'F1-score'] = f1[4]
 
+# compute and store the standard deviation of each cross validation
+def compute_standard_deviation_f1(clf, X, y, algorithm, data_prep):
+
+    k_folds = StratifiedKFold(n_splits = 5, random_state=4, shuffle=True) 
+
+    scores = cross_val_score(clf, X, y, cv=k_folds, scoring='f1_weighted')
+    print(algorithm, data_prep, '\nall f1-scores:', scores, '\nmean:', scores.mean(), '\nstandard:deviation', scores.std())
+
+    df_f1_standard_deviations.at[algorithm, data_prep] = scores.std()
+
+# compute and store the f1 standard deviation of the cross validation of the ensemble
+def compute_ensemble_standard_deviation_f1(X, y, pca, algorithm, data_prep):
+
+    classifiers = list()
+    classifiers.append(('kNN', KNeighborsClassifier()))
+    classifiers.append(('svm', svm.SVC(kernel='linear', probability=True)))
+    classifiers.append(('lr', LogisticRegression(solver='liblinear')))
+    if not(pca): # PCA leads to negative values the MNB classifier cannot work with
+        classifiers.append(('mnb', MultinomialNB()))
+
+    k_folds = StratifiedKFold(n_splits = 5, random_state=4, shuffle=True) 
+
+    weights = list()
+    for name, clf in classifiers:
+        acc = cross_val_score(clf, X, y, cv=k_folds, scoring='accuracy').mean()
+        weights.append(acc)
+
+    eclf = VotingClassifier(
+        estimators=classifiers, 
+        voting='soft',
+        weights=weights) 
+
+    scores = cross_val_score(eclf, X, y, cv=k_folds, scoring='f1_weighted')
+    print(algorithm, data_prep, '\nall f1-scores:', scores, '\nmean:', scores.mean(), '\nstandard:deviation', scores.std())
+
+    df_f1_standard_deviations.at[algorithm, data_prep] = scores.std()
+
 
 # start the evaluation of each classifier with requirements data of different stages of preparation
 
@@ -376,3 +416,49 @@ with pd.option_context('display.max_rows', None, 'display.max_columns', None):
     print(df_evaluation_metrics)
     print(df_evaluation_time)
     print(df_evaluation_svm_pca)
+
+
+# compute and store the standard deviation of all f1 scores calcualted during cross validation
+compute_standard_deviation_f1(KNeighborsClassifier(n_neighbors=3), X_bow, y_bow, 'kNN', 'bow')
+compute_standard_deviation_f1(KNeighborsClassifier(n_neighbors=3), X_chi_bow_knn, y_chi_bow_knn, 'kNN', 'bow_chi')
+compute_standard_deviation_f1(KNeighborsClassifier(n_neighbors=5), X_pca_bow_knn, y_pca_bow_knn, 'kNN', 'bow_pca')
+
+compute_standard_deviation_f1(KNeighborsClassifier(n_neighbors=15), X_tfidf, y_tfidf, 'kNN', 'tfidf')
+compute_standard_deviation_f1(KNeighborsClassifier(n_neighbors=15), X_chi_tfidf_knn, y_chi_tfidf_knn, 'kNN', 'tfidf_chi')
+compute_standard_deviation_f1(KNeighborsClassifier(n_neighbors=15), X_pca_tfidf_knn, y_pca_tfidf_knn, 'kNN', 'tfidf_pca')
+
+compute_standard_deviation_f1(svm.SVC(kernel='linear'), X_bow, y_bow, 'SVM', 'bow')
+compute_standard_deviation_f1(svm.SVC(kernel='linear'), X_chi_bow_svm, y_chi_bow_svm, 'SVM', 'bow_chi')
+compute_standard_deviation_f1(svm.SVC(kernel='linear'), X_pca_bow_svm, y_pca_bow_svm, 'SVM', 'bow_pca')
+
+compute_standard_deviation_f1(svm.SVC(kernel='linear'), X_tfidf, y_tfidf, 'SVM', 'tfidf')
+compute_standard_deviation_f1(svm.SVC(kernel='linear'), X_chi_tfidf_svm, y_chi_tfidf_svm, 'SVM', 'tfidf_chi')
+compute_standard_deviation_f1(svm.SVC(kernel='linear'), X_pca_tfidf_svm, y_pca_tfidf_svm, 'SVM', 'tfidf_pca')
+
+compute_standard_deviation_f1(LogisticRegression(solver='liblinear'), X_bow, y_bow, 'LR', 'bow')
+compute_standard_deviation_f1(LogisticRegression(solver='liblinear'), X_chi_bow_lr, y_chi_bow_lr, 'LR', 'bow_chi')
+compute_standard_deviation_f1(LogisticRegression(solver='liblinear'), X_pca_bow_lr, y_pca_bow_lr, 'LR', 'bow_pca')
+
+compute_standard_deviation_f1(LogisticRegression(solver='liblinear'), X_tfidf, y_tfidf, 'LR', 'tfidf')
+compute_standard_deviation_f1(LogisticRegression(solver='liblinear'), X_chi_tfidf_lr, y_chi_tfidf_lr, 'LR', 'tfidf_chi')
+compute_standard_deviation_f1(LogisticRegression(solver='liblinear'), X_pca_tfidf_lr, y_pca_tfidf_lr, 'LR', 'tfidf_pca')
+
+compute_standard_deviation_f1(MultinomialNB(), X_bow, y_bow, 'NB', 'bow')
+compute_standard_deviation_f1(MultinomialNB(), X_chi_bow_mnb, y_chi_bow_mnb, 'NB', 'bow_chi')
+
+compute_standard_deviation_f1(MultinomialNB(), X_tfidf, y_tfidf, 'NB', 'tfidf')
+compute_standard_deviation_f1(MultinomialNB(), X_chi_tfidf_mnb, y_chi_tfidf_mnb, 'NB', 'tfidf_chi')
+
+compute_ensemble_standard_deviation_f1(X_bow, y_bow, False, 'Ensemble', 'bow')
+compute_ensemble_standard_deviation_f1(X_chi_bow_ensemble, y_chi_bow_ensemble, False, 'Ensemble', 'bow_chi')
+compute_ensemble_standard_deviation_f1(X_pca_bow_ensemble, y_pca_bow_ensemble, True, 'Ensemble', 'bow_pca')
+
+compute_ensemble_standard_deviation_f1(X_tfidf, y_tfidf, False, 'Ensemble', 'tfidf')
+compute_ensemble_standard_deviation_f1(X_chi_tfidf_ensemble, y_chi_tfidf_ensemble, False, 'Ensemble', 'tfidf_chi')
+compute_ensemble_standard_deviation_f1(X_pca_tfidf_ensemble, y_pca_tfidf_ensemble, True, 'Ensemble', 'tfidf_pca')
+
+
+df_f1_standard_deviations.to_excel('4_classification&evaluation/output/evaluation_f1_standard_deviation.xlsx')
+
+with pd.option_context('display.max_rows', None, 'display.max_columns', None): 
+    print(df_f1_standard_deviations)
