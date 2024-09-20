@@ -10,6 +10,10 @@ df_classes = pd.read_csv(filepath_or_buffer='0_data_collection/output/ECSS_stand
 df_meta = pd.read_csv(filepath_or_buffer='0_data_collection/output/ECSS_standards_meta.csv', header=0, quotechar='"', doublequote=True)
 df_context = pd.read_csv(filepath_or_buffer='0_data_collection/output/ECSS_standards_context.csv', header=0, quotechar='"', doublequote=True)
 
+# list of all ECSS abbreviations to exclude them from lemmatization
+df_abbreviations = pd.DataFrame(pd.read_excel('resources/ECSS-Abbreviated-Terms_active-and-superseded-Standards-(from-ECSS-DOORS-database-v0.9_5Oct2022).xlsx', na_values=['NULL', 'null'], keep_default_na=False))
+abbreviations = [i.lower() for i in df_abbreviations['Abbreviation']]
+
 # preprocess a requirement's text
 def preprocess_requirement(text):
     
@@ -29,8 +33,8 @@ def preprocess_requirement(text):
 
     #lemmatization of tokens
     lemmatizer = WordNetLemmatizer()
-    tokens = [lemmatizer.lemmatize(i,j[0].lower()) 
-              if j[0].lower() in ['a','n','v'] 
+    tokens = [i if i in abbreviations else # abbreviations should be ignored to prevent false lemmas
+              lemmatizer.lemmatize(i,j[0].lower()) if j[0].lower() in ['a','n','v'] 
               else lemmatizer.lemmatize(i) for i,j in pos_tag(tokens)]
 
     return ' '.join(tokens)

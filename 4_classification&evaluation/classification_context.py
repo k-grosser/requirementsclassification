@@ -251,7 +251,11 @@ def compute_standard_deviation_f1(clf, X, y, algorithm, data_prep):
     scores = cross_val_score(clf, X, y, cv=k_folds, scoring='f1_weighted')
     print(algorithm, data_prep, '\nall f1-scores:', scores, '\nmean:', scores.mean(), '\nstandard:deviation', scores.std())
 
-    df_f1_standard_deviations.at[algorithm, data_prep] = scores.std()
+    df_f1_standard_deviations.at[algorithm, data_prep + '_mean'] = scores.mean()
+    df_f1_standard_deviations.at[algorithm, data_prep + '_std'] = scores.std()
+
+    for i, value in enumerate(scores):
+        df_f1_standard_deviations.at[algorithm, data_prep + '_fold' + str(i)] = value
 
 # compute and store the f1 standard deviation of the cross validation of the ensemble
 def compute_ensemble_standard_deviation_f1(X, y, pca, voting, algorithm, data_prep):
@@ -278,7 +282,11 @@ def compute_ensemble_standard_deviation_f1(X, y, pca, voting, algorithm, data_pr
     scores = cross_val_score(eclf, X, y, cv=k_folds, scoring='f1_weighted')
     print(algorithm, data_prep, '\nall f1-scores:', scores, '\nmean:', scores.mean(), '\nstandard:deviation', scores.std())
 
-    df_f1_standard_deviations.at[algorithm, data_prep] = scores.std()
+    df_f1_standard_deviations.at[algorithm, data_prep + '_mean'] = scores.mean()
+    df_f1_standard_deviations.at[algorithm, data_prep + '_std'] = scores.std()
+
+    for i, value in enumerate(scores):
+        df_f1_standard_deviations.at[algorithm, data_prep + '_fold' + str(i)] = value
 
 
 # start the evaluation of each classifier with requirements data of different stages of preparation
