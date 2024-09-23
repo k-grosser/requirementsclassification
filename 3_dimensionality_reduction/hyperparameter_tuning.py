@@ -1,4 +1,4 @@
-from sklearn.ensemble import VotingClassifier
+from sklearn.ensemble import RandomForestClassifier, VotingClassifier
 from sklearn.feature_selection import SelectKBest, chi2
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV, StratifiedKFold, cross_val_score
@@ -48,8 +48,9 @@ def search_parameters(X, y):
 
         # ('model', KNeighborsClassifier())
         # ('model', SVC(kernel='linear'))
-        ('model', LogisticRegression(solver='liblinear'))
-        #('model', MultinomialNB())
+        # ('model', LogisticRegression(solver='liblinear'))
+        ('model', RandomForestClassifier())
+        # ('model', MultinomialNB())
         ]
     )
 
@@ -60,7 +61,7 @@ def search_parameters(X, y):
     search = GridSearchCV(
         estimator=pipeline,
         param_grid = {
-            'selector__k':np.arange(50,1601,50),
+            'selector__k':np.arange(50,1601,50),   
             'pca__n_components':np.arange(50,1001,50),
 
             # 'model__n_neighbors': [3,5,7,9]
@@ -69,8 +70,10 @@ def search_parameters(X, y):
             # 'model__gamma': ['scale','auto'],
             # 'model__degree': [3,4,5]
 
-            #'model__solver': ['lbfgs', 'liblinear', 'newton-cg', 'newton-cholesky', 'sag', 'saga'],
-            #'model__multi_class': ['auto', 'ovr', 'multinomial']
+            # 'model__solver': ['lbfgs', 'liblinear', 'newton-cg', 'newton-cholesky', 'sag', 'saga'],
+            # 'model__multi_class': ['auto', 'ovr', 'multinomial']
+
+            #'model__n_estimators': np.arange(50,201,10)
         },
         cv = k_folds,
         refit=False,
@@ -88,6 +91,7 @@ def search_parameters_ensemble(X, y, pca):
     classifiers.append(('kNN', KNeighborsClassifier()))
     classifiers.append(('svm', SVC(kernel='linear', probability=True)))
     classifiers.append(('lr', LogisticRegression(solver='liblinear')))
+    classifiers.append(('rf', RandomForestClassifier()))
     if not(pca): # PCA leads to negative values the MNB classifier cannot work with
         classifiers.append(('mnb', MultinomialNB()))
 
@@ -115,7 +119,7 @@ def search_parameters_ensemble(X, y, pca):
         estimator=pipeline,
         param_grid = {
             'selector__k':np.arange(50,1601,50),
-            'pca__n_components':np.arange(50,1001,50),
+            'pca__n_components':np.arange(50,801,50),
             'model__voting': ['hard', 'soft']
         },
         cv = k_folds,
@@ -132,21 +136,21 @@ def search_parameters_ensemble(X, y, pca):
 print('Best setting for bow:')
 # start hyperparameter tuning for features only retrieved from requirement texts
 search_parameters(features_bow, labels_bow)
-search_parameters_ensemble(features_bow, labels_bow, True)
+search_parameters_ensemble(features_bow, labels_bow, False)
 # start hyperparameter tuning for meta subtypes
 search_parameters(features_meta_bow, labels_meta_bow)
 search_parameters_ensemble(features_meta_bow, labels_meta_bow, True)
 # start hyperparameter tuning for features retrieved from requirement texts and the context of terms
 search_parameters(features_context_bow, labels_context_bow)
-search_parameters_ensemble(features_context_bow, labels_context_bow, True)
+search_parameters_ensemble(features_context_bow, labels_context_bow, False)
 
 print('Best setting for tfidf:')
 # start hyperparameter tuning for features only retrieved from requirement texts
 search_parameters(features_tfidf, labels_tfidf)
-search_parameters_ensemble(features_tfidf, labels_tfidf, True)
+search_parameters_ensemble(features_tfidf, labels_tfidf, False)
 # start hyperparameter tuning for meta subtypes
 search_parameters(features_meta_tfidf, labels_meta_tfidf)
 search_parameters_ensemble(features_meta_tfidf, labels_meta_tfidf, True)
 # start hyperparameter tuning for features retrieved from requirement texts and the context of terms
 search_parameters(features_context_tfidf, labels_context_tfidf)
-search_parameters_ensemble(features_context_tfidf, labels_context_tfidf, True)
+search_parameters_ensemble(features_context_tfidf, labels_context_tfidf, False)

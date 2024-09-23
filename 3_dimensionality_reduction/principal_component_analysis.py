@@ -11,6 +11,9 @@ df_tfidf_svm = pd.read_csv(filepath_or_buffer='3_dimensionality_reduction/output
 df_bow_lr = pd.read_csv(filepath_or_buffer='3_dimensionality_reduction/output/req_chi2/req_chi2_bow_lr.csv', header=0)
 df_tfidf_lr = pd.read_csv(filepath_or_buffer='3_dimensionality_reduction/output/req_chi2/req_chi2_tfidf_lr.csv', header=0)
 
+df_bow_rf = pd.read_csv(filepath_or_buffer='3_dimensionality_reduction/output/req_chi2/req_chi2_bow_rf.csv', header=0)
+df_tfidf_rf = pd.read_csv(filepath_or_buffer='3_dimensionality_reduction/output/req_chi2/req_chi2_tfidf_rf.csv', header=0)
+
 df_bow_ensemble = pd.read_csv(filepath_or_buffer='3_dimensionality_reduction/output/req_chi2/req_chi2_bow_ensemble.csv', header=0)
 df_tfidf_ensemble = pd.read_csv(filepath_or_buffer='3_dimensionality_reduction/output/req_chi2/req_chi2_tfidf_ensemble.csv', header=0)
 
@@ -36,6 +39,9 @@ df_context_tfidf_svm = pd.read_csv(filepath_or_buffer='3_dimensionality_reductio
 
 df_context_bow_lr = pd.read_csv(filepath_or_buffer='3_dimensionality_reduction/output/req_context_chi2/req_chi2_bow_lr.csv', header=0)
 df_context_tfidf_lr = pd.read_csv(filepath_or_buffer='3_dimensionality_reduction/output/req_context_chi2/req_chi2_tfidf_lr.csv', header=0)
+
+df_context_bow_rf = pd.read_csv(filepath_or_buffer='3_dimensionality_reduction/output/req_context_chi2/req_chi2_bow_rf.csv', header=0)
+df_context_tfidf_rf = pd.read_csv(filepath_or_buffer='3_dimensionality_reduction/output/req_context_chi2/req_chi2_tfidf_rf.csv', header=0)
 
 df_context_bow_ensemble = pd.read_csv(filepath_or_buffer='3_dimensionality_reduction/output/req_context_chi2/req_chi2_bow_ensemble.csv', header=0)
 df_context_tfidf_ensemble = pd.read_csv(filepath_or_buffer='3_dimensionality_reduction/output/req_context_chi2/req_chi2_tfidf_ensemble.csv', header=0)
@@ -65,8 +71,11 @@ transform_features(df_tfidf_svm, 250, '_class_').to_csv('3_dimensionality_reduct
 transform_features(df_bow_lr, 125, '_class_').to_csv('3_dimensionality_reduction/output/req_pca/req_pca_bow_lr.csv', index=False)
 transform_features(df_tfidf_lr, 350, '_class_').to_csv('3_dimensionality_reduction/output/req_pca/req_pca_tfidf_lr.csv', index=False)
 
-transform_features(df_bow_ensemble, 225, '_class_').to_csv('3_dimensionality_reduction/output/req_pca/req_pca_bow_ensemble.csv', index=False)
-transform_features(df_tfidf_ensemble, 325, '_class_').to_csv('3_dimensionality_reduction/output/req_pca/req_pca_tfidf_ensemble.csv', index=False)
+transform_features(df_bow_rf, 200, '_class_').to_csv('3_dimensionality_reduction/output/req_pca/req_pca_bow_rf.csv', index=False)
+transform_features(df_tfidf_rf, 50, '_class_').to_csv('3_dimensionality_reduction/output/req_pca/req_pca_tfidf_rf.csv', index=False)
+
+transform_features(df_bow_ensemble, 200, '_class_').to_csv('3_dimensionality_reduction/output/req_pca/req_pca_bow_ensemble.csv', index=False)
+transform_features(df_tfidf_ensemble, 250, '_class_').to_csv('3_dimensionality_reduction/output/req_pca/req_pca_tfidf_ensemble.csv', index=False)
 
 # transform features for meta subtypes
 transform_features(df_meta_bow_knn, 10, '_subclass_').to_csv('3_dimensionality_reduction/output/req_meta_pca/req_pca_bow_knn.csv', index=False)
@@ -91,6 +100,9 @@ transform_features(df_context_tfidf_svm, 300, '_class_').to_csv('3_dimensionalit
 transform_features(df_context_bow_lr, 300, '_class_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_bow_lr.csv', index=False)
 transform_features(df_context_tfidf_lr, 350, '_class_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_tfidf_lr.csv', index=False)
 
-transform_features(df_context_bow_ensemble, 300, '_class_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_bow_ensemble.csv', index=False)
-transform_features(df_context_tfidf_ensemble, 300, '_class_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_tfidf_ensemble.csv', index=False)
+transform_features(df_context_bow_rf, 100, '_class_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_bow_rf.csv', index=False)
+transform_features(df_context_tfidf_rf, 50, '_class_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_tfidf_rf.csv', index=False)
+
+transform_features(df_context_bow_ensemble, 150, '_class_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_bow_ensemble.csv', index=False)
+transform_features(df_context_tfidf_ensemble, 150, '_class_').to_csv('3_dimensionality_reduction/output/req_context_pca/req_pca_tfidf_ensemble.csv', index=False)
 

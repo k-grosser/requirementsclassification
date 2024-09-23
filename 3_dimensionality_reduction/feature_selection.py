@@ -57,8 +57,11 @@ select_features(df_tfidf, 750, '_class_').to_csv('3_dimensionality_reduction/out
 select_features(df_bow, 550, '_class_').to_csv('3_dimensionality_reduction/output/req_chi2/req_chi2_bow_mnb.csv', index=False)
 select_features(df_tfidf, 675, '_class_').to_csv('3_dimensionality_reduction/output/req_chi2/req_chi2_tfidf_mnb.csv', index=False)
 
-select_features(df_bow, 700, '_class_').to_csv('3_dimensionality_reduction/output/req_chi2/req_chi2_bow_ensemble.csv', index=False)
-select_features(df_tfidf, 825, '_class_').to_csv('3_dimensionality_reduction/output/req_chi2/req_chi2_tfidf_ensemble.csv', index=False)
+select_features(df_bow, 1300, '_class_').to_csv('3_dimensionality_reduction/output/req_chi2/req_chi2_bow_rf.csv', index=False)
+select_features(df_tfidf, 1300, '_class_').to_csv('3_dimensionality_reduction/output/req_chi2/req_chi2_tfidf_rf.csv', index=False)
+
+select_features(df_bow, 250, '_class_').to_csv('3_dimensionality_reduction/output/req_chi2/req_chi2_bow_ensemble.csv', index=False)
+select_features(df_tfidf, 650, '_class_').to_csv('3_dimensionality_reduction/output/req_chi2/req_chi2_tfidf_ensemble.csv', index=False)
 
 # Top 10
 print('BoW:')
@@ -98,6 +101,9 @@ select_features(df_context_tfidf, 1350, '_class_').to_csv('3_dimensionality_redu
 select_features(df_context_bow, 1500, '_class_').to_csv('3_dimensionality_reduction/output/req_context_chi2/req_chi2_bow_mnb.csv', index=False)
 select_features(df_context_tfidf, 1250, '_class_').to_csv('3_dimensionality_reduction/output/req_context_chi2/req_chi2_tfidf_mnb.csv', index=False)
 
-select_features(df_context_bow, 1450, '_class_').to_csv('3_dimensionality_reduction/output/req_context_chi2/req_chi2_bow_ensemble.csv', index=False)
-select_features(df_context_tfidf, 1200, '_class_').to_csv('3_dimensionality_reduction/output/req_context_chi2/req_chi2_tfidf_ensemble.csv', index=False)
+select_features(df_context_bow, 600, '_class_').to_csv('3_dimensionality_reduction/output/req_context_chi2/req_chi2_bow_rf.csv', index=False)
+select_features(df_context_tfidf, 250, '_class_').to_csv('3_dimensionality_reduction/output/req_context_chi2/req_chi2_tfidf_rf.csv', index=False)
+
+select_features(df_context_bow, 600, '_class_').to_csv('3_dimensionality_reduction/output/req_context_chi2/req_chi2_bow_ensemble.csv', index=False)
+select_features(df_context_tfidf, 250, '_class_').to_csv('3_dimensionality_reduction/output/req_context_chi2/req_chi2_tfidf_ensemble.csv', index=False)
 

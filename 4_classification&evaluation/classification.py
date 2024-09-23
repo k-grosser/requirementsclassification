@@ -6,7 +6,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn import svm
 from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import MultinomialNB
-from sklearn.ensemble import VotingClassifier
+from sklearn.ensemble import RandomForestClassifier, VotingClassifier
 
 # import requirements data (BoW without dimensionality reduction)
 df_bow = pd.read_csv(filepath_or_buffer='2_feature_extraction/output/req_vectorized_bow.csv', header=0)
@@ -30,6 +30,10 @@ df_chi_bow_mnb = pd.read_csv(filepath_or_buffer='3_dimensionality_reduction/outp
 X_chi_bow_mnb = df_chi_bow_mnb.drop('_class_', axis=1)
 y_chi_bow_mnb = df_chi_bow_mnb['_class_']
 
+df_chi_bow_rf = pd.read_csv(filepath_or_buffer='3_dimensionality_reduction/output/req_chi2/req_chi2_bow_rf.csv', header=0)
+X_chi_bow_rf = df_chi_bow_rf.drop('_class_', axis=1)
+y_chi_bow_rf = df_chi_bow_rf['_class_']
+
 df_chi_bow_ensemble = pd.read_csv(filepath_or_buffer='3_dimensionality_reduction/output/req_chi2/req_chi2_bow_ensemble.csv', header=0)
 X_chi_bow_ensemble = df_chi_bow_ensemble.drop('_class_', axis=1)
 y_chi_bow_ensemble = df_chi_bow_ensemble['_class_']
@@ -46,6 +50,10 @@ y_pca_bow_svm = df_pca_bow_svm['_class_']
 df_pca_bow_lr = pd.read_csv(filepath_or_buffer='3_dimensionality_reduction/output/req_pca/req_pca_bow_lr.csv', header=0)
 X_pca_bow_lr = df_pca_bow_lr.drop('_class_', axis=1)
 y_pca_bow_lr = df_pca_bow_lr['_class_']
+
+df_pca_bow_rf = pd.read_csv(filepath_or_buffer='3_dimensionality_reduction/output/req_pca/req_pca_bow_rf.csv', header=0)
+X_pca_bow_rf = df_pca_bow_rf.drop('_class_', axis=1)
+y_pca_bow_rf = df_pca_bow_rf['_class_']
 
 df_pca_bow_ensemble = pd.read_csv(filepath_or_buffer='3_dimensionality_reduction/output/req_pca/req_pca_bow_ensemble.csv', header=0)
 X_pca_bow_ensemble = df_pca_bow_ensemble.drop('_class_', axis=1)
@@ -73,6 +81,10 @@ df_chi_tfidf_mnb = pd.read_csv(filepath_or_buffer='3_dimensionality_reduction/ou
 X_chi_tfidf_mnb = df_chi_tfidf_mnb.drop('_class_', axis=1)
 y_chi_tfidf_mnb = df_chi_tfidf_mnb['_class_']
 
+df_chi_tfidf_rf = pd.read_csv(filepath_or_buffer='3_dimensionality_reduction/output/req_chi2/req_chi2_tfidf_rf.csv', header=0)
+X_chi_tfidf_rf = df_chi_tfidf_rf.drop('_class_', axis=1)
+y_chi_tfidf_rf = df_chi_tfidf_rf['_class_']
+
 df_chi_tfidf_ensemble = pd.read_csv(filepath_or_buffer='3_dimensionality_reduction/output/req_chi2/req_chi2_tfidf_ensemble.csv', header=0)
 X_chi_tfidf_ensemble = df_chi_tfidf_ensemble.drop('_class_', axis=1)
 y_chi_tfidf_ensemble = df_chi_tfidf_ensemble['_class_']
@@ -90,17 +102,21 @@ df_pca_tfidf_lr = pd.read_csv(filepath_or_buffer='3_dimensionality_reduction/out
 X_pca_tfidf_lr = df_pca_tfidf_lr.drop('_class_', axis=1)
 y_pca_tfidf_lr = df_pca_tfidf_lr['_class_']
 
+df_pca_tfidf_rf = pd.read_csv(filepath_or_buffer='3_dimensionality_reduction/output/req_pca/req_pca_tfidf_rf.csv', header=0)
+X_pca_tfidf_rf = df_pca_tfidf_rf.drop('_class_', axis=1)
+y_pca_tfidf_rf = df_pca_tfidf_rf['_class_']
+
 df_pca_tfidf_ensemble = pd.read_csv(filepath_or_buffer='3_dimensionality_reduction/output/req_pca/req_pca_tfidf_ensemble.csv', header=0)
 X_pca_tfidf_ensemble = df_pca_tfidf_ensemble.drop('_class_', axis=1)
 y_pca_tfidf_ensemble = df_pca_tfidf_ensemble['_class_']
 
 # dataframe to store the mean value of each metric (accuracy, precision, recall and f1-score) 
 # for every classifier (kNN, SVM, LR, NB) 
-df_evaluation_metrics = pd.DataFrame(index=['kNN', 'SVM', 'LR', 'NB', 'Ensemble'])
+df_evaluation_metrics = pd.DataFrame(index=['kNN', 'SVM', 'LR', 'NB', 'RF', 'Ensemble'])
 
 # dataframe to store the mean time for fitting each classifier on the train sets and 
 # the mean time for scoring each classifier on the test sets  
-df_evaluation_time = pd.DataFrame(index=['kNN', 'SVM', 'LR', 'NB', 'Ensemble'])
+df_evaluation_time = pd.DataFrame(index=['kNN', 'SVM', 'LR', 'NB', 'RF', 'Ensemble'])
 
 # dataframe to store the mean value of the metrics precision, recall and f1-score
 # for SVM classification on data with its dimensionality reduced by PCA 
@@ -108,7 +124,7 @@ df_evaluation_time = pd.DataFrame(index=['kNN', 'SVM', 'LR', 'NB', 'Ensemble'])
 df_evaluation_svm_pca = pd.DataFrame(index=['F', 'NF', 'PM', 'M', 'V'])
 
 # dataframe to store the standard deviation of the f1 score during cross validation
-df_f1_standard_deviations = pd.DataFrame(index=['kNN', 'SVM', 'LR', 'NB', 'Ensemble'])
+df_f1_standard_deviations = pd.DataFrame(index=['kNN', 'SVM', 'LR', 'NB', 'RF', 'Ensemble'])
 
 #metrics for evaluation
 scoring = ['accuracy', 'precision_weighted', 'recall_weighted', 'f1_weighted']
@@ -118,7 +134,7 @@ scoring = ['accuracy', 'precision_weighted', 'recall_weighted', 'f1_weighted']
 def kNN_cross_validation(X, y, n):
 
     clf = KNeighborsClassifier(n_neighbors=n)
-    k_folds = StratifiedKFold(n_splits = 5, random_state=4, shuffle=True) # ensure an equal proportion of all classes in each fold
+    k_folds = StratifiedKFold(n_splits = 5, random_state=5, shuffle=True) # ensure an equal proportion of all classes in each fold
 
     scores = cross_validate(clf, X, y, cv = k_folds, scoring=scoring)
 
@@ -136,7 +152,7 @@ def kNN_cross_validation(X, y, n):
 def svm_cross_validation(X, y):
 
     clf = svm.SVC(kernel='linear')
-    k_folds = StratifiedKFold(n_splits = 5, random_state=4, shuffle=True) # ensure an equal proportion of all classes in each fold
+    k_folds = StratifiedKFold(n_splits = 5, random_state=5, shuffle=True) # ensure an equal proportion of all classes in each fold
 
     scores = cross_validate(clf, X, y, cv = k_folds, scoring=scoring)
 
@@ -154,7 +170,7 @@ def svm_cross_validation(X, y):
 def lr_cross_validation(X, y):
 
     clf = LogisticRegression(solver='liblinear')
-    k_folds = StratifiedKFold(n_splits = 5, random_state=4, shuffle=True) # ensure an equal proportion of all classes in each fold
+    k_folds = StratifiedKFold(n_splits = 5, random_state=5, shuffle=True) # ensure an equal proportion of all classes in each fold
 
     scores = cross_validate(clf, X, y, cv = k_folds, scoring=scoring)
 
@@ -172,7 +188,7 @@ def lr_cross_validation(X, y):
 def nb_cross_validation(X, y):
 
     clf = MultinomialNB()
-    k_folds = StratifiedKFold(n_splits = 5, random_state=4, shuffle=True) # ensure an equal distribution of the classes in each fold
+    k_folds = StratifiedKFold(n_splits = 5, random_state=5, shuffle=True) # ensure an equal distribution of the classes in each fold
 
     scores = cross_validate(clf, X, y, cv = k_folds, scoring=scoring)
 
@@ -186,6 +202,24 @@ def nb_cross_validation(X, y):
 
     return scores
 
+# evaluate the random forest classification by cross-validation
+def rf_cross_validation(X, y, n):
+
+    clf = RandomForestClassifier(n_estimators=n)
+    k_folds = StratifiedKFold(n_splits = 5, random_state=5, shuffle=True) # ensure an equal proportion of all classes in each fold
+
+    scores = cross_validate(clf, X, y, cv = k_folds, scoring=scoring)
+
+    scores['test_accuracy'] = scores['test_accuracy'].mean()
+    scores['test_precision_weighted'] = scores['test_precision_weighted'].mean()
+    scores['test_recall_weighted'] = scores['test_recall_weighted'].mean()
+    scores['test_f1_weighted'] = scores['test_f1_weighted'].mean()
+    
+    scores['fit_time'] = scores['fit_time'].mean()
+    scores['score_time'] = scores['score_time'].mean()
+    
+    return scores
+
 # evaluate the Ensemble classification by cross-validation
 def ensemble_cross_validation(X, y, pca:bool):
 
@@ -193,15 +227,16 @@ def ensemble_cross_validation(X, y, pca:bool):
     classifiers.append(('kNN', KNeighborsClassifier()))
     classifiers.append(('svm', svm.SVC(kernel='linear', probability=True)))
     classifiers.append(('lr', LogisticRegression(solver='liblinear')))
+    classifiers.append(('rf', RandomForestClassifier()))
     if not(pca): # PCA leads to negative values the MNB classifier cannot work with
         classifiers.append(('mnb', MultinomialNB()))
 
-    k_folds = StratifiedKFold(n_splits = 5, random_state=4, shuffle=True) # ensure an equal distribution of the classes in each fold
+    k_folds = StratifiedKFold(n_splits = 5, random_state=5, shuffle=True) # ensure an equal distribution of the classes in each fold
 
     weights = list()
     for name, clf in classifiers:
-        acc = cross_val_score(clf, X, y, cv=k_folds, scoring='accuracy').mean()
-        weights.append(acc)
+        f1 = cross_val_score(clf, X, y, cv=k_folds, scoring='f1_weighted').mean()
+        weights.append(f1)
 
     eclf = VotingClassifier(
         estimators=classifiers, 
@@ -225,7 +260,7 @@ def ensemble_cross_validation(X, y, pca:bool):
 def svm_cross_validation_detail(X, y):
 
     clf = svm.SVC(kernel='linear')
-    k_folds = StratifiedKFold(n_splits = 5, random_state=4, shuffle=True) # ensure an equal proportion of all classes in each fold
+    k_folds = StratifiedKFold(n_splits = 5, random_state=5, shuffle=True) # ensure an equal proportion of all classes in each fold
 
     scores_precision = np.empty((5, 5), dtype=float)
     scores_recall = np.empty((5, 5), dtype=float)
@@ -300,7 +335,7 @@ def store_detailed_evaluation_scores(precision, recall, f1):
 # compute and store the standard deviation of each cross validation
 def compute_standard_deviation_f1(clf, X, y, algorithm, data_prep):
 
-    k_folds = StratifiedKFold(n_splits = 5, random_state=4, shuffle=True) 
+    k_folds = StratifiedKFold(n_splits = 5, random_state=5, shuffle=True) 
 
     scores = cross_val_score(clf, X, y, cv=k_folds, scoring='f1_weighted')
     print(algorithm, data_prep, '\nall f1-scores:', scores, '\nmean:', scores.mean(), '\nstandard:deviation', scores.std())
@@ -318,15 +353,16 @@ def compute_ensemble_standard_deviation_f1(X, y, pca, algorithm, data_prep):
     classifiers.append(('kNN', KNeighborsClassifier()))
     classifiers.append(('svm', svm.SVC(kernel='linear', probability=True)))
     classifiers.append(('lr', LogisticRegression(solver='liblinear')))
+    classifiers.append(('rf', RandomForestClassifier()))
     if not(pca): # PCA leads to negative values the MNB classifier cannot work with
         classifiers.append(('mnb', MultinomialNB()))
 
-    k_folds = StratifiedKFold(n_splits = 5, random_state=4, shuffle=True) 
+    k_folds = StratifiedKFold(n_splits = 5, random_state=5, shuffle=True) 
 
     weights = list()
     for name, clf in classifiers:
-        acc = cross_val_score(clf, X, y, cv=k_folds, scoring='accuracy').mean()
-        weights.append(acc)
+        f1 = cross_val_score(clf, X, y, cv=k_folds, scoring='f1_weighted').mean()
+        weights.append(f1)
 
     eclf = VotingClassifier(
         estimators=classifiers, 
@@ -402,6 +438,19 @@ scores_pca_tfidf = {'fit_time': 0, 'score_time': 0, 'test_accuracy': 0, 'test_pr
 
 store_evaluation_scores(scores_tfidf, scores_chi_tfidf, scores_pca_tfidf, 'NB', 'TF-IDF')
 
+#RF
+scores_bow = rf_cross_validation(X_bow, y_bow, 160)
+scores_chi_bow = rf_cross_validation(X_chi_bow_rf, y_chi_bow_rf, 130)
+scores_pca_bow = rf_cross_validation(X_pca_bow_rf, y_pca_bow_rf, 90)
+
+store_evaluation_scores(scores_bow, scores_chi_bow, scores_pca_bow, 'RF', 'BoW')
+
+scores_tfidf = rf_cross_validation(X_tfidf, y_tfidf, 50)
+scores_chi_tfidf = rf_cross_validation(X_chi_tfidf_rf, y_chi_tfidf_rf, 50)
+scores_pca_tfidf = rf_cross_validation(X_pca_tfidf_rf, y_pca_tfidf_rf, 150)
+
+store_evaluation_scores(scores_tfidf, scores_chi_tfidf, scores_pca_tfidf, 'RF', 'TF-IDF')
+
 # Ensemble
 scores_bow = ensemble_cross_validation(X_bow, y_bow, False)
 scores_chi_bow = ensemble_cross_validation(X_chi_bow_ensemble, y_chi_bow_ensemble, False)
@@ -450,6 +499,14 @@ compute_standard_deviation_f1(LogisticRegression(solver='liblinear'), X_pca_bow_
 compute_standard_deviation_f1(LogisticRegression(solver='liblinear'), X_tfidf, y_tfidf, 'LR', 'tfidf')
 compute_standard_deviation_f1(LogisticRegression(solver='liblinear'), X_chi_tfidf_lr, y_chi_tfidf_lr, 'LR', 'tfidf_chi')
 compute_standard_deviation_f1(LogisticRegression(solver='liblinear'), X_pca_tfidf_lr, y_pca_tfidf_lr, 'LR', 'tfidf_pca')
+
+compute_standard_deviation_f1(RandomForestClassifier(n_estimators=160), X_bow, y_bow, 'RF', 'bow')
+compute_standard_deviation_f1(RandomForestClassifier(n_estimators=130), X_chi_bow_rf, y_chi_bow_rf, 'RF', 'bow_chi')
+compute_standard_deviation_f1(RandomForestClassifier(n_estimators=90), X_pca_bow_rf, y_pca_bow_rf, 'RF', 'bow_pca')
+
+compute_standard_deviation_f1(RandomForestClassifier(n_estimators=50), X_tfidf, y_tfidf, 'RF', 'tfidf')
+compute_standard_deviation_f1(RandomForestClassifier(n_estimators=50), X_chi_tfidf_rf, y_chi_tfidf_rf, 'RF', 'tfidf_chi')
+compute_standard_deviation_f1(RandomForestClassifier(n_estimators=150), X_pca_tfidf_rf, y_pca_tfidf_lr, 'RF', 'tfidf_pca')
 
 compute_standard_deviation_f1(MultinomialNB(), X_bow, y_bow, 'NB', 'bow')
 compute_standard_deviation_f1(MultinomialNB(), X_chi_bow_mnb, y_chi_bow_mnb, 'NB', 'bow_chi')
