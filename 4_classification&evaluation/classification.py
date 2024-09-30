@@ -131,31 +131,47 @@ scoring = ['accuracy', 'precision_weighted', 'recall_weighted', 'f1_weighted']
 
 
 # evaluate the k-Nearest-Neighbor classification by cross-validation
-def kNN_cross_validation(X, y, n):
+def kNN_cross_validation(X, y, n, data_prep):
 
     clf = KNeighborsClassifier(n_neighbors=n)
     k_folds = StratifiedKFold(n_splits = 5, random_state=5, shuffle=True) # ensure an equal proportion of all classes in each fold
 
     scores = cross_validate(clf, X, y, cv = k_folds, scoring=scoring)
 
+    # for the f1-score, store the standard deviation and the result of each fold in the belonging dataframe
+    df_f1_standard_deviations.at['kNN', data_prep + '_mean'] = scores['test_f1_weighted'].mean()
+    df_f1_standard_deviations.at['kNN', data_prep + '_std'] = scores['test_f1_weighted'].std()
+
+    for i, value in enumerate(scores['test_f1_weighted']):
+        df_f1_standard_deviations.at['kNN', data_prep + '_fold' + str(i)] = value
+    
+    # compute the mean of each metric
     scores['test_accuracy'] = scores['test_accuracy'].mean()
     scores['test_precision_weighted'] = scores['test_precision_weighted'].mean()
     scores['test_recall_weighted'] = scores['test_recall_weighted'].mean()
     scores['test_f1_weighted'] = scores['test_f1_weighted'].mean()
-    
+
     scores['fit_time'] = scores['fit_time'].mean()
     scores['score_time'] = scores['score_time'].mean()
     
     return scores
 
 # evaluate the Support Vector Machine classification by cross-validation
-def svm_cross_validation(X, y):
+def svm_cross_validation(X, y, data_prep):
 
     clf = svm.SVC(kernel='linear')
     k_folds = StratifiedKFold(n_splits = 5, random_state=5, shuffle=True) # ensure an equal proportion of all classes in each fold
 
     scores = cross_validate(clf, X, y, cv = k_folds, scoring=scoring)
 
+    # for the f1-score, store the standard deviation and the result of each fold in the belonging dataframe
+    df_f1_standard_deviations.at['SVM', data_prep + '_mean'] = scores['test_f1_weighted'].mean()
+    df_f1_standard_deviations.at['SVM', data_prep + '_std'] = scores['test_f1_weighted'].std()
+
+    for i, value in enumerate(scores['test_f1_weighted']):
+        df_f1_standard_deviations.at['SVM', data_prep + '_fold' + str(i)] = value
+    
+    # compute the mean of each metric
     scores['test_accuracy'] = scores['test_accuracy'].mean()
     scores['test_precision_weighted'] = scores['test_precision_weighted'].mean()
     scores['test_recall_weighted'] = scores['test_recall_weighted'].mean()
@@ -167,13 +183,21 @@ def svm_cross_validation(X, y):
     return scores
 
 # evaluate the Logistic Regression classification by cross-validation
-def lr_cross_validation(X, y):
+def lr_cross_validation(X, y, data_prep):
 
     clf = LogisticRegression(solver='liblinear')
     k_folds = StratifiedKFold(n_splits = 5, random_state=5, shuffle=True) # ensure an equal proportion of all classes in each fold
 
     scores = cross_validate(clf, X, y, cv = k_folds, scoring=scoring)
 
+    # for the f1-score, store the standard deviation and the result of each fold in the belonging dataframe
+    df_f1_standard_deviations.at['LR', data_prep + '_mean'] = scores['test_f1_weighted'].mean()
+    df_f1_standard_deviations.at['LR', data_prep + '_std'] = scores['test_f1_weighted'].std()
+
+    for i, value in enumerate(scores['test_f1_weighted']):
+        df_f1_standard_deviations.at['LR', data_prep + '_fold' + str(i)] = value
+    
+    # compute the mean of each metric
     scores['test_accuracy'] = scores['test_accuracy'].mean()
     scores['test_precision_weighted'] = scores['test_precision_weighted'].mean()
     scores['test_recall_weighted'] = scores['test_recall_weighted'].mean()
@@ -185,13 +209,21 @@ def lr_cross_validation(X, y):
     return scores
 
 # evaluate the Multinomial Naive Bayes classification by cross-validation
-def nb_cross_validation(X, y):
+def nb_cross_validation(X, y, data_prep):
 
     clf = MultinomialNB()
     k_folds = StratifiedKFold(n_splits = 5, random_state=5, shuffle=True) # ensure an equal distribution of the classes in each fold
 
     scores = cross_validate(clf, X, y, cv = k_folds, scoring=scoring)
 
+    # for the f1-score, store the standard deviation and the result of each fold in the belonging dataframe
+    df_f1_standard_deviations.at['NB', data_prep + '_mean'] = scores['test_f1_weighted'].mean()
+    df_f1_standard_deviations.at['NB', data_prep + '_std'] = scores['test_f1_weighted'].std()
+
+    for i, value in enumerate(scores['test_f1_weighted']):
+        df_f1_standard_deviations.at['NB', data_prep + '_fold' + str(i)] = value
+    
+    # compute the mean of each metric
     scores['test_accuracy'] = scores['test_accuracy'].mean()
     scores['test_precision_weighted'] = scores['test_precision_weighted'].mean()
     scores['test_recall_weighted'] = scores['test_recall_weighted'].mean()
@@ -203,13 +235,21 @@ def nb_cross_validation(X, y):
     return scores
 
 # evaluate the random forest classification by cross-validation
-def rf_cross_validation(X, y, n):
+def rf_cross_validation(X, y, n, data_prep):
 
     clf = RandomForestClassifier(n_estimators=n)
     k_folds = StratifiedKFold(n_splits = 5, random_state=5, shuffle=True) # ensure an equal proportion of all classes in each fold
 
     scores = cross_validate(clf, X, y, cv = k_folds, scoring=scoring)
 
+    # for the f1-score, store the standard deviation and the result of each fold in the belonging dataframe
+    df_f1_standard_deviations.at['RF', data_prep + '_mean'] = scores['test_f1_weighted'].mean()
+    df_f1_standard_deviations.at['RF', data_prep + '_std'] = scores['test_f1_weighted'].std()
+
+    for i, value in enumerate(scores['test_f1_weighted']):
+        df_f1_standard_deviations.at['RF', data_prep + '_fold' + str(i)] = value
+    
+    # compute the mean for each metric
     scores['test_accuracy'] = scores['test_accuracy'].mean()
     scores['test_precision_weighted'] = scores['test_precision_weighted'].mean()
     scores['test_recall_weighted'] = scores['test_recall_weighted'].mean()
@@ -217,11 +257,11 @@ def rf_cross_validation(X, y, n):
     
     scores['fit_time'] = scores['fit_time'].mean()
     scores['score_time'] = scores['score_time'].mean()
-    
+
     return scores
 
 # evaluate the Ensemble classification by cross-validation
-def ensemble_cross_validation(X, y, pca:bool):
+def ensemble_cross_validation(X, y, pca:bool, data_prep):
 
     classifiers = list()
     classifiers.append(('kNN', KNeighborsClassifier()))
@@ -245,6 +285,14 @@ def ensemble_cross_validation(X, y, pca:bool):
     
     scores = cross_validate(eclf, X, y, cv = k_folds, scoring=scoring)
 
+    # for the f1-score, store the standard deviation and the result of each fold in the belonging dataframe
+    df_f1_standard_deviations.at['Ensemble', data_prep + '_mean'] = scores['test_f1_weighted'].mean()
+    df_f1_standard_deviations.at['Ensemble', data_prep + '_std'] = scores['test_f1_weighted'].std()
+
+    for i, value in enumerate(scores['test_f1_weighted']):
+        df_f1_standard_deviations.at['Ensemble', data_prep + '_fold' + str(i)] = value
+    
+    # compute the mean of each metric
     scores['test_accuracy'] = scores['test_accuracy'].mean()
     scores['test_precision_weighted'] = scores['test_precision_weighted'].mean()
     scores['test_recall_weighted'] = scores['test_recall_weighted'].mean()
@@ -332,78 +380,32 @@ def store_detailed_evaluation_scores(precision, recall, f1):
     df_evaluation_svm_pca.at['M', 'F1-score'] = f1[3]
     df_evaluation_svm_pca.at['V', 'F1-score'] = f1[4]
 
-# compute and store the standard deviation of each cross validation
-def compute_standard_deviation_f1(clf, X, y, algorithm, data_prep):
-
-    k_folds = StratifiedKFold(n_splits = 5, random_state=5, shuffle=True) 
-
-    scores = cross_val_score(clf, X, y, cv=k_folds, scoring='f1_weighted')
-    print(algorithm, data_prep, '\nall f1-scores:', scores, '\nmean:', scores.mean(), '\nstandard:deviation', scores.std())
-
-    df_f1_standard_deviations.at[algorithm, data_prep + '_mean'] = scores.mean()
-    df_f1_standard_deviations.at[algorithm, data_prep + '_std'] = scores.std()
-
-    for i, value in enumerate(scores):
-        df_f1_standard_deviations.at[algorithm, data_prep + '_fold' + str(i)] = value
-
-# compute and store the f1 standard deviation of the cross validation of the ensemble
-def compute_ensemble_standard_deviation_f1(X, y, pca, algorithm, data_prep):
-
-    classifiers = list()
-    classifiers.append(('kNN', KNeighborsClassifier()))
-    classifiers.append(('svm', svm.SVC(kernel='linear', probability=True)))
-    classifiers.append(('lr', LogisticRegression(solver='liblinear')))
-    classifiers.append(('rf', RandomForestClassifier()))
-    if not(pca): # PCA leads to negative values the MNB classifier cannot work with
-        classifiers.append(('mnb', MultinomialNB()))
-
-    k_folds = StratifiedKFold(n_splits = 5, random_state=5, shuffle=True) 
-
-    weights = list()
-    for name, clf in classifiers:
-        f1 = cross_val_score(clf, X, y, cv=k_folds, scoring='f1_weighted').mean()
-        weights.append(f1)
-
-    eclf = VotingClassifier(
-        estimators=classifiers, 
-        voting='soft',
-        weights=weights) 
-
-    scores = cross_val_score(eclf, X, y, cv=k_folds, scoring='f1_weighted')
-    print(algorithm, data_prep, '\nall f1-scores:', scores, '\nmean:', scores.mean(), '\nstandard:deviation', scores.std())
-
-    df_f1_standard_deviations.at[algorithm, data_prep + '_mean'] = scores.mean()
-    df_f1_standard_deviations.at[algorithm, data_prep + '_std'] = scores.std()
-
-    for i, value in enumerate(scores):
-        df_f1_standard_deviations.at[algorithm, data_prep + '_fold' + str(i)] = value
-
 
 # start the evaluation of each classifier with requirements data of different stages of preparation
 
 # kNN
-scores_bow = kNN_cross_validation(X_bow, y_bow, 3)
-scores_chi_bow = kNN_cross_validation(X_chi_bow_knn, y_chi_bow_knn, 3)
-scores_pca_bow = kNN_cross_validation(X_pca_bow_knn, y_pca_bow_knn, 5)
+scores_bow = kNN_cross_validation(X_bow, y_bow, 3, 'bow')
+scores_chi_bow = kNN_cross_validation(X_chi_bow_knn, y_chi_bow_knn, 3, 'bow_chi')
+scores_pca_bow = kNN_cross_validation(X_pca_bow_knn, y_pca_bow_knn, 5, 'bow_pca')
 
 store_evaluation_scores(scores_bow, scores_chi_bow, scores_pca_bow, 'kNN', 'BoW')
 
-scores_tfidf = kNN_cross_validation(X_tfidf, y_tfidf, 15)
-scores_chi_tfidf = kNN_cross_validation(X_chi_tfidf_knn, y_chi_tfidf_knn, 15)
-scores_pca_tfidf = kNN_cross_validation(X_pca_tfidf_knn, y_pca_tfidf_knn, 15)
+scores_tfidf = kNN_cross_validation(X_tfidf, y_tfidf, 15, 'tf-idf')
+scores_chi_tfidf = kNN_cross_validation(X_chi_tfidf_knn, y_chi_tfidf_knn, 15, 'tf-idf_chi')
+scores_pca_tfidf = kNN_cross_validation(X_pca_tfidf_knn, y_pca_tfidf_knn, 15, 'tf-idf_pca')
 
 store_evaluation_scores(scores_tfidf, scores_chi_tfidf, scores_pca_tfidf, 'kNN', 'TF-IDF')
 
 # SVM
-scores_bow = svm_cross_validation(X_bow, y_bow)
-scores_chi_bow = svm_cross_validation(X_chi_bow_svm, y_chi_bow_svm)
-scores_pca_bow = svm_cross_validation(X_pca_bow_svm, y_pca_bow_svm)
+scores_bow = svm_cross_validation(X_bow, y_bow, 'bow')
+scores_chi_bow = svm_cross_validation(X_chi_bow_svm, y_chi_bow_svm, 'bow_chi')
+scores_pca_bow = svm_cross_validation(X_pca_bow_svm, y_pca_bow_svm, 'bow_pca')
 
 store_evaluation_scores(scores_bow, scores_chi_bow, scores_pca_bow, 'SVM', 'BoW')
 
-scores_tfidf = svm_cross_validation(X_tfidf, y_tfidf)
-scores_chi_tfidf = svm_cross_validation(X_chi_tfidf_svm, y_chi_tfidf_svm)
-scores_pca_tfidf = svm_cross_validation(X_pca_tfidf_svm, y_pca_tfidf_svm)
+scores_tfidf = svm_cross_validation(X_tfidf, y_tfidf, 'tf-idf')
+scores_chi_tfidf = svm_cross_validation(X_chi_tfidf_svm, y_chi_tfidf_svm, 'tf-idf_chi')
+scores_pca_tfidf = svm_cross_validation(X_pca_tfidf_svm, y_pca_tfidf_svm, 'tf-idf_pca')
 
 store_evaluation_scores(scores_tfidf, scores_chi_tfidf, scores_pca_tfidf, 'SVM', 'TF-IDF')
 
@@ -413,54 +415,54 @@ scores_detailed = svm_cross_validation_detail(X_pca_tfidf_svm, y_pca_tfidf_svm)
 store_detailed_evaluation_scores(scores_detailed[0], scores_detailed[1], scores_detailed[2])
 
 # LR
-scores_bow = lr_cross_validation(X_bow, y_bow)
-scores_chi_bow = lr_cross_validation(X_chi_bow_lr, y_chi_bow_lr)
-scores_pca_bow = lr_cross_validation(X_pca_bow_lr, y_pca_bow_lr)
+scores_bow = lr_cross_validation(X_bow, y_bow, 'bow')
+scores_chi_bow = lr_cross_validation(X_chi_bow_lr, y_chi_bow_lr, 'bow_chi')
+scores_pca_bow = lr_cross_validation(X_pca_bow_lr, y_pca_bow_lr, 'bow_pca')
 
 store_evaluation_scores(scores_bow, scores_chi_bow, scores_pca_bow, 'LR', 'BoW')
 
-scores_tfidf = lr_cross_validation(X_tfidf, y_tfidf)
-scores_chi_tfidf = lr_cross_validation(X_chi_tfidf_lr, y_chi_tfidf_lr)
-scores_pca_tfidf = lr_cross_validation(X_pca_tfidf_lr, y_pca_tfidf_lr)
+scores_tfidf = lr_cross_validation(X_tfidf, y_tfidf, 'tf-idf')
+scores_chi_tfidf = lr_cross_validation(X_chi_tfidf_lr, y_chi_tfidf_lr, 'tf-idf_chi')
+scores_pca_tfidf = lr_cross_validation(X_pca_tfidf_lr, y_pca_tfidf_lr, 'tf-idf_pca')
 
 store_evaluation_scores(scores_tfidf, scores_chi_tfidf, scores_pca_tfidf, 'LR', 'TF-IDF')
 
 # NB
-scores_bow = nb_cross_validation(X_bow, y_bow)
-scores_chi_bow = nb_cross_validation(X_chi_bow_mnb, y_chi_bow_mnb)
+scores_bow = nb_cross_validation(X_bow, y_bow, 'bow')
+scores_chi_bow = nb_cross_validation(X_chi_bow_mnb, y_chi_bow_mnb, 'bow_chi')
 scores_pca_bow = {'fit_time': 0, 'score_time': 0, 'test_accuracy': 0, 'test_precision_weighted': 0, 'test_recall_weighted': 0, 'test_f1_weighted': 0} # PCA leads to negative values the MNB classifier cannot work with
 
 store_evaluation_scores(scores_bow, scores_chi_bow, scores_pca_bow, 'NB', 'BoW')
 
-scores_tfidf = nb_cross_validation(X_tfidf, y_tfidf)
-scores_chi_tfidf = nb_cross_validation(X_chi_tfidf_mnb, y_chi_tfidf_mnb)
+scores_tfidf = nb_cross_validation(X_tfidf, y_tfidf, 'tf-idf')
+scores_chi_tfidf = nb_cross_validation(X_chi_tfidf_mnb, y_chi_tfidf_mnb, 'tf-idf_chi')
 scores_pca_tfidf = {'fit_time': 0, 'score_time': 0, 'test_accuracy': 0, 'test_precision_weighted': 0, 'test_recall_weighted': 0, 'test_f1_weighted': 0} # PCA leads to negative values the MNB classifier cannot work with
 
 store_evaluation_scores(scores_tfidf, scores_chi_tfidf, scores_pca_tfidf, 'NB', 'TF-IDF')
 
 #RF
-scores_bow = rf_cross_validation(X_bow, y_bow, 160)
-scores_chi_bow = rf_cross_validation(X_chi_bow_rf, y_chi_bow_rf, 130)
-scores_pca_bow = rf_cross_validation(X_pca_bow_rf, y_pca_bow_rf, 90)
+scores_bow = rf_cross_validation(X_bow, y_bow, 160, 'bow')
+scores_chi_bow = rf_cross_validation(X_chi_bow_rf, y_chi_bow_rf, 130, 'bow_chi')
+scores_pca_bow = rf_cross_validation(X_pca_bow_rf, y_pca_bow_rf, 90, 'bow_pca')
 
 store_evaluation_scores(scores_bow, scores_chi_bow, scores_pca_bow, 'RF', 'BoW')
 
-scores_tfidf = rf_cross_validation(X_tfidf, y_tfidf, 50)
-scores_chi_tfidf = rf_cross_validation(X_chi_tfidf_rf, y_chi_tfidf_rf, 50)
-scores_pca_tfidf = rf_cross_validation(X_pca_tfidf_rf, y_pca_tfidf_rf, 150)
+scores_tfidf = rf_cross_validation(X_tfidf, y_tfidf, 50, 'tf-idf')
+scores_chi_tfidf = rf_cross_validation(X_chi_tfidf_rf, y_chi_tfidf_rf, 50, 'tf-idf_chi')
+scores_pca_tfidf = rf_cross_validation(X_pca_tfidf_rf, y_pca_tfidf_rf, 150, 'tf-idf_pca')
 
 store_evaluation_scores(scores_tfidf, scores_chi_tfidf, scores_pca_tfidf, 'RF', 'TF-IDF')
 
 # Ensemble
-scores_bow = ensemble_cross_validation(X_bow, y_bow, False)
-scores_chi_bow = ensemble_cross_validation(X_chi_bow_ensemble, y_chi_bow_ensemble, False)
-scores_pca_bow = ensemble_cross_validation(X_pca_bow_ensemble, y_pca_bow_ensemble, True)
+scores_bow = ensemble_cross_validation(X_bow, y_bow, False, 'bow')
+scores_chi_bow = ensemble_cross_validation(X_chi_bow_ensemble, y_chi_bow_ensemble, False, 'bow_chi')
+scores_pca_bow = ensemble_cross_validation(X_pca_bow_ensemble, y_pca_bow_ensemble, True, 'bow_pca')
 
 store_evaluation_scores(scores_bow, scores_chi_bow, scores_pca_bow, 'Ensemble', 'BoW')
 
-scores_tfidf = ensemble_cross_validation(X_tfidf, y_tfidf, False)
-scores_chi_tfidf = ensemble_cross_validation(X_chi_tfidf_ensemble, y_chi_tfidf_ensemble, False)
-scores_pca_tfidf = ensemble_cross_validation(X_pca_tfidf_ensemble, y_pca_tfidf_ensemble, True)
+scores_tfidf = ensemble_cross_validation(X_tfidf, y_tfidf, False, 'tf-idf')
+scores_chi_tfidf = ensemble_cross_validation(X_chi_tfidf_ensemble, y_chi_tfidf_ensemble, False, 'tf-idf_chi')
+scores_pca_tfidf = ensemble_cross_validation(X_pca_tfidf_ensemble, y_pca_tfidf_ensemble, True, 'tf-idf_pca')
 
 store_evaluation_scores(scores_tfidf, scores_chi_tfidf, scores_pca_tfidf, 'Ensemble', 'TF-IDF')
 
@@ -473,54 +475,6 @@ with pd.option_context('display.max_rows', None, 'display.max_columns', None):
     print(df_evaluation_metrics)
     print(df_evaluation_time)
     print(df_evaluation_svm_pca)
-
-
-# compute and store the standard deviation of all f1 scores calcualted during cross validation
-compute_standard_deviation_f1(KNeighborsClassifier(n_neighbors=3), X_bow, y_bow, 'kNN', 'bow')
-compute_standard_deviation_f1(KNeighborsClassifier(n_neighbors=3), X_chi_bow_knn, y_chi_bow_knn, 'kNN', 'bow_chi')
-compute_standard_deviation_f1(KNeighborsClassifier(n_neighbors=5), X_pca_bow_knn, y_pca_bow_knn, 'kNN', 'bow_pca')
-
-compute_standard_deviation_f1(KNeighborsClassifier(n_neighbors=15), X_tfidf, y_tfidf, 'kNN', 'tfidf')
-compute_standard_deviation_f1(KNeighborsClassifier(n_neighbors=15), X_chi_tfidf_knn, y_chi_tfidf_knn, 'kNN', 'tfidf_chi')
-compute_standard_deviation_f1(KNeighborsClassifier(n_neighbors=15), X_pca_tfidf_knn, y_pca_tfidf_knn, 'kNN', 'tfidf_pca')
-
-compute_standard_deviation_f1(svm.SVC(kernel='linear'), X_bow, y_bow, 'SVM', 'bow')
-compute_standard_deviation_f1(svm.SVC(kernel='linear'), X_chi_bow_svm, y_chi_bow_svm, 'SVM', 'bow_chi')
-compute_standard_deviation_f1(svm.SVC(kernel='linear'), X_pca_bow_svm, y_pca_bow_svm, 'SVM', 'bow_pca')
-
-compute_standard_deviation_f1(svm.SVC(kernel='linear'), X_tfidf, y_tfidf, 'SVM', 'tfidf')
-compute_standard_deviation_f1(svm.SVC(kernel='linear'), X_chi_tfidf_svm, y_chi_tfidf_svm, 'SVM', 'tfidf_chi')
-compute_standard_deviation_f1(svm.SVC(kernel='linear'), X_pca_tfidf_svm, y_pca_tfidf_svm, 'SVM', 'tfidf_pca')
-
-compute_standard_deviation_f1(LogisticRegression(solver='liblinear'), X_bow, y_bow, 'LR', 'bow')
-compute_standard_deviation_f1(LogisticRegression(solver='liblinear'), X_chi_bow_lr, y_chi_bow_lr, 'LR', 'bow_chi')
-compute_standard_deviation_f1(LogisticRegression(solver='liblinear'), X_pca_bow_lr, y_pca_bow_lr, 'LR', 'bow_pca')
-
-compute_standard_deviation_f1(LogisticRegression(solver='liblinear'), X_tfidf, y_tfidf, 'LR', 'tfidf')
-compute_standard_deviation_f1(LogisticRegression(solver='liblinear'), X_chi_tfidf_lr, y_chi_tfidf_lr, 'LR', 'tfidf_chi')
-compute_standard_deviation_f1(LogisticRegression(solver='liblinear'), X_pca_tfidf_lr, y_pca_tfidf_lr, 'LR', 'tfidf_pca')
-
-compute_standard_deviation_f1(RandomForestClassifier(n_estimators=160), X_bow, y_bow, 'RF', 'bow')
-compute_standard_deviation_f1(RandomForestClassifier(n_estimators=130), X_chi_bow_rf, y_chi_bow_rf, 'RF', 'bow_chi')
-compute_standard_deviation_f1(RandomForestClassifier(n_estimators=90), X_pca_bow_rf, y_pca_bow_rf, 'RF', 'bow_pca')
-
-compute_standard_deviation_f1(RandomForestClassifier(n_estimators=50), X_tfidf, y_tfidf, 'RF', 'tfidf')
-compute_standard_deviation_f1(RandomForestClassifier(n_estimators=50), X_chi_tfidf_rf, y_chi_tfidf_rf, 'RF', 'tfidf_chi')
-compute_standard_deviation_f1(RandomForestClassifier(n_estimators=150), X_pca_tfidf_rf, y_pca_tfidf_lr, 'RF', 'tfidf_pca')
-
-compute_standard_deviation_f1(MultinomialNB(), X_bow, y_bow, 'NB', 'bow')
-compute_standard_deviation_f1(MultinomialNB(), X_chi_bow_mnb, y_chi_bow_mnb, 'NB', 'bow_chi')
-
-compute_standard_deviation_f1(MultinomialNB(), X_tfidf, y_tfidf, 'NB', 'tfidf')
-compute_standard_deviation_f1(MultinomialNB(), X_chi_tfidf_mnb, y_chi_tfidf_mnb, 'NB', 'tfidf_chi')
-
-compute_ensemble_standard_deviation_f1(X_bow, y_bow, False, 'Ensemble', 'bow')
-compute_ensemble_standard_deviation_f1(X_chi_bow_ensemble, y_chi_bow_ensemble, False, 'Ensemble', 'bow_chi')
-compute_ensemble_standard_deviation_f1(X_pca_bow_ensemble, y_pca_bow_ensemble, True, 'Ensemble', 'bow_pca')
-
-compute_ensemble_standard_deviation_f1(X_tfidf, y_tfidf, False, 'Ensemble', 'tfidf')
-compute_ensemble_standard_deviation_f1(X_chi_tfidf_ensemble, y_chi_tfidf_ensemble, False, 'Ensemble', 'tfidf_chi')
-compute_ensemble_standard_deviation_f1(X_pca_tfidf_ensemble, y_pca_tfidf_ensemble, True, 'Ensemble', 'tfidf_pca')
 
 
 df_f1_standard_deviations.to_excel('4_classification&evaluation/output/evaluation_f1_standard_deviation.xlsx')
