@@ -1,4 +1,6 @@
+import numpy as np
 import pandas as pd
+from sklearn.metrics import f1_score, precision_score, recall_score
 from sklearn.model_selection import StratifiedKFold, cross_val_score, cross_validate
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn import svm
@@ -117,6 +119,9 @@ df_evaluation_metrics = pd.DataFrame(index=['kNN', 'SVM', 'LR', 'NB', 'RF', 'Ens
 # the mean time for scoring each classifier on the test sets  
 df_evaluation_time = pd.DataFrame(index=['kNN', 'SVM', 'LR', 'NB', 'RF', 'Ensemble'])
 
+# dataframe to store the mean value of the metrics precision, recall and f1-score for each class label
+df_evaluation_labels = pd.DataFrame()
+
 # dataframe to store the standard deviation of precision, recall and f1 score during cross validation
 df_f1_standard_deviations = pd.DataFrame(index=['kNN', 'SVM', 'LR', 'NB', 'RF', 'Ensemble'])
 df_precision_standard_deviations = pd.DataFrame(index=['kNN', 'SVM', 'LR', 'NB', 'RF', 'Ensemble'])
@@ -145,6 +150,9 @@ def kNN_cross_validation(X, y, n, data_prep):
     scores['fit_time'] = scores['fit_time'].mean()
     scores['score_time'] = scores['score_time'].mean()
 
+    # precision, recall and f1 score for each class label
+    cross_validation_detail('kNN', data_prep, clf, X, y)
+
     return scores
 
 # evaluate the Support Vector Machine classification by cross-validation
@@ -165,6 +173,9 @@ def svm_cross_validation(X, y, data_prep):
 
     scores['fit_time'] = scores['fit_time'].mean()
     scores['score_time'] = scores['score_time'].mean()
+
+    # precision, recall and f1 score for each class label
+    cross_validation_detail('SVM', data_prep, clf, X, y)
 
     return scores
 
@@ -187,6 +198,9 @@ def lr_cross_validation(X, y, data_prep):
     scores['fit_time'] = scores['fit_time'].mean()
     scores['score_time'] = scores['score_time'].mean()
 
+    # precision, recall and f1 score for each class label
+    cross_validation_detail('LR', data_prep, clf, X, y)
+
     return scores
 
 # evaluate the Multinomial Naive Bayes classification by cross-validation
@@ -208,6 +222,9 @@ def nb_cross_validation(X, y, data_prep):
     scores['fit_time'] = scores['fit_time'].mean()
     scores['score_time'] = scores['score_time'].mean()
 
+    # precision, recall and f1 score for each class label
+    cross_validation_detail('NB', data_prep, clf, X, y)
+
     return scores
 
 # evaluate the random forest classification by cross-validation
@@ -228,6 +245,9 @@ def rf_cross_validation(X, y, n, data_prep):
     
     scores['fit_time'] = scores['fit_time'].mean()
     scores['score_time'] = scores['score_time'].mean()
+
+    # precision, recall and f1 score for each class label
+    cross_validation_detail('NB', data_prep, clf, X, y)
 
     return scores
 
@@ -267,6 +287,9 @@ def ensemble_cross_validation(X, y, pca:bool, voting, data_prep):
     scores['fit_time'] = scores['fit_time'].mean()
     scores['score_time'] = scores['score_time'].mean()
 
+     # precision, recall and f1 score for each class label
+    cross_validation_detail('Ensemble', data_prep, clf, X, y)
+
     return scores
 
 # store the standard deviation and the result of each fold in the belonging dataframe
@@ -292,6 +315,32 @@ def store_standard_deviation(algorithm, data_prep, scores_precision, scores_reca
     for i, value in enumerate(scores_f1):
         df_f1_standard_deviations.at[algorithm, data_prep + '_fold' + str(i)] = value
 
+# evaluate the classifier by cross-validation in detail by
+# calculating the metrics for each class label
+def cross_validation_detail(algorithm, data_prep, clf, X, y):
+
+    k_folds = StratifiedKFold(n_splits = 5, random_state=5, shuffle=True) # ensure an equal proportion of all classes in each fold
+
+    scores_precision = np.empty((5, 5), dtype=float)
+    scores_recall = np.empty((5, 5), dtype=float)
+    scores_f1 = np.empty((5, 5), dtype=float)
+    count = 0
+
+    for train, test in k_folds.split(X, y):
+        X_train, X_test = X.iloc[train], X.iloc[test]
+        y_train, y_test = y.iloc[train], y.iloc[test]
+        clf = clf.fit(X_train, y_train)
+        y_pred = clf.predict(X_test)
+        scores_precision[count] = precision_score(y_true=y_test, y_pred=y_pred, labels=['F', 'NF', 'PM', 'M', 'V'], average=None)
+        scores_recall[count] = recall_score(y_true=y_test, y_pred=y_pred, labels=['F', 'NF', 'PM', 'M', 'V'], average=None)
+        scores_f1[count] = f1_score(y_true=y_test, y_pred=y_pred, labels=['F', 'NF', 'PM', 'M', 'V'], average=None)
+        count += 1
+
+    scores_precision_means = [scores_precision[:,i].mean() for i in range(5)]
+    scores_recall_means = [scores_recall[:,i].mean() for i in range(5)]
+    scores_f1_means = [scores_f1[:,i].mean() for i in range(5)]
+
+    store_detailed_evaluation_scores(algorithm, data_prep, scores_precision_means, scores_recall_means, scores_f1_means)
 
 # store the evaluation scores of a given classifier and a given feature extraction technique in the evaluation dataframe
 def store_evaluation_scores(scores, scores_chi, scores_pca, clf, feature_extraction):
@@ -321,6 +370,25 @@ def store_evaluation_scores(scores, scores_chi, scores_pca, clf, feature_extract
 
     df_evaluation_time.at[clf, feature_extraction + '_pca_fitting'] = scores_pca['fit_time']
     df_evaluation_time.at[clf, feature_extraction + '_pca_scoring'] = scores_pca['score_time']
+
+def store_detailed_evaluation_scores(algorithm, data_prep, precision, recall, f1):
+    df_evaluation_labels.at[algorithm + '_F', data_prep + '_Precision'] = precision[0]
+    df_evaluation_labels.at[algorithm + '_NF', data_prep + '_Precision'] = precision[1]
+    df_evaluation_labels.at[algorithm + '_PM', data_prep + '_Precision'] = precision[2]
+    df_evaluation_labels.at[algorithm + '_M', data_prep + '_Precision'] = precision[3]
+    df_evaluation_labels.at[algorithm + '_V', data_prep + '_Precision'] = precision[4]
+
+    df_evaluation_labels.at[algorithm + '_F', data_prep + '_Recall'] = recall[0]
+    df_evaluation_labels.at[algorithm + '_NF', data_prep + '_Recall'] = recall[1]
+    df_evaluation_labels.at[algorithm + '_PM', data_prep + '_Recall'] = recall[2]
+    df_evaluation_labels.at[algorithm + '_M', data_prep + '_Recall'] = recall[3]
+    df_evaluation_labels.at[algorithm + '_V', data_prep + '_Recall'] = recall[4]
+
+    df_evaluation_labels.at[algorithm + '_F', data_prep + '_F1'] = f1[0]
+    df_evaluation_labels.at[algorithm + '_NF', data_prep + '_F1'] = f1[1]
+    df_evaluation_labels.at[algorithm + '_PM', data_prep + '_F1'] = f1[2]
+    df_evaluation_labels.at[algorithm + '_M', data_prep + '_F1'] = f1[3]
+    df_evaluation_labels.at[algorithm + '_V', data_prep + '_F1'] = f1[4]
 
 
 # start the evaluation of each classifier with requirements data of different stages of preparation
@@ -406,6 +474,7 @@ store_evaluation_scores(scores_tfidf, scores_chi_tfidf, scores_pca_tfidf, 'Ensem
 # export the evaluation dataframes to excel files
 df_evaluation_metrics.to_excel('4_classification&evaluation/output/context_integration/evaluation_metrics.xlsx')
 df_evaluation_time.to_excel('4_classification&evaluation/output/context_integration/evaluation_time.xlsx')
+df_evaluation_labels.to_excel('4_classification&evaluation/output/context_integration/evaluation_labels.xlsx')
 
 with pd.option_context('display.max_rows', None, 'display.max_columns', None): 
     print(df_evaluation_metrics)
