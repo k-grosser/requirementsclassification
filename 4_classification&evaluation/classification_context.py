@@ -117,8 +117,10 @@ df_evaluation_metrics = pd.DataFrame(index=['kNN', 'SVM', 'LR', 'NB', 'RF', 'Ens
 # the mean time for scoring each classifier on the test sets  
 df_evaluation_time = pd.DataFrame(index=['kNN', 'SVM', 'LR', 'NB', 'RF', 'Ensemble'])
 
-# dataframe to store the standard deviation of the f1 score during cross validation
+# dataframe to store the standard deviation of precision, recall and f1 score during cross validation
 df_f1_standard_deviations = pd.DataFrame(index=['kNN', 'SVM', 'LR', 'NB', 'RF', 'Ensemble'])
+df_precision_standard_deviations = pd.DataFrame(index=['kNN', 'SVM', 'LR', 'NB', 'RF', 'Ensemble'])
+df_recall_standard_deviations = pd.DataFrame(index=['kNN', 'SVM', 'LR', 'NB', 'RF', 'Ensemble'])
 
 #metrics for evaluation
 scoring = ['accuracy', 'precision_weighted', 'recall_weighted', 'f1_weighted']
@@ -132,13 +134,8 @@ def kNN_cross_validation(X, y, n, data_prep):
 
     scores = cross_validate(clf, X, y, cv = k_folds, scoring=scoring)
 
-    # for the f1-score, store the standard deviation and the result of each fold in the belonging dataframe
-    df_f1_standard_deviations.at['kNN', data_prep + '_mean'] = scores['test_f1_weighted'].mean()
-    df_f1_standard_deviations.at['kNN', data_prep + '_std'] = scores['test_f1_weighted'].std()
+    store_standard_deviation('kNN', data_prep, scores['test_precision_weighted'], scores['test_recall_weighted'], scores['test_f1_weighted'])
 
-    for i, value in enumerate(scores['test_f1_weighted']):
-        df_f1_standard_deviations.at['kNN', data_prep + '_fold' + str(i)] = value
-    
     # compute the mean of each metric
     scores['test_accuracy'] = scores['test_accuracy'].mean()
     scores['test_precision_weighted'] = scores['test_precision_weighted'].mean()
@@ -158,13 +155,8 @@ def svm_cross_validation(X, y, data_prep):
 
     scores = cross_validate(clf, X, y, cv = k_folds, scoring=scoring)
 
-    # for the f1-score, store the standard deviation and the result of each fold in the belonging dataframe
-    df_f1_standard_deviations.at['SVM', data_prep + '_mean'] = scores['test_f1_weighted'].mean()
-    df_f1_standard_deviations.at['SVM', data_prep + '_std'] = scores['test_f1_weighted'].std()
+    store_standard_deviation('SVM', data_prep, scores['test_precision_weighted'], scores['test_recall_weighted'], scores['test_f1_weighted'])
 
-    for i, value in enumerate(scores['test_f1_weighted']):
-        df_f1_standard_deviations.at['SVM', data_prep + '_fold' + str(i)] = value
-    
     # compute the mean of each metric
     scores['test_accuracy'] = scores['test_accuracy'].mean()
     scores['test_precision_weighted'] = scores['test_precision_weighted'].mean()
@@ -184,13 +176,8 @@ def lr_cross_validation(X, y, data_prep):
 
     scores = cross_validate(clf, X, y, cv = k_folds, scoring=scoring)
 
-    # for the f1-score, store the standard deviation and the result of each fold in the belonging dataframe
-    df_f1_standard_deviations.at['LR', data_prep + '_mean'] = scores['test_f1_weighted'].mean()
-    df_f1_standard_deviations.at['LR', data_prep + '_std'] = scores['test_f1_weighted'].std()
+    store_standard_deviation('LR', data_prep, scores['test_precision_weighted'], scores['test_recall_weighted'], scores['test_f1_weighted'])
 
-    for i, value in enumerate(scores['test_f1_weighted']):
-        df_f1_standard_deviations.at['LR', data_prep + '_fold' + str(i)] = value
-    
     # compute the mean of each metric
     scores['test_accuracy'] = scores['test_accuracy'].mean()
     scores['test_precision_weighted'] = scores['test_precision_weighted'].mean()
@@ -210,13 +197,8 @@ def nb_cross_validation(X, y, data_prep):
 
     scores = cross_validate(clf, X, y, cv = k_folds, scoring=scoring)
 
-    # for the f1-score, store the standard deviation and the result of each fold in the belonging dataframe
-    df_f1_standard_deviations.at['NB', data_prep + '_mean'] = scores['test_f1_weighted'].mean()
-    df_f1_standard_deviations.at['NB', data_prep + '_std'] = scores['test_f1_weighted'].std()
+    store_standard_deviation('NB', data_prep, scores['test_precision_weighted'], scores['test_recall_weighted'], scores['test_f1_weighted'])
 
-    for i, value in enumerate(scores['test_f1_weighted']):
-        df_f1_standard_deviations.at['NB', data_prep + '_fold' + str(i)] = value
-    
     # compute the mean of each metric
     scores['test_accuracy'] = scores['test_accuracy'].mean()
     scores['test_precision_weighted'] = scores['test_precision_weighted'].mean()
@@ -236,13 +218,8 @@ def rf_cross_validation(X, y, n, data_prep):
 
     scores = cross_validate(clf, X, y, cv = k_folds, scoring=scoring)
 
-    # for the f1-score, store the standard deviation and the result of each fold in the belonging dataframe
-    df_f1_standard_deviations.at['RF', data_prep + '_mean'] = scores['test_f1_weighted'].mean()
-    df_f1_standard_deviations.at['RF', data_prep + '_std'] = scores['test_f1_weighted'].std()
+    store_standard_deviation('RF', data_prep, scores['test_precision_weighted'], scores['test_recall_weighted'], scores['test_f1_weighted'])
 
-    for i, value in enumerate(scores['test_f1_weighted']):
-        df_f1_standard_deviations.at['RF', data_prep + '_fold' + str(i)] = value
-    
     # compute the mean for each metric
     scores['test_accuracy'] = scores['test_accuracy'].mean()
     scores['test_precision_weighted'] = scores['test_precision_weighted'].mean()
@@ -279,13 +256,8 @@ def ensemble_cross_validation(X, y, pca:bool, voting, data_prep):
     
     scores = cross_validate(eclf, X, y, cv = k_folds, scoring=scoring)
 
-    # for the f1-score, store the standard deviation and the result of each fold in the belonging dataframe
-    df_f1_standard_deviations.at['Ensemble', data_prep + '_mean'] = scores['test_f1_weighted'].mean()
-    df_f1_standard_deviations.at['Ensemble', data_prep + '_std'] = scores['test_f1_weighted'].std()
+    store_standard_deviation('Ensemble', data_prep, scores['test_precision_weighted'], scores['test_recall_weighted'], scores['test_f1_weighted'])
 
-    for i, value in enumerate(scores['test_f1_weighted']):
-        df_f1_standard_deviations.at['Ensemble', data_prep + '_fold' + str(i)] = value
-    
     # compute the mean of each metric
     scores['test_accuracy'] = scores['test_accuracy'].mean()
     scores['test_precision_weighted'] = scores['test_precision_weighted'].mean()
@@ -296,6 +268,29 @@ def ensemble_cross_validation(X, y, pca:bool, voting, data_prep):
     scores['score_time'] = scores['score_time'].mean()
 
     return scores
+
+# store the standard deviation and the result of each fold in the belonging dataframe
+def store_standard_deviation(algorithm, data_prep, scores_precision, scores_recall, scores_f1):
+
+    df_precision_standard_deviations.at[algorithm, data_prep + '_mean'] = scores_precision.mean()
+    df_precision_standard_deviations.at[algorithm, data_prep + '_std'] = scores_precision.std()
+
+    for i, value in enumerate(scores_precision):
+        df_precision_standard_deviations.at[algorithm, data_prep + '_fold' + str(i)] = value
+
+
+    df_recall_standard_deviations.at[algorithm, data_prep + '_mean'] = scores_recall.mean()
+    df_recall_standard_deviations.at[algorithm, data_prep + '_std'] = scores_recall.std()
+
+    for i, value in enumerate(scores_recall):
+        df_recall_standard_deviations.at[algorithm, data_prep + '_fold' + str(i)] = value
+
+
+    df_f1_standard_deviations.at[algorithm, data_prep + '_mean'] = scores_f1.mean()
+    df_f1_standard_deviations.at[algorithm, data_prep + '_std'] = scores_f1.std()
+
+    for i, value in enumerate(scores_f1):
+        df_f1_standard_deviations.at[algorithm, data_prep + '_fold' + str(i)] = value
 
 
 # store the evaluation scores of a given classifier and a given feature extraction technique in the evaluation dataframe
@@ -416,6 +411,8 @@ with pd.option_context('display.max_rows', None, 'display.max_columns', None):
     print(df_evaluation_metrics)
     print(df_evaluation_time)
 
+df_precision_standard_deviations.to_excel('4_classification&evaluation/output/context_integration/evaluation_precision_standard_deviation.xlsx')
+df_recall_standard_deviations.to_excel('4_classification&evaluation/output/context_integration/evaluation_recall_standard_deviation.xlsx')
 df_f1_standard_deviations.to_excel('4_classification&evaluation/output/context_integration/evaluation_f1_standard_deviation.xlsx')
 
 with pd.option_context('display.max_rows', None, 'display.max_columns', None): 
