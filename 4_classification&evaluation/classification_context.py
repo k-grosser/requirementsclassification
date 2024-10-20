@@ -247,7 +247,7 @@ def rf_cross_validation(X, y, n, data_prep):
     scores['score_time'] = scores['score_time'].mean()
 
     # precision, recall and f1 score for each class label
-    cross_validation_detail('NB', data_prep, clf, X, y)
+    cross_validation_detail('RF', data_prep, clf, X, y)
 
     return scores
 
