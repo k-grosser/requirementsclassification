@@ -1,5 +1,5 @@
 ECSS Source Reference,ID,RequirementText,_class_
-ECSS_E_ST_35CRev1,1,The system shall refresh the display every 60 seconds.,PE
+ECSS_E_ST_35CRev1,1,The system shall refresh the display every 60 seconds L/V TS TV-Test.,PE
 ECSS_E_ST_40_07C,1,The application shall match the color of the schema set forth by Department of Homeland Security,LF
 ECSS_E_ST_40_07C,1,If projected  the data must be readable.  On a 10x10 projection screen  90% of viewers must be able to read Event / Activity data from a viewing distance of 30,US
 ECSS_E_ST_40_07C,1,The product shall be available during normal business hours. As long as the user has access to the client PC  the system will be available 99% of the time during the first six months of operation.,A

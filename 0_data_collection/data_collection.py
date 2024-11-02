@@ -18,4 +18,4 @@ df_classes['RequirementText'] = df_classes['RequirementText'].apply(
 df_classes.dropna(subset=['_class_'], inplace=True)
 
 # save as csv file
-df_classes.to_csv('0_data_collection/output/ECSS_standards.csv', index=False)
+# df_classes.to_csv('0_data_collection/output/ECSS_standards.csv', index=False)

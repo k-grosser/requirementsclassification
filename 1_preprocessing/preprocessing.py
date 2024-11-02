@@ -6,12 +6,12 @@ from nltk.stem import WordNetLemmatizer
 from nltk import pos_tag
 
 # import requirements data
-df_classes = pd.read_csv(filepath_or_buffer='0_data_collection/output/ECSS_standards.csv', header=0, quotechar='"', doublequote=True)
-df_context = pd.read_csv(filepath_or_buffer='0_data_collection/output/ECSS_standards_context.csv', header=0, quotechar='"', doublequote=True)
+df_req = pd.read_csv(filepath_or_buffer='0_data_collection/output/PROMISE_dummy_Standards.csv', header=0, quotechar='"', doublequote=True)
 
 # list of all ECSS abbreviations to exclude them from lemmatization
-df_abbreviations = pd.DataFrame(pd.read_excel('resources/ECSS-Abbreviated-Terms_active-and-superseded-Standards-(from-ECSS-DOORS-database-v0.9_5Oct2022).xlsx', na_values=['NULL', 'null'], keep_default_na=False))
-abbreviations = [i.lower() for i in df_abbreviations['Abbreviation']]
+df_abbreviations = pd.read_csv(filepath_or_buffer='resources/ECSS_term_contexts/lookup_abbreviations.csv', header=0, quotechar='"', doublequote=True, na_values=['NULL', 'null'], keep_default_na=False)
+abbreviations = [i.lower().translate(str.maketrans('', '', string.punctuation)) 
+                 for i in df_abbreviations['Term']]
 
 # preprocess a requirement's text
 def preprocess_requirement(text):
@@ -32,15 +32,13 @@ def preprocess_requirement(text):
 
     #lemmatization of tokens
     lemmatizer = WordNetLemmatizer()
-    tokens = [i if i in abbreviations else # abbreviations should be ignored to prevent false lemmas
-              lemmatizer.lemmatize(i,j[0].lower()) if j[0].lower() in ['a','n','v'] 
+    tokens = [i if i in abbreviations # abbreviations should be ignored to prevent false lemmas
+              else lemmatizer.lemmatize(i,j[0].lower()) if j[0].lower() in ['a','n','v'] 
               else lemmatizer.lemmatize(i) for i,j in pos_tag(tokens)]
 
     return ' '.join(tokens)
 
 # apply preprocessing function on every requirement text in the dataset   
-df_classes['RequirementText'] = df_classes['RequirementText'].apply(preprocess_requirement)
-df_context['RequirementText'] = df_context['RequirementText'].apply(preprocess_requirement)
+df_req['RequirementText'] = df_req['RequirementText'].apply(preprocess_requirement)
 
-df_classes.to_csv('1_preprocessing/output/req_preprocessed.csv', index=False)
-df_context.to_csv('1_preprocessing/output/req_context_preprocessed.csv', index=False)
+df_req.to_csv('1_preprocessing/output/req_preprocessed.csv', index=False)
