@@ -5,9 +5,6 @@ from sklearn.feature_selection import SelectKBest, chi2
 df_bow = pd.read_csv(filepath_or_buffer='2_feature_extraction/output/req_vectorized_bow.csv', header=0)
 df_tfidf = pd.read_csv(filepath_or_buffer='2_feature_extraction/output/req_vectorized_tfidf.csv', header=0)
 
-df_meta_bow = pd.read_csv(filepath_or_buffer='2_feature_extraction/output/req_meta_vectorized_bow.csv', header=0)
-df_meta_tfidf = pd.read_csv(filepath_or_buffer='2_feature_extraction/output/req_meta_vectorized_tfidf.csv', header=0)
-
 df_context_bow = pd.read_csv(filepath_or_buffer='2_feature_extraction/output/req_context_vectorized_bow.csv', header=0)
 df_context_tfidf = pd.read_csv(filepath_or_buffer='2_feature_extraction/output/req_context_vectorized_tfidf.csv', header=0)
 
@@ -43,6 +40,7 @@ def select_top10(df):
 
     print('Top 10 most relevant features:', top10_feature_names)
 
+# feature selection for requirements without context information
 # perform feature selection on requirements data with parameters for k determined in hyperparameter_tuning.py for each classifier
 
 select_features(df_bow, 450, '_class_').to_csv('3_dimensionality_reduction/output/req_chi2/req_chi2_bow_knn.csv', index=False)
@@ -69,23 +67,6 @@ select_top10(df_bow)
 
 print('TF-IDF:')
 select_top10(df_tfidf)
-
-# feature selection for meta subtypes
-
-select_features(df_meta_bow, 30, '_subclass_').to_csv('3_dimensionality_reduction/output/req_meta_chi2/req_chi2_bow_knn.csv', index=False)
-select_features(df_meta_tfidf, 340, '_subclass_').to_csv('3_dimensionality_reduction/output/req_meta_chi2/req_chi2_tfidf_knn.csv', index=False)
-
-select_features(df_meta_bow, 40, '_subclass_').to_csv('3_dimensionality_reduction/output/req_meta_chi2/req_chi2_bow_svm.csv', index=False)
-select_features(df_meta_tfidf, 290, '_subclass_').to_csv('3_dimensionality_reduction/output/req_meta_chi2/req_chi2_tfidf_svm.csv', index=False)
-
-select_features(df_meta_bow, 140, '_subclass_').to_csv('3_dimensionality_reduction/output/req_meta_chi2/req_chi2_bow_lr.csv', index=False)
-select_features(df_meta_tfidf, 350, '_subclass_').to_csv('3_dimensionality_reduction/output/req_meta_chi2/req_chi2_tfidf_lr.csv', index=False)
-
-select_features(df_meta_bow, 180, '_subclass_').to_csv('3_dimensionality_reduction/output/req_meta_chi2/req_chi2_bow_mnb.csv', index=False)
-select_features(df_meta_tfidf, 310, '_subclass_').to_csv('3_dimensionality_reduction/output/req_meta_chi2/req_chi2_tfidf_mnb.csv', index=False)
-
-select_features(df_meta_bow, 140, '_subclass_').to_csv('3_dimensionality_reduction/output/req_meta_chi2/req_chi2_bow_ensemble.csv', index=False)
-select_features(df_meta_tfidf, 370, '_subclass_').to_csv('3_dimensionality_reduction/output/req_meta_chi2/req_chi2_tfidf_ensemble.csv', index=False)
 
 # feature selection for requirements with context information
 
