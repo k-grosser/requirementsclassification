@@ -1,9 +1,24 @@
-# Anforderungsklassifizierung
+# Requirements Classification Pipeline for Requirements Reuse
 
-Ein Teilgebiet des Requirements Engineerings ist die Wiederverwendung von Anforderungen (Requirements Reuse). Hierzu zählt der Prozess des Standard Tailorings, bei dem Standards auf ein Softwareentwicklungsprojekt angewendet werden. Dazu werden die in den Standards enthaltenen Anforderungen in die Projektanforderungen integriert und passend zugeschnitten.
+In various domains, e.g., aero-space or automotive, standards are applied to reuse requirements and ensure a high level of product quality and safety. During **standard tailoring**, requirements from the applicable standards are specialized and integrated into the project. However, the requirement type influences the way the standard requirement interacts with project requirements. There are five different types: *functional* (F), *non-functional* (NF), *project management* (PM), *meta* (M), and *view* (V) requirements. To support the process of standard tailoring, the requirements from the applicable standards should be classified before integration. Yet, manual classification of large existing standards is time-consuming. This artifact presents a **classification pipeline** to compare five **machine learning algorithms** for this task: *k-Nearest Neighbour* (kNN), *Support Vector Machine* (SVM), *Logistic Regression* (LR), *Multinomial Naive Bayes* (MNB), *Random Forest* (RF), as well as an *ensemble model* combining all five. A set of classified requirements serves as input and, after various preparation steps, is used to train and test the models created by the different algorithms. The evaluation results, showing how well the algorithms perform, are the output of the pipeline.
 
-Allerdings hat beim Standard Tailoring der Typ einer Anforderung einen Einfluss darauf, wie diese in das Projekt integriert wird. Es wird zwischen fünf Anforderungstypen unterschieden. Funktionale und nicht-funktionale Anforderungen ergänzen die Menge der projektspezifischen Anforderungen, die direkt das Produkt betreffen. Projektmanagement bezogene Anforderungen werden in separaten aber zugehörigen Management-Dokumenten des Projektes angesprochen. Meta-Requirements beschreiben die Form oder den Inhalt anderer Anforderungen und müssen von Projektanforderungen erfüllt werden. View-Requirements legen Einschränkungen und Eigenschaften fest, die von Views wie z.B. Dokumenten erfüllt werden müssen.
+## Description of Artifact
+The models are originally trained and tested with 466 requirements from the European Cooperation for Space Standardisation~(ECSS).
+Unfortunately,
 
-Um den Prozess des Standard Tailorings zu unterstützen, sollen die Anforderungen aus den Standards vor der Integration in das Projekt automatisiert klassifiziert werden. Deshalb wird in der zugehörigen Bachelorarbeit eine Methodik beschrieben, wie maschinelles Lernen für dieses Klassifizierungsproblem eingesetzt werden kann. In einer Pipeline wird eine Menge von Anforderungen für das maschinelle Lernen vorbereitet, aus den entstandenen Daten werden Machine-Learning Modelle generiert und schließlich evaluiert. Implementiert ist die Pipeline in der Programmiersprache Python und der zugehörige Quellcode ist in diesem Repository zu finden. Als Machine-Learning Algorithmen kommen k-Nearest Neighbor (kNN), Support Vector Machine (SVM), Logistic Regression (LR) und Multinomial Naive Bayes (MNB) zum Einsatz. Zusätzlich wird ein Ensemble-Modell entwickelt, was alle vier ML-Algorithmen kombiniert. Die Anforderungsmenge, die zum Trainieren und Testen der ML-Modelle benutzt wird, stammt aus den Standards der European Cooperation for Space Standardisation (ECSS).
+## System Requirements
 
-Um die Vorhersagegenauigkeit weiter zu steigern, wird die Pipeline erweitert. Der Kontext von Begriffen, die in Anforderungen enthalten sind, wird in die Klassifizierung integriert. Schließlich kann der Kontext, in dem ein Begriff auftaucht, dessen Bedeutung und somit die Klassifizierung der Anforderung beeinflussen.
+virtual environment
+
+```
+pip install -r requirements.txt
+```
+## Installation Instructions
+
+## Usage Instructions
+
+## Steps to Reproduce
+
+## Authors Information
+
+## Artifact Location
