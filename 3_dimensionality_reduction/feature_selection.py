@@ -24,7 +24,7 @@ def select_features(df, k, y_label):
 
     return df_chi2
 
-# select the top 10 most 
+# select the top 10 most important features
 def select_top10(df):
     # divide into predictor (X) and response (y) varibales
     X = df.drop('_class_', axis=1)
