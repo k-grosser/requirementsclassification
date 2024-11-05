@@ -57,49 +57,6 @@ Feature Selection and Principal Component Analysis:
                                 accuracy: 0.8540150995195608
 
 
-Results for Meta Subclasses
-
-pure Feature Selection with chi squared:
-- kNN:  BoW:    {'model__n_neighbors': 3, 'selector__k': 30}
-                accuracy: 0.7819047619047619
-        TF-IDF: {'model__n_neighbors': 5, 'selector__k': 340}
-                accuracy: 0.8114285714285714
-- SVM:  BoW:    {'model__kernel': 'linear', 'selector__k': 40}
-                accuracy: 0.7961904761904762
-        TF-IDF: {'model__kernel': 'linear', 'selector__k': 290}
-                accuracy: 0.7304761904761904
-- LR:   BoW:    {'model__solver': 'liblinear', 'selector__k': 140}
-                accuracy: 0.838095238095238
-        TF-IDF: {'model__solver': 'liblinear', 'selector__k': 350}
-                accuracy: 0.5676190476190476
-- MNB:  BoW:    {'selector__k': 180}
-                accuracy: 0.8104761904761905
-        TF-IDF: {'selector__k': 310}
-                accuracy: 0.4723809523809523
-- Ensemble:     BoW:    {'model__voting': 'soft', 'selector__k': 140}
-                        accuracy: 0.8104761904761905
-                TF-IDF: {'model__voting': 'soft', 'selector__k': 370}
-                        accuracy: 0.7704761904761905
-
-Feature Selection and Principal Component Analysis:
-- kNN:  BoW:    {'model__n_neighbors': 3, 'pca__n_components': 10, 'selector__k': 50}
-                accuracy: 0.7819047619047619
-        TF-IDF: {'model__n_neighbors': 5, 'pca__n_components': 50, 'selector__k': 350}
-                accuracy: 0.8095238095238095
-- SVM:  BoW:    {'model__kernel': 'linear', 'pca__n_components': 30, 'selector__k': 40}
-                accuracy: 0.7961904761904762
-        TF-IDF: {'model__kernel': 'linear', 'pca__n_components': 20, 'selector__k': 330}
-                accuracy: 0.7304761904761905
-- LR:   BoW:    {'model__solver': 'liblinear', 'pca__n_components': 20, 'selector__k': 120}
-                accuracy: 0.8247619047619047v
-        TF-IDF: {'model__solver': 'liblinear', 'pca__n_components': 10, 'selector__k': 240}
-                accuracy: 0.5666666666666667
-- Ensemble:     BoW:    {'model__voting': 'soft', 'pca__n_components': 40, 'selector__k': 320}
-                        accuracy: 0.8114285714285714
-                TF-IDF: {'model__voting': 'soft', 'pca__n_components': 40, 'selector__k': 370}
-                        accuracy: 0.7704761904761905
-
-
 Results for requirements with Context information:
 
 pure Feature Selection with chi squared:
