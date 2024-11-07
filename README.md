@@ -107,7 +107,7 @@ To recalculate this analysis (with new data inputs) download the software and fo
 
 ## How to Cite
 
-J. Märdian, K. Großer, and J. Jürjens, “Replication Package: Requirements Classification for Requirements Reuse through Standards,” 2024.
+J. Märdian, K. Großer, and J. Jürjens, “Replication Package: Requirements Classification for Requirements Reuse through Standards,” 2024. [![DOI](https://zenodo.org/badge/884825124.svg)](https://doi.org/10.5281/zenodo.14051452)
 
 ## Related Publications
 
