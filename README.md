@@ -102,7 +102,7 @@ University of Koblenz, Institute for Software Technology (IST):
 ## License
 Software under MIT License
 
-Copyright (c) 2022-2023 Julia Märdian, Katharina Großer, Jan Jürjens
+Copyright (c) 2024 Julia Märdian, Katharina Großer, Jan Jürjens
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -113,6 +113,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 All non-software data files within the project are published under the CC-BY 4.0 license (https://creativecommons.org/licenses/by/4.0/)
 
 License for adjusted PROMISE_exp requirements set (0_data_collection\output\PROMISE_dummy_Standards.csv):
+
+M. Lima, V. Valle, E. Costa, F. Lira, and B. Gadelha, “Software Engineering Repositories: Expanding the PROMISE Database,” in XXXIII Brazilian Symposium on Software Engineering (SBES’19), New York, NY, USA, 2019, pp. 427–436. doi: 10.1145/3350768.3350776.
 
 (c) 2007  Jane Cleland-Huang  jhuang@cti.depaul.edu
 This data set is distributed under the
