@@ -4,7 +4,8 @@ In various domains, such as aero-space or automotive, standards are applied to r
 Furthermore, we propose an approach to extend the classification by the context of terms contained in a requirement to potentially improve the performance. The contextualization is based on the hierarchy levels of the ECSS and is integrated into the *Preprocessing* phase of the pipeline.
 
 The six phases of the classification pipeline:
-<img src="resources/pipeline_image.jpg" width="600">
+
+<img src="resources/pipeline_image.jpg" width="700">
 
 ## Description of Artifact
 The models were originally trained and tested with 466 requirements from the European Cooperation for Space Standardization [(ECSS)](https://ecss.nl/). However, due to the intellectual property rights of the ECSS (https://ecss.nl/license-agreement-disclaimer/), the full dataset cannot be republished (request for permission pending). Thus, we provide the [PROMISE_exp](https://tinyurl.com/PROMISE-exp) requirements set as a placeholder input dataset so that the processing steps of the pipeline can be understood despite the missing set of standard requirements set. Note, however, that we have artificially extended the PROMISE_exp dataset to demonstrate our approach of context integration. In the extended version, ECSS standard IDs serve as a dummy requirements source references. However, there is no real connection between the ECSS standards and the PROMISE_exp requirements.
