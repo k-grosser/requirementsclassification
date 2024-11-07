@@ -105,7 +105,9 @@ To recalculate this analysis (with new data inputs) download the software and fo
 - Katharina Großer 
 - Jan Jürjens
 
-## Artifact Location
+## How to Cite
+
+J. Märdian, K. Großer, and J. Jürjens, “Replication Package: Requirements Classification for Requirements Reuse through Standards,” 2024.
 
 ## Related Publications
 
